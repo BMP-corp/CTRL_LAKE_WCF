@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Web;
 
 namespace ServerRichieste
 {
+    [DataContract]
     public class Istruttore
     {
         private string _nome;
@@ -17,13 +19,21 @@ namespace ServerRichieste
         private string _attivita;
         private CalendarioImpegni _impegni;
 
+        [DataMember]
         public string Nome { get => _nome; set => _nome = value; }
+        [DataMember]
         public string Cognome { get => _cognome; set => _cognome = value; }
+        [DataMember]
         public string Username { get => _username; set => _username = value; }
+        [DataMember]
         public DateTime DataNascita { get => _dataNascita; set => _dataNascita = value; }
+        [DataMember]
         public string Email { get => _email; set => _email = value; }
+        [DataMember]
         public string Telefono { get => _telefono; set => _telefono = value; }
+        [DataMember]
         public string Iban { get => _iban; set => _iban = value; }
+        [DataMember]
         public string Attivita { get => _attivita; set => _attivita = value; }
 
         public Istruttore(string nome, string cognome, string username, DateTime dataNascita,

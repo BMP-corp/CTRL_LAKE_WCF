@@ -1,18 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ServerRichieste
 {
-     public class Impegno
+    [DataContract]
+    public class Impegno
     {
 
         private DateTime _inizio;
         private DateTime _fine;
 
+        [DataMember]
         public DateTime Inizio { get => _inizio; set => _inizio = value; }
+        [DataMember]
         public DateTime Fine { get => _fine; set => _fine = value; }
 
         public Impegno(DateTime inizio, DateTime fine)

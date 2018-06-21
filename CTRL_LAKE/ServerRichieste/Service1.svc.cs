@@ -26,13 +26,7 @@ namespace ServerRichieste
 
             Cliente cliente=null;
 
-            /*using (session.BeginTransaction())
-            {
-                ICriteria criteria = session.CreateCriteria<Cliente>();
-                IList<Cliente> list = criteria.List<Cliente>();
-                
-                session.Transaction.Commit();
-            }*/
+            
             cliente = readCliente("mic.cam.1");
 
             //Cliente cliente = new Cliente("Matteo", "Menzo", "matteo.menzo.2", new DateTime(1995, 2, 5), "matteo@gmail.com", "123456789");
@@ -41,6 +35,7 @@ namespace ServerRichieste
             
             return n;
         }
+
 
 
         public static Cliente readCliente(String username)

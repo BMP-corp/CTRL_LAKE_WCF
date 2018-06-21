@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Web;
 
 namespace ServerRichieste
 {
+    [DataContract]
     public class Pagamento
     {
         private DateTime _dataOra { get; set; }
@@ -33,30 +35,31 @@ namespace ServerRichieste
         }
 
         /*****GET/SET******/
+        [DataMember]
         public double Totale 
         {
             get { return _totale; }
             set { _totale = value; }
         }
-
+        [DataMember]
         public double Pagato
         {
             get { return _pagato; }
             set { _pagato = value; }
         }
-
+        [DataMember]
         public DateTime DataOra
         {
             get { return _dataOra; }
             set { _dataOra = value; }
         }
-
+        [DataMember]
         public int Id
         {
             get { return _id; }
             set { _id = value; }
         }
-
+        [DataMember]
         public List<IDettaglioPagamento> Dettagli
         {
             get { return _dettagli; }

@@ -87,6 +87,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GestionePrenotazioniController.cs" />
     <Compile Include="Model\Attrezzatura.cs" />
     <Compile Include="Model\CalendarioImpegni.cs" />
     <Compile Include="Model\Cliente.cs" />
@@ -127,7 +128,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>52029</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

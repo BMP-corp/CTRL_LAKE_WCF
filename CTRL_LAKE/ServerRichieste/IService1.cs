@@ -16,9 +16,8 @@ namespace ServerRichieste
         [OperationContract]
         Noleggio GetNoleggio();
 
-        //[OperationContract]
-        //CompositeType GetDataUsingDataContract(CompositeType composite);
+        
 
-        // TODO: aggiungere qui le operazioni del servizio
+
     }
 }

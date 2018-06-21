@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ServerRichieste
 {
+    [DataContract]
     public class Attrezzatura
     {
         private string _tipo;
@@ -13,8 +15,11 @@ namespace ServerRichieste
         private int _posti;
         private CalendarioImpegni _impegni;
 
+        [DataMember]
         public string Tipo { get => _tipo; set => _tipo = value; }
+        [DataMember]
         public int IdAttrezzatura { get => _idAttrezzatura; set => _idAttrezzatura = value; }
+        [DataMember]
         public int Posti { get => _posti; set => _posti = value; }
 
         public Attrezzatura(string tipo, int idAttrezzatura, int posti)
