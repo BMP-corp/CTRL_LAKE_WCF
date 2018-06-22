@@ -74,7 +74,7 @@ namespace ServerRichieste
             get { return _fine; }
             set { _fine = value; }
         }
-        
+        [DataMember]
         public List<DettaglioNoleggio> DettaglioNoleggio
         {
             get { return _elencoDettagli; }

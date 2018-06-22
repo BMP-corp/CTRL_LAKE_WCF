@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Web;
 
 namespace ServerRichieste
 {
+    [DataContract]
     public class DettaglioExtra : IDettaglioPagamento
     {
 
@@ -12,8 +14,11 @@ namespace ServerRichieste
         private string _descrizione;
         private double _costo;
 
+        [DataMember]
         public int Id { get => _id; set => _id = value; }
+        [DataMember]
         public string Descrizione { get => _descrizione; set => _descrizione = value; }
+        [DataMember]
         public double Costo { get => _costo; set => _costo = value; }
 
         public DettaglioExtra(int id, string descrizione, double costo)

@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Web;
 
 namespace ServerRichieste
 {
+    [DataContract]
     public class Lezione : IDettaglioPagamento
     {
         private int _id;
@@ -15,12 +17,19 @@ namespace ServerRichieste
         private Cliente _cliente;
         private double _costo;
 
+        [DataMember]
         public int Id { get => _id; set => _id = value; }
+        [DataMember]
         public Istruttore Istruttore { get => _istruttore; set => _istruttore = value; }
+        [DataMember]
         public DateTime Inizio { get => _inizio; set => _inizio = value; }
+        [DataMember]
         public DateTime Fine { get => _fine; set => _fine = value; }
+        [DataMember]
         public int Partecipanti { get => _partecipanti; set => _partecipanti = value; }
+        [DataMember]
         public Cliente Cliente { get => _cliente; set => _cliente = value; }
+        [DataMember]
         public double Costo { get => _costo; set => _costo = value; }
 
         public Lezione(int id, Istruttore istruttore, DateTime inizio, DateTime fine, int partecipanti, Cliente cliente, double costo)
