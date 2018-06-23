@@ -11,7 +11,7 @@ namespace WebMVCTempl.Controllers
     public class AccountController : Controller
     {
         // GET: Account
-        HttpWebServiceClient webClient = new HttpWebServiceClient();
+        ServicesClient webClient = new ServicesClient();
         //public ActionResult Index()
         //{
         //    //using(OurDbContext db = new OurDbContext())
