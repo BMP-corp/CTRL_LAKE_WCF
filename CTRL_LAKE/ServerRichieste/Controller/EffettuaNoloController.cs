@@ -32,6 +32,7 @@ namespace ServerRichieste.Controller
             {
                 result = false;
             }
+            return result;
         }
 
     }
