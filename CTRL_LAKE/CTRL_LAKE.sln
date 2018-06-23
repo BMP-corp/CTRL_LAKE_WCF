@@ -10,9 +10,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Segreteria", "Segreteria\Se
 		{40A214E0-BCA6-46CE-92FC-6A049C18D3D2} = {40A214E0-BCA6-46CE-92FC-6A049C18D3D2}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASPServer", "..\..\..\..\Documents\Visual Studio 2017\Projects\Projects2.0\WCFWebServiceComplete\ASPServerMVC\ASPServer.csproj", "{D1CEA147-2BE0-43DE-9FDB-65FAE9618520}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASPServer", "ASPServerMVC\ASPServer.csproj", "{D1CEA147-2BE0-43DE-9FDB-65FAE9618520}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCFWebService", "..\..\..\..\Documents\Visual Studio 2017\Projects\Projects2.0\WCFWebServiceComplete\WCFWebService\WCFWebService.csproj", "{636B66D2-AE3B-43EF-B13C-A888DFE859EA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCFWebService", "WCFWebService\WCFWebService.csproj", "{636B66D2-AE3B-43EF-B13C-A888DFE859EA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

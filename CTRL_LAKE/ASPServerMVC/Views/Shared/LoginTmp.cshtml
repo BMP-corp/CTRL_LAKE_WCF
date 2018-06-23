@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "LoginTmp";
+    Layout = "~/Views/Shared/_mytemplate.cshtml";
+}
+
+<body class="body page-login clearfix">
+    <div class="container container-1 clearfix">
+        <div class="container container-2 clearfix">
+            <p class="text text-1">Inserisci username e password per accedere al sistema</p>
+            <p class="text text-2">Login</p>
+            <input class="_input _input-1" name="userid" placeholder="USERNAME" type="text">
+            <input class="_input _input-2" name="password" placeholder="Password" type="password">
+            <div class="container container-3 clearfix">
+                <button class="_button">Entra</button>
+                <button onClick="window.location='registrazione.html';" id="register" class="_button _button-2">Registrati</button>
+            </div>
+        </div>
+    </div>
+    <div class="container container-4"></div>
+
+        @*<div>@RenderBody()</div>*@
+</body>
+
+
+

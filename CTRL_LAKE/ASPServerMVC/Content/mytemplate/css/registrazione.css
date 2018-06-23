@@ -1,0 +1,156 @@
+body {
+  height: 100%;
+  background: url('../images/IMG_6296.png') rgb(255, 255, 255);
+  background-repeat: no-repeat;
+  background-size: auto auto;
+  background-position: center center;
+  font: 400 1em/1.38 Ubuntu;
+  color: rgb(0, 0, 0);
+}
+
+.container {
+  float: left;
+}
+
+.container .container {
+  clear: both;
+  width: 33.0208333333%;
+  height: 571px;
+  margin: 29px 0 0 33.9567057291%;
+}
+
+.text {
+  float: left;
+  text-align: center;
+  color: rgb(0, 0, 0);
+}
+
+.wrapper {
+  float: left;
+  clear: both;
+  width: 70.9814166707%;
+  height: 37px;
+  margin: 9px 0 0 13.8857396362%;
+  overflow: hidden;
+}
+
+._button {
+  display: block;
+  position: relative;
+  float: left;
+  height: 42px;
+  margin-top: 17px;
+  border-radius: 3px;
+  background-color: rgb(62, 194, 203);
+  font-size: 1em;
+  text-align: center;
+  color: rgb(0, 0, 0);
+}
+
+._input {
+  display: block;
+  float: left;
+  clear: both;
+  width: 71.0234278668%;
+  height: 36px;
+  margin-left: 13.78223%;
+  padding: 0 10px;
+  background-color: rgb(242, 242, 242);
+  font-family: Rokkitt;
+  text-align: center;
+  color: rgb(0, 0, 0);
+}
+
+.container-1 {
+  width: 80%;
+  height: 847px;
+  margin: 273px 0 0 10%;
+  background-color: rgba(255, 254, 254, 0.19);
+}
+
+.text-1 {
+  position: relative;
+  z-index: 0;
+  width: 75.204359673%;
+  min-height: 89px;
+  margin: 38px 0 0 12.4528%;
+  font-size: 3.75em;
+  font-weight: 500;
+}
+
+.text-2 {
+  position: relative;
+  clear: both;
+  z-index: 2;
+  width: 48.9583333333%;
+  min-height: 24px;
+  margin: -7px 0 0 25.51921%;
+  font-size: 1em;
+}
+
+.text-3 {
+  width: 57.1006062996%;
+  min-height: 25px;
+  margin: 6px 0 0 19.81565%;
+  font-size: 1em;
+}
+
+.text-4 {
+  clear: both;
+  width: 57.1006062996%;
+  min-height: 25px;
+  margin: 15px 0 0 19.81565%;
+  font-size: 1em;
+}
+
+.text-5 {
+  clear: both;
+  width: 57.1006062996%;
+  min-height: 25px;
+  margin: 22px 0 0 19.81565%;
+  font-size: 1em;
+}
+
+.container ._button-1 {
+  clear: both;
+  z-index: 1;
+  width: 19.4822888283%;
+  margin-left: 26.85059%;
+}
+
+.container ._button-2 {
+  z-index: 15;
+  width: 19.4807942708%;
+  margin-left: 7.39421%;
+}
+
+.container ._input-1 {
+  margin-top: 17px;
+  font-size: 1.25em;
+}
+
+.container ._input-2,
+.container ._input-3 {
+  margin-top: 20px;
+  font-size: 1.25em;
+}
+
+.container ._input-4 {
+  margin-top: 23px;
+  font-size: 1.25em;
+}
+
+.container ._input-5 {
+  margin-top: 24px;
+  font-size: 1em;
+}
+
+.container ._input-6 {
+  margin-top: 18px;
+  font-size: 1.25em;
+}
+
+.container ._input-7 {
+  margin-top: 26px;
+  font-size: 1.25em;
+}

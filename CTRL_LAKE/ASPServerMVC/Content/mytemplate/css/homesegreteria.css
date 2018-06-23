@@ -1,0 +1,218 @@
+body {
+  background-color: rgb(102, 207, 214);
+  font: 400 1em/1.38 'Fauna One';
+  color: rgb(0, 0, 0);
+}
+
+.container {
+  float: left;
+}
+
+.container .element {
+  clear: both;
+  height: 1px;
+  margin-top: 7px;
+  background-color: rgb(0, 0, 0);
+}
+
+.element {
+  float: left;
+  width: 100%;
+}
+
+.text {
+  float: left;
+  font-size: 1em;
+  color: rgb(0, 0, 0);
+}
+
+.wrapper {
+  float: left;
+}
+
+._button {
+  display: block;
+  float: left;
+  border-radius: 3px;
+  background-color: rgb(215, 216, 39);
+  font-family: Helvetica;
+  font-size: 1em;
+  text-align: center;
+  color: rgb(0, 0, 0);
+}
+
+._input {
+  display: block;
+  float: left;
+  width: 18.0419580419%;
+  height: 24px;
+  margin: 18px 0 0 3.74563%;
+  padding: 0 10px;
+  background-color: rgb(242, 242, 242);
+  font-family: Georgia;
+  font-size: 0.813em;
+  color: rgb(0, 0, 0);
+}
+
+.container ._button {
+  clear: both;
+  height: 35px;
+  margin-left: 14.58103%;
+}
+
+.container-1 {
+  position: relative;
+  clear: both;
+  z-index: 18;
+  width: 59.5833333333%;
+  height: 58px;
+  margin: 36px 0 0 10%;
+  background-color: rgba(0, 0, 0, 0.14);
+}
+
+.container-2 {
+  position: relative;
+  clear: both;
+  z-index: 5;
+  width: 59.5833333333%;
+  height: 297px;
+  margin: 13px 0 0 10%;
+  background-color: rgba(0, 0, 0, 0.14);
+}
+
+.container-3 {
+  position: relative;
+  z-index: 12;
+  width: 18.8333333333%;
+  height: 383px;
+  margin: -73px 0 0 1.58073%;
+  background-color: rgba(0, 0, 0, 0.14);
+}
+
+.container-4 {
+  clear: both;
+  width: 79.9973958333%;
+  height: 123px;
+  margin: 16px 0 0 10%;
+}
+
+.element-1 {
+  position: relative;
+  z-index: 0;
+  height: 48px;
+  background-color: rgb(0, 100, 255);
+}
+
+.text-1 {
+  position: relative;
+  clear: both;
+  z-index: 2;
+  width: 13.5833333333%;
+  min-height: 25px;
+  margin: -36px 0 0 10%;
+  font-family: Ubuntu;
+  font-weight: 300;
+  text-align: center;
+}
+
+.text-2 {
+  width: 59.5833333333%;
+  min-height: 37px;
+  margin: 25px 0 0 9.58073%;
+  font-family: 'Kite One';
+}
+
+.text-3 {
+  width: 14.3899895724%;
+  min-height: 35px;
+  margin: 18px 0 0 8.72378%;
+  font-family: Georgia;
+  text-align: right;
+}
+
+.text-4 {
+  width: 7.6120959332%;
+  min-height: 35px;
+  margin: 18px 0 0 11.41827%;
+  font-family: Georgia;
+  text-align: right;
+}
+
+.text-5 {
+  width: 35.58261041%;
+  min-height: 24px;
+  margin: 20px 0 0 3.16434%;
+}
+
+.text-6 {
+  width: 100%;
+  min-height: 24px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.wrapper-1 {
+  width: 16.9968717413%;
+  height: 24px;
+  margin: 18px 0 0 2.85184%;
+  overflow: hidden;
+}
+
+.wrapper-2 {
+  clear: both;
+  width: 100%;
+  height: 201px;
+  margin-top: 19px;
+  overflow: visible;
+}
+
+._button-1 {
+  position: relative;
+  z-index: 13;
+  width: 5%;
+  height: 25px;
+  margin: -36px 0 0 78%;
+}
+
+.container ._button-2 {
+  width: 71.8111103462%;
+  margin-top: 17px;
+}
+
+.container ._button-3,
+.container ._button-4 {
+  width: 71.8111103462%;
+  margin-top: 21px;
+}
+
+.container ._button-5 {
+  width: 71.8058628318%;
+  margin-top: 21px;
+}
+
+.text strong {
+  border-top-width: 0;
+  border-right-width: 0;
+  border-bottom-width: 0;
+  border-left-width: 0;
+  border-color: transparent;
+  border-style: none;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  background-color: transparent;
+  font-family: inherit;
+  font-style: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  text-transform: inherit;
+  text-decoration: inherit;
+  letter-spacing: inherit;
+  word-spacing: inherit;
+  color: inherit;
+  opacity: 1;
+  word-break: normal;
+  word-wrap: normal;
+  white-space: normal;
+}

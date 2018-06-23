@@ -1,0 +1,223 @@
+body {
+  background-color: rgb(102, 207, 214);
+  font: 400 1em/1.38 Helvetica;
+  color: rgb(0, 0, 0);
+}
+
+.checkbox {
+  display: block;
+  float: left;
+  margin-top: 3px;
+}
+
+.checkbox-label {
+  display: block;
+  float: left;
+  clear: both;
+  width: 59.598941368%;
+  height: 22px;
+  margin: 15px 0 0 20.25143%;
+}
+
+.container {
+  position: relative;
+  float: left;
+  background-color: rgba(0, 0, 0, 0.14);
+}
+
+.container .element {
+  clear: both;
+  height: 1px;
+  background-color: rgb(0, 0, 0);
+}
+
+.container .text {
+  min-height: 24px;
+  font-family: 'Fauna One';
+}
+
+.element {
+  float: left;
+}
+
+.point-text {
+  display: block;
+  float: left;
+  margin-left: 6px;
+  font-style: italic;
+  text-align: center;
+}
+
+.text {
+  float: left;
+  font-size: 1em;
+  color: rgb(0, 0, 0);
+}
+
+.wrapper {
+  float: left;
+  clear: both;
+  width: 100%;
+  height: 168px;
+  margin-top: 29px;
+  overflow: visible;
+}
+
+._button {
+  display: block;
+  float: left;
+  border-radius: 3px;
+  font-size: 1em;
+  text-align: center;
+  color: rgb(0, 0, 0);
+}
+
+.container ._button {
+  clear: both;
+}
+
+.container-1 {
+  z-index: 6;
+  width: 52.8333333333%;
+  height: 297px;
+  margin: 75px 0 0 10%;
+}
+
+.container-2 {
+  z-index: 11;
+  width: 25.5833333333%;
+  height: 154px;
+  margin: 75px 0 0 1.58073%;
+}
+
+.container-3 {
+  clear: both;
+  z-index: 18;
+  width: 25.5833333333%;
+  height: 126px;
+  margin: -126px 0 0 64.41667%;
+}
+
+.element-1 {
+  position: relative;
+  z-index: 0;
+  width: 100%;
+  height: 48px;
+  background-color: rgb(136, 0, 204);
+}
+
+.element-2 {
+  width: 100%;
+}
+
+.element-3 {
+  width: 100%;
+  margin-left: -0.05599%;
+}
+
+.element-4 {
+  width: 99.9898218829%;
+}
+
+.text-1 {
+  position: relative;
+  clear: both;
+  z-index: 1;
+  width: 18.8333333333%;
+  min-height: 25px;
+  margin: -36px 0 0 10%;
+  font-family: Ubuntu;
+  font-weight: 300;
+  text-align: center;
+}
+
+.text-2 {
+  width: 35.58261041%;
+  margin: 9px 0 0 3.02642%;
+}
+
+.text-3 {
+  width: 35.5048859934%;
+  margin-left: 32.86849%;
+  text-align: center;
+}
+
+.text-4 {
+  width: 47.2264631043%;
+  margin-left: 26.37419%;
+  text-align: center;
+}
+
+._button-1 {
+  position: relative;
+  z-index: 20;
+  width: 5.19921875%;
+  height: 25px;
+  margin: -36px 0 0 71.19922%;
+  background-color: rgb(215, 216, 39);
+}
+
+._button-2 {
+  position: relative;
+  z-index: 19;
+  width: 5.19921875%;
+  height: 25px;
+  margin: -36px 0 0 78%;
+  background-color: rgb(215, 216, 39);
+}
+
+.container ._button-3 {
+  width: 12.9337539432%;
+  height: 25px;
+  margin: 22px 0 0 77.22299%;
+  background-color: rgb(215, 216, 39);
+}
+
+.container ._button-4 {
+  width: 47.2312703583%;
+  height: 37px;
+  margin: 18px 0 0 26.50143%;
+  background-color: rgb(215, 216, 39);
+}
+
+.container ._button-5 {
+  width: 47.2312703583%;
+  height: 37px;
+  margin: 16px 0 0 26.50143%;
+  background-color: rgb(215, 216, 39);
+}
+
+.container ._button-6 {
+  width: 59.6030534351%;
+  height: 37px;
+  margin: 12px 0 0 20.25143%;
+  background-color: rgb(224, 82, 82);
+}
+
+.point-text strong,
+.text strong {
+  border-top-width: 0;
+  border-right-width: 0;
+  border-bottom-width: 0;
+  border-left-width: 0;
+  border-color: transparent;
+  border-style: none;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  background-color: transparent;
+  font-family: inherit;
+  font-style: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  text-transform: inherit;
+  text-decoration: inherit;
+  letter-spacing: inherit;
+  word-spacing: inherit;
+  color: inherit;
+  opacity: 1;
+  word-break: normal;
+  word-wrap: normal;
+  white-space: normal;
+}

@@ -1,0 +1,92 @@
+body {
+  height: 100%;
+  background: url('../images/IMG_6296.png') rgb(255, 255, 255);
+  background-repeat: no-repeat;
+  background-size: auto auto;
+  background-position: center center;
+  font: 400 1em/1.38 Ubuntu;
+  color: rgb(0, 0, 0);
+}
+
+.container {
+  position: relative;
+  float: left;
+}
+
+.text {
+  float: left;
+  text-align: center;
+  color: rgb(0, 0, 0);
+}
+
+._button {
+  display: block;
+  float: left;
+  clear: both;
+  width: 13.7602179836%;
+  height: 42px;
+  margin: 45px 0 0 43.09435%;
+  border-radius: 3px;
+  background-color: rgb(62, 194, 203);
+  font-size: 1em;
+  text-align: center;
+  color: rgb(0, 0, 0);
+}
+
+._container {
+  clear: both;
+  z-index: 7;
+  width: 61.1666666666%;
+  height: 657px;
+  margin: -237px 0 0 22.79948%;
+  background-color: rgba(255, 254, 254, 0.19);
+}
+
+._element {
+  z-index: 0;
+  width: 61.2%;
+  height: 334px;
+  margin: 126px 0 0 15.19922%;
+}
+
+._input {
+  display: block;
+  float: left;
+  clear: both;
+  width: 35.8310626702%;
+  height: 36px;
+  padding: 0 10px;
+  background-color: rgb(242, 242, 242);
+  font-family: Rokkitt;
+  font-size: 0.813em;
+  text-align: center;
+  color: rgb(0, 0, 0);
+}
+
+.text-1 {
+  width: 80.3814713896%;
+  min-height: 89px;
+  margin: 64px 0 0 9.85823%;
+  font-size: 3.75em;
+  font-weight: 500;
+}
+
+.text-2 {
+  clear: both;
+  width: 75.204359673%;
+  min-height: 24px;
+  margin: 35px 0 0 12.42337%;
+  font-size: 1em;
+}
+
+.container ._input-1 {
+  margin: 28px 0 0 32.0717%;
+}
+
+.container ._input-2 {
+  margin: 47px 0 0 32.0717%;
+}
+
+.container ._input-3 {
+  margin: 17px 0 0 32.04402%;
+}

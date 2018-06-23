@@ -1,0 +1,12 @@
+﻿@model WebMVCTempl.ServiceReference1.HttpWebServiceClient
+
+@{
+    ViewBag.Title = "HomeIstruttore";
+    Layout = "~/Views/Shared/_cubetheme.cshtml";
+}
+
+<h1>HOME ISTRUTTORE</h1>
+@if (Session["Username"] != null)
+{
+    <h4>@Session["Username"].ToString()</h4>
+}

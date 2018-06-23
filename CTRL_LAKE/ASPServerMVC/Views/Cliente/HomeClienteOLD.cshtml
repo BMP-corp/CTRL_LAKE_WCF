@@ -1,0 +1,23 @@
+﻿@model WebMVCTempl.ServiceReference1.HttpWebServiceClient
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>HomeCliente</title>
+</head>
+<body>
+        <div>
+            <h1>HOME CLIENTE</h1>
+            @if (Session["Username"] != null)
+            {
+                <h4>@Session["Username"].ToString()</h4>
+            }
+        </div>
+</body>
+</html>

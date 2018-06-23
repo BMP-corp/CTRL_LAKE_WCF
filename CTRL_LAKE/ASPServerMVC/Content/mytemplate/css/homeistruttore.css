@@ -1,0 +1,183 @@
+body {
+  background-color: rgb(102, 207, 214);
+  font: 400 1em/1.38 Georgia;
+  color: rgb(0, 0, 0);
+}
+
+.container {
+  float: left;
+}
+
+.element {
+  position: relative;
+  float: left;
+  z-index: 2;
+  width: 100%;
+  height: 48px;
+  background-color: rgb(19, 133, 14);
+}
+
+.text {
+  float: left;
+  font-size: 1em;
+  color: rgb(0, 0, 0);
+}
+
+.wrapper {
+  float: left;
+}
+
+._button {
+  display: block;
+  float: left;
+  border-radius: 3px;
+  background-color: rgb(215, 216, 39);
+  font-family: Helvetica;
+  font-size: 1em;
+  text-align: center;
+  color: rgb(0, 0, 0);
+}
+
+._container {
+  background-color: rgba(0, 0, 0, 0.14);
+}
+
+.container-1 {
+  position: relative;
+  z-index: 8;
+  width: 52.8%;
+  height: 44px;
+  margin: 21px 0 0 10%;
+}
+
+.container-2 {
+  position: relative;
+  clear: both;
+  z-index: 12;
+  width: 52.8333333333%;
+  height: 58px;
+  margin: -51px 0 0 10%;
+}
+
+.container-3 {
+  position: relative;
+  z-index: 14;
+  width: 25.5833333333%;
+  height: 58px;
+  margin: -51px 0 0 1.58203%;
+}
+
+.container-4 {
+  clear: both;
+  width: 80%;
+  height: 297px;
+  margin: 11px 0 0 10%;
+}
+
+.text-1 {
+  position: relative;
+  clear: both;
+  z-index: 0;
+  width: 5%;
+  min-height: 35px;
+  margin: -28px 0 0 10%;
+  text-align: right;
+}
+
+.text-2 {
+  position: relative;
+  clear: both;
+  z-index: 4;
+  width: 13.5833333333%;
+  min-height: 25px;
+  margin: -42px 0 0 10%;
+  font-family: Ubuntu;
+  font-weight: 300;
+  text-align: center;
+}
+
+.text-3 {
+  width: 9.4637223974%;
+  min-height: 35px;
+  margin: 19px 0 0 3.40349%;
+  text-align: right;
+}
+
+.text-4 {
+  width: 49.0625%;
+  min-height: 24px;
+  margin: 18px 0 0 25.4996699999%;
+  font-family: 'Fauna One';
+  text-align: center;
+}
+
+.wrapper-1 {
+  position: relative;
+  z-index: 1;
+  width: 14.2773437499%;
+  height: 24px;
+  margin: -35px 0 0 15.76172%;
+  overflow: hidden;
+}
+
+.wrapper-2 {
+  width: 27.0254545454%;
+  height: 24px;
+  margin: 19px 0 0 1.28155%;
+  overflow: hidden;
+}
+
+.wrapper-3 {
+  clear: both;
+  width: 100%;
+  height: 168px;
+  margin-top: 21px;
+  overflow: visible;
+}
+
+._button-1 {
+  position: relative;
+  z-index: 3;
+  width: 5.1999999999%;
+  height: 25px;
+  margin: -42px 0 0 78%;
+}
+
+.container ._button-2 {
+  width: 9.8407925867%;
+  height: 25px;
+  margin: 19px 0 0 36.04594%;
+}
+
+.container ._button-3 {
+  width: 77.1908396946%;
+  height: 37px;
+  margin: 12px 0 0 10.99349%;
+}
+
+.text strong {
+  border-top-width: 0;
+  border-right-width: 0;
+  border-bottom-width: 0;
+  border-left-width: 0;
+  border-color: transparent;
+  border-style: none;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  background-color: transparent;
+  font-family: inherit;
+  font-style: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  text-transform: inherit;
+  text-decoration: inherit;
+  letter-spacing: inherit;
+  word-spacing: inherit;
+  color: inherit;
+  opacity: 1;
+  word-break: normal;
+  word-wrap: normal;
+  white-space: normal;
+}
