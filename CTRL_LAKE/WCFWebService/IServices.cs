@@ -7,11 +7,10 @@ using System.Text;
 
 namespace WCFWebService
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IHttpWebService" in both code and config file together.
+    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IServices" in both code and config file together.
     [ServiceContract]
     public interface IServices
     {
-
         [OperationContract]
         UserAccount Login(String username);
 
@@ -23,19 +22,11 @@ namespace WCFWebService
 
         [OperationContract]
         string DeleteUser(UserAccount user);
-
-        //CLIENTE
-
         [OperationContract]
         Cliente getCliente();
         [OperationContract]
         string CancellaPrenotazione(int daEliminare);
         [OperationContract]
         List<Noleggio> GetPrenotazioni(string username);
-
-
-        //SEGRETERIA
-
-        //ISTRUTTORE
     }
 }

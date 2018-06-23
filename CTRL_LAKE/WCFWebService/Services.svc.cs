@@ -7,9 +7,9 @@ using System.Text;
 
 namespace WCFWebService
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "HttpWebService" in code, svc and config file together.
-    // NOTE: In order to launch WCF Test Client for testing this service, please select HttpWebService.svc or HttpWebService.svc.cs at the Solution Explorer and start debugging.
-    public class SegreteriaServices : IServices
+    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Services" in code, svc and config file together.
+    // NOTE: In order to launch WCF Test Client for testing this service, please select Services.svc or Services.svc.cs at the Solution Explorer and start debugging.
+    public class Services : IServices
     {
         private static GestionePrenotazioniController gpc = new GestionePrenotazioniController();
         public string GetString()
@@ -63,12 +63,12 @@ namespace WCFWebService
 #if MOCK
             UserAccount user = new UserAccount();
             if (username == "Cliente")
-            { 
+            {
                 user.Username = "Cliente";
                 user.Password = "c";
                 user.AccountRole = "Cliente";
             }
-            else if( username == "Segreteria")
+            else if (username == "Segreteria")
             {
                 user.Username = "Segreteria";
                 user.Password = "s";
@@ -100,7 +100,7 @@ namespace WCFWebService
 #endif
         }
 
-        public string Register (UserAccount user)
+        public string Register(UserAccount user)
         {
 #if MOCK
             string username = "nome.cognome";
@@ -120,11 +120,11 @@ namespace WCFWebService
 #endif
         }
 
-        public string CancellaPrenotazione (int daEliminare)
+        public string CancellaPrenotazione(int daEliminare)
         {
 
             Noleggio n = null;
-            
+
             foreach (Noleggio nol in gpc.ElencoNoleggi)
                 if (nol.Id == daEliminare)
                 {
@@ -158,3 +158,4 @@ namespace WCFWebService
         }
     }
 }
+

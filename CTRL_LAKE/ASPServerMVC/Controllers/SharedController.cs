@@ -10,7 +10,7 @@ namespace WebMVCTempl.Controllers
     public class SharedController : Controller
     {
         // GET: Home
-        HttpWebServiceClient webClient = new HttpWebServiceClient();
+        ServicesClient webClient = new ServicesClient();
         public ActionResult Home()
         {
             return View();

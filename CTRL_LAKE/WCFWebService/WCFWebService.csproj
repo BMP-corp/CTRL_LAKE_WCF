@@ -99,25 +99,11 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\WCFPROVA.mdf" />
-    <Content Include="App_Data\WCFPROVA_log.ldf">
-      <DependentUpon>WCFPROVA.mdf</DependentUpon>
-    </Content>
-    <Content Include="Database.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Database.edmx</DependentUpon>
-      <LastGenOutput>Database.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Database.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Database.edmx</DependentUpon>
-      <LastGenOutput>Database.cs</LastGenOutput>
-    </Content>
-    <Content Include="ClienteServices.svc" />
-    <Content Include="SegreteriaServices.svc" />
-    <Content Include="SharedServices.svc" />
     <Content Include="Model\hibernate.cfg.xml" />
-    <Content Include="Web.config" />
+    <Content Include="Services.svc" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\GestioneAttrezzaturaController.cs" />
@@ -125,34 +111,7 @@
     <Compile Include="Controllers\Interfaces\IGestionePrenotazioniController.cs" />
     <Compile Include="Controllers\Interfaces\IPrenotazioneLezioneController.cs" />
     <Compile Include="Controllers\PrenotazioneLezioneController.cs" />
-    <Compile Include="Database.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Database.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Database.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Database.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Database.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="ClienteServices.svc.cs">
-      <DependentUpon>ClienteServices.svc</DependentUpon>
-    </Compile>
     <Compile Include="IServices.cs" />
-    <Compile Include="SegreteriaServices.svc.cs">
-      <DependentUpon>SegreteriaServices.svc</DependentUpon>
-    </Compile>
-    <Compile Include="SharedServices.svc.cs">
-      <DependentUpon>SharedServices.svc</DependentUpon>
-    </Compile>
-    <Compile Include="Listino.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
     <Compile Include="Model\Attrezzatura.cs" />
     <Compile Include="Model\CalendarioImpegni.cs" />
     <Compile Include="Model\Cliente.cs" />
@@ -167,19 +126,17 @@
     <Compile Include="Model\Pagamento.cs" />
     <Compile Include="Model\UserAccount.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services.svc.cs">
+      <DependentUpon>Services.svc</DependentUpon>
+    </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <EntityDeploy Include="Database.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Database.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Database.edmx.diagram">
-      <DependentUpon>Database.edmx</DependentUpon>
     </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

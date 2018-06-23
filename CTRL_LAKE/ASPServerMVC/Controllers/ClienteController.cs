@@ -9,7 +9,7 @@ namespace WebMVCTempl.Controllers
 {
     public class ClienteController : Controller
     {
-        HttpWebServiceClient webClient = new HttpWebServiceClient();
+        ServicesClient webClient = new ServicesClient();
         public ActionResult HomeCliente()
         {
             if (Session["Username"] != null)
