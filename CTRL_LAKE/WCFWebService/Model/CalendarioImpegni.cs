@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Linq;
 using System.Web;
 using System.Runtime.Serialization;
 
@@ -13,21 +12,28 @@ namespace WCFWebService
     public class CalendarioImpegni
     {
         private List<Impegno> _impegni;
+        private string _id_user;
+
+        public CalendarioImpegni(string id_user)
+        {
+            _id_user = id_user;
+            Impegni = new List<Impegno>();
+        }
+
+        [DataMember]
+        public string Id_user { get => _id_user; set => _id_user = value; }
         [DataMember]
         public List<Impegno> Impegni { get => _impegni; set => _impegni = value; }
-
-        public CalendarioImpegni()
-        {
-            this.Impegni = new List<Impegno>();
-        }
 
         public Impegno GetImpegno (DateTime inizio, DateTime fine)
         {
             Impegno res = null, i2 = null;
             try
             {
-                i2 = new Impegno(inizio, fine);
-            } catch (Exception e) { throw e; }
+                i2 = new Impegno(inizio, fine, Id_user);
+            } catch (Exception e) {
+                throw e;
+            }
 
             
             foreach (Impegno i in this.Impegni)
@@ -43,7 +49,7 @@ namespace WCFWebService
             Impegno imp = null;
             try
             {
-                imp = new Impegno(inizio, fine);
+                imp = new Impegno(inizio, fine, Id_user);
             } catch (Exception e) { throw e; }
             bool overlaps = false;
             foreach (Impegno i in this.Impegni)

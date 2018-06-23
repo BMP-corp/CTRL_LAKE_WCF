@@ -39,7 +39,7 @@ namespace WCFWebService
             Cliente c = new Cliente("Michele", "Campa", "Cliente", new DateTime(1996, 8, 11), "mc@ampa.it", "123456789");
             elencoClienti.Add(c);
             Noleggio nol = new Noleggio(newId(), c, new DateTime(2018, 6, 28, 10, 0, 0), new DateTime(2018, 6, 28, 11, 0, 0));
-            nol.AddDettaglio(new DettaglioNoleggio(nol.Id, 4, a, 45, new DateTime(2018, 6, 28, 10, 0, 0), new DateTime(2018, 6, 28, 11, 0, 0)));
+            nol.AddDettaglio(new DettaglioNoleggio(nol.Id, 4, a, 45, new DateTime(2018, 6, 28, 10, 0, 0), new DateTime(2018, 6, 28, 11, 0, 0), "mc@ampa.it"));
             ElencoNoleggi.Add(nol);
             initialized = true;
         }

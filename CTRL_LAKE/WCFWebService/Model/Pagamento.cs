@@ -43,42 +43,10 @@ namespace WCFWebService
             this.Dettagli = new List<IDettaglioPagamento>();
             this.Totale = CalcolaTotale();
         }
-
-        ///*****GET/SET******/
-        //public double Totale 
-        //{
-        //    get { return _totale; }
-        //    set { _totale = value; }
-        //}
-
-        //public double Pagato
-        //{
-        //    get { return _pagato; }
-        //    set { _pagato = value; }
-        //}
-
-        //public DateTime DataOra
-        //{
-        //    get { return _dataOra; }
-        //    set { _dataOra = value; }
-        //}
-
-        //public int Id
-        //{
-        //    get { return _id; }
-        //    set { _id = value; }
-        //}
-
-        //public List<IDettaglioPagamento> Dettagli
-        //{
-        //    get { return _dettagli; }
-        //    set { _dettagli = value; }
-        //}
-
-
+        
 
         /*****BUSINESS******/
-        public void AddDettaglio(IDettaglioPagamento dettaglio)
+        public virtual void AddDettaglio(IDettaglioPagamento dettaglio)
         {
            bool exists = false;
             foreach (IDettaglioPagamento d in Dettagli)
@@ -95,7 +63,7 @@ namespace WCFWebService
             else throw new Exception("Dettaglio già esistente");
         }
 
-        public bool IsPagato()
+        public virtual bool IsPagato()
         {
             if (this.Pagato == this.Totale)
                 return true;
@@ -103,13 +71,13 @@ namespace WCFWebService
         }
 
  
-        public void Paga() //se non c'è importo si assume che paghi tutto
+        public virtual void Paga() //se non c'è importo si assume che paghi tutto
         {
             this.Pagato = this.Totale;
             _dataOra = DateTime.Now;
         }
 
-        public double CalcolaTotale()
+        public virtual double CalcolaTotale()
         {
             double totale = 0;
             foreach(IDettaglioPagamento d in this.Dettagli)

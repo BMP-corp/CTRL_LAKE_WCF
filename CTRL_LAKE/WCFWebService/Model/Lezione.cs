@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Web;
+using System.Threading.Tasks;
 
 namespace WCFWebService
 {
@@ -86,19 +87,19 @@ namespace WCFWebService
             _cliente = cliente;
         }
         
-        public int GetId()
+        public virtual int GetId()
         {
             return _id;
         }
 
         //Calcola costo si potrebbe eliminare in quanto equivalente al get 
         //CalcolaCosto è richesta dall' interfaccia, non si può togliere. Il get si.
-        public double CalcolaCosto()
+        public virtual double CalcolaCosto()
         {
            return _costo;
         }
 
-        public string ToString()
+        public override string ToString()
         {
             string result;
             result = "ID: " + _id + " ISTRUTTORE: " + _istruttore + " CLIENTE: " + _cliente;

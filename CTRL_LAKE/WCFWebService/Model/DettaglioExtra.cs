@@ -30,19 +30,19 @@ namespace WCFWebService
             _costo = costo;
        
         }
-        public double CalcolaCosto()
+        public virtual double CalcolaCosto()
         {
             return _costo;
         }
 
-        public string ToString()
+        public override string ToString()
         {
             string result = "Id " + _id + ": " + _descrizione + ", " + _costo + "€";
             return result;
 
         }
 
-        public int GetId()
+        public virtual int GetId()
         {
             return _id;
         }
