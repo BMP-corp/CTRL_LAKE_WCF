@@ -5,7 +5,7 @@ using System.Web;
 using System.Runtime.Serialization;
 using WCFWebService;
 
-namespace WCFWebService
+namespace WCFWebService.Model
 {
     [DataContract]
     public class Noleggio

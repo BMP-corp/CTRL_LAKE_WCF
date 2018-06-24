@@ -57,7 +57,6 @@ namespace WebMVCTempl.Controllers
                 return View();
             }
             else return RedirectToAction("../Account/Login");
-
         }
     }
 }

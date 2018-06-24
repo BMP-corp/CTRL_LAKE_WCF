@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WCFWebService
+namespace WCFWebService.Model
 {
     public interface IDettaglioPagamento
     {

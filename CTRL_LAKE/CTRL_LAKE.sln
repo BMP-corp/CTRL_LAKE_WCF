@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 15.0.27428.2002
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASPServer", "ASPServerMVC\ASPServer.csproj", "{D1CEA147-2BE0-43DE-9FDB-65FAE9618520}"
+	ProjectSection(ProjectDependencies) = postProject
+		{636B66D2-AE3B-43EF-B13C-A888DFE859EA} = {636B66D2-AE3B-43EF-B13C-A888DFE859EA}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCFWebService", "WCFWebService\WCFWebService.csproj", "{636B66D2-AE3B-43EF-B13C-A888DFE859EA}"
 EndProject
@@ -24,7 +27,6 @@ Global
 		{636B66D2-AE3B-43EF-B13C-A888DFE859EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{636B66D2-AE3B-43EF-B13C-A888DFE859EA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E6216166-E03D-45AC-8E5E-0DA2F338AE3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E6216166-E03D-45AC-8E5E-0DA2F338AE3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E6216166-E03D-45AC-8E5E-0DA2F338AE3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E6216166-E03D-45AC-8E5E-0DA2F338AE3E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection

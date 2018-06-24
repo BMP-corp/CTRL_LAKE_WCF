@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Data.Common;
 using System.Linq;
 using System.Web;
+using WCFWebService.Model;
 
 
 
-namespace WCFWebService
+namespace WCFWebService.Controllers
 {
     public class GestionePrenotazioniController
     {
@@ -23,8 +24,7 @@ namespace WCFWebService
         public HashSet<Attrezzatura> ElencoAttrezzatura { get => elencoAttrezzatura; set => elencoAttrezzatura = value; }
         public HashSet<Noleggio> ElencoNoleggi { get => elencoNoleggi; set => elencoNoleggi = value; }
 
-
-#if MOCK
+        
         public GestionePrenotazioniController()
         {
             if (!initialized)
@@ -32,25 +32,25 @@ namespace WCFWebService
         }
         private void init()
         {
-            Attrezzatura a = new Attrezzatura("barcaVela", newId(), 5);
+            Attrezzatura a = new Attrezzatura("barcaVela", NewId(), 5);
             ElencoAttrezzatura.Add(a);
-            ElencoAttrezzatura.Add(new Attrezzatura("barcaVela", newId(), 5));
-            ElencoAttrezzatura.Add(new Attrezzatura("canoa", newId(), 2));
+            ElencoAttrezzatura.Add(new Attrezzatura("barcaVela", NewId(), 5));
+            ElencoAttrezzatura.Add(new Attrezzatura("canoa", NewId(), 2));
             Cliente c = new Cliente("Michele", "Campa", "Cliente", new DateTime(1996, 8, 11), "mc@ampa.it", "123456789");
             elencoClienti.Add(c);
-            Noleggio nol = new Noleggio(newId(), c, new DateTime(2018, 6, 28, 10, 0, 0), new DateTime(2018, 6, 28, 11, 0, 0));
+            Noleggio nol = new Noleggio(NewId(), c, new DateTime(2018, 6, 28, 10, 0, 0), new DateTime(2018, 6, 28, 11, 0, 0));
             nol.AddDettaglio(new DettaglioNoleggio(nol.Id, 4, a, 45, new DateTime(2018, 6, 28, 10, 0, 0), new DateTime(2018, 6, 28, 11, 0, 0), "mc@ampa.it"));
             ElencoNoleggi.Add(nol);
             initialized = true;
         }
 
         // generazione degli ID (incrementale)
-        public int newId()
+        public int NewId()
         {
             return curr_id++;
         }
-#else
-        public GestionePrenotazioniController()
+
+        /*public GestionePrenotazioniController()
         {
             this.ElencoAttrezzatura = getDbAttrezzatura(c);
             this.elencoClienti = getDbClienti(c);
@@ -58,8 +58,7 @@ namespace WCFWebService
             //this.elencoLezioni = getDbLezioni();
             //this.elencoNoleggi = getDbNoleggi();
             curr_id = 100;
-        }
-#endif
+        }*/
         
 
 

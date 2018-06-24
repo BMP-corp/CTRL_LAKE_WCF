@@ -5,7 +5,7 @@ using System.Web;
 using System.ComponentModel.DataAnnotations;
 using System.Runtime.Serialization;
 
-namespace WCFWebService
+namespace WCFWebService.Model
 {
     [DataContract]
     public class UserAccount
@@ -48,9 +48,9 @@ namespace WCFWebService
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
-        [DataMember]
-        [Compare("Password",ErrorMessage = "Please Confirm your password.")]
-        [DataType(DataType.Password)]
-        public string ConfirmPassword { get; set; }
+        //[DataMember]
+        //[Compare("Password",ErrorMessage = "Please Confirm your password.")]
+        //[DataType(DataType.Password)]
+        //public string ConfirmPassword { get; set; }
     }
 }

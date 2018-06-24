@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/WCFWebService" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/WCFWebService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/WCFWebService.Model" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/WCFWebService.Model" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="Credenziali">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ruolo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Credenziali" nillable="true" type="tns:Credenziali" />
   <xs:complexType name="UserAccount">
     <xs:sequence>
       <xs:element minOccurs="0" name="AccountRole" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Cognome" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="ConfirmPassword" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Nome" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
@@ -50,7 +57,11 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="Attrezzatura" nillable="true" type="tns:Attrezzatura" />
       <xs:element minOccurs="0" name="Costo" type="xs:double" />
+      <xs:element minOccurs="0" name="Fine" type="xs:dateTime" />
       <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IdAttrezzatura" type="xs:int" />
+      <xs:element minOccurs="0" name="Inizio" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Utilizzatori" type="xs:int" />
     </xs:sequence>
   </xs:complexType>

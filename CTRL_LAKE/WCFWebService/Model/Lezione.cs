@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 using System.Web;
 using System.Threading.Tasks;
 
-namespace WCFWebService
+namespace WCFWebService.Model
 {
     [DataContract]
     public class Lezione : IDettaglioPagamento

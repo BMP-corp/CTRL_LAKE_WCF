@@ -26,43 +26,80 @@ namespace WebMVCTempl.Controllers
         }
 
         //invia la POST con i dati di registrazione e salva su db
-        [HttpPost]
-        public ActionResult Register(UserAccount account)
-        {
-            account.Username = account.Nome + "." + account.Cognome;
-            string esito = webClient.Register(account);
-            if (esito == account.Username)
-            { 
-            //if (ModelState.IsValid)
-            //{
-            //salvataggio dati su db MM$ da sostituire con call API WCF
-            //using (OurDbContext db = new OurDbContext())
-            //{
+        //[HttpPost]
+        //public ActionResult Register(UserAccount account)
+        //{
+        //    account.Username = account.Nome + "." + account.Cognome;
+        //    string esito = webClient.Register(account);
+        //    if (esito == account.Username)
+        //    { 
+        //    //if (ModelState.IsValid)
+        //    //{
+        //    //salvataggio dati su db MM$ da sostituire con call API WCF
+        //    //using (OurDbContext db = new OurDbContext())
+        //    //{
 
-            //    db.UserAccount.Add(account);
-            //    db.SaveChanges();
-            //}
+        //    //    db.UserAccount.Add(account);
+        //    //    db.SaveChanges();
+        //    //}
 
 
 
-                ModelState.Clear(); //pulisce il contenuto di tutti gli input controls 
-                ViewBag.Message = account.Nome + " " + account.Cognome + "" + " registrato correttamente. Username: "+account.Username;
+        //        ModelState.Clear(); //pulisce il contenuto di tutti gli input controls 
+        //        ViewBag.Message = account.Nome + " " + account.Cognome + "" + " registrato correttamente. Username: "+account.Username;
                 
-            }else
-                ViewBag.Message = "Errore Nella registrazione dell'account. Controlla i campi";
-            return View();
-        }
+        //    }else
+        //        ViewBag.Message = "Errore Nella registrazione dell'account. Controlla i campi";
+        //    return View();
+        //}
 
         //get metodo per visualizzare Login
         public ActionResult Login()
         {
+            if (TempData["Message"] != null)                    //TempData["nome_dato"] per passare dati tra controller (redirect)
+                ViewData["Message"] = TempData["Message"];
+            if (Request.RequestType.Equals("POST"))
+            {
+                string username = Request.Form["username"];
+                string password = Request.Form["password"];
+                if (username != null && password != null)
+                {
+                    Credenziali account = webClient.Login(username, password);
+                    {
+                        if (account != null)
+                        {
+                            switch (account.Ruolo)
+                            {
+                                case ("cliente"): Session["Username"] = account.Username; return RedirectToAction("../Cliente/HomeCliente");
+                                case ("istruttore"): Session["Username"] = account.Username; return RedirectToAction("../Istruttore/HomeIstruttore");
+                                case ("amministratore"): Session["Username"] = account.Username; return RedirectToAction("../Admin/HomeAmministratore");
+                            }
+                        }
+                        ModelState.AddModelError("", "Username o Password errati.");
+
+                    }
+                    //Session["Username"] = user.Username.ToString();
+                    //if (usr.AccountRole == "Cliente")
+                    //    return RedirectToAction("../Cliente/HomeCliente");
+                    //else if (usr.AccountRole == "Istruttore")
+                    //    return RedirectToAction("../Istruttore/HomeIstruttore");
+                    //else if (usr.AccountRole == "Admin")
+                    //    return RedirectToAction("../Admin/HomeAmministratore");
+                    //else if (usr.AccountRole == "Segreteria")
+                    //    return RedirectToAction("../Segreteria/HomeSegreteria");
+                    //else if (usr.AccountRole == "Bar")
+                    //    return RedirectToAction("../Bar/HomeBar");
+                    //else ModelState.AddModelError("", "Utente non assegnato. Chi diavolo sei? Contatta subito l'Amministratore!");
+
+                }
+            }
             return View();
         }
 
         //metodo POST per effettuare il login
-        [HttpPost]
-        public ActionResult Login(UserAccount user)
-        {   //LOCALDB
+        //[HttpPost]
+        //public ActionResult Login()
+        //{   //LOCALDB
             //using (OurDbContext db = new OurDbContext())
             //{
             //    var usr = db.UserAccount.Single(u => u.Username == user.Username && u.Password == user.Password);
@@ -77,31 +114,38 @@ namespace WebMVCTempl.Controllers
             //        ModelState.AddModelError("", "Username or Password errati.");
             //    }
             //}
-            if (user != null)
-            {
-                UserAccount usr = webClient.Login(user.Username);
-                if (usr != null)
-                {
-                    Session["Username"] = user.Username.ToString();
-                    if (usr.AccountRole == "Cliente")
-                        return RedirectToAction("../Cliente/HomeCliente");
-                    else if (usr.AccountRole == "Istruttore")
-                        return RedirectToAction("../Istruttore/HomeIstruttore");
-                    else if (usr.AccountRole == "Admin")
-                        return RedirectToAction("../Admin/HomeAmministratore");
-                    else if (usr.AccountRole == "Segreteria")
-                        return RedirectToAction("../Segreteria/HomeSegreteria");
-                    else if (usr.AccountRole == "Bar")
-                        return RedirectToAction("../Bar/HomeBar");
-                    else ModelState.AddModelError("", "Utente non assegnato. Chi diavolo sei? Contatta subito l'Amministratore!");
-                }
-                else
-                {
-                    ModelState.AddModelError("", "Username or Password errati. Sforzati un po'.");
-                }
-            }
-            return View();
-        }
+            //string username = Request.Form["username"];
+            //string password = Request.Form["password"];
+            //if (username != null && password != null)
+            //{
+            //    Credenziali account = webClient.Login(username, password);
+            //}
+
+            //    if (username != null)
+            //{
+            //    UserAccount usr = webClient.Login(user.Username);
+            //    if (usr != null)
+            //    {
+            //        Session["Username"] = user.Username.ToString();
+            //        if (usr.AccountRole == "Cliente")
+            //            return RedirectToAction("../Cliente/HomeCliente");
+            //        else if (usr.AccountRole == "Istruttore")
+            //            return RedirectToAction("../Istruttore/HomeIstruttore");
+            //        else if (usr.AccountRole == "Admin")
+            //            return RedirectToAction("../Admin/HomeAmministratore");
+            //        else if (usr.AccountRole == "Segreteria")
+            //            return RedirectToAction("../Segreteria/HomeSegreteria");
+            //        else if (usr.AccountRole == "Bar")
+            //            return RedirectToAction("../Bar/HomeBar");
+            //        else ModelState.AddModelError("", "Utente non assegnato. Chi diavolo sei? Contatta subito l'Amministratore!");
+            //    }
+            //    else
+            //    {
+            //        ModelState.AddModelError("", "Username or Password errati. Sforzati un po'.");
+            //    }
+            //}
+        //    return View();
+        //}
 
 
         //TODO MM$ DA SISTEMARE: non riceve nessun tipo di account, quindi non può rimuoverlo

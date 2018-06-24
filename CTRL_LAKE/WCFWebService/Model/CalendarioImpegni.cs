@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Runtime.Serialization;
 
-namespace WCFWebService
+namespace WCFWebService.Model
 {
     [DataContract]
     public class CalendarioImpegni

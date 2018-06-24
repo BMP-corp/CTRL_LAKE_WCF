@@ -4,7 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Web;
 
-namespace WCFWebService
+namespace WCFWebService.Model
 {
     [DataContract]
     public class Pagamento
