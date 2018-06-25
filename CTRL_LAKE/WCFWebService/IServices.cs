@@ -28,13 +28,18 @@ namespace WCFWebService
         string CreaNoleggio(string user, DateTime inizio, DateTime fine, string[] attr, int[] pers);
 
         [OperationContract]
+        string CancellaPrenotazione(int daEliminare);
+
+        [OperationContract]
+        List<Noleggio> GetPrenotazioni(string username);
+
+        //////////////
+        [OperationContract]
         string DeleteUser(UserAccount user);
         [OperationContract]
         Cliente getCliente();
-        [OperationContract]
-        string CancellaPrenotazione(int daEliminare);
-        [OperationContract]
-        List<Noleggio> GetPrenotazioni(string username);
+        
+        
 
 
 

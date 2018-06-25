@@ -45,7 +45,7 @@ namespace WCFWebService.Controllers
             {
                 Cliente c = null;
                 foreach (Cliente c1 in gpc.ElencoClienti)
-                    if (c1.Username.Equals(c.Username))
+                    if (c1.Username.Equals(username))
                     {
                         c = c1; break;
                     }
@@ -58,6 +58,7 @@ namespace WCFWebService.Controllers
                             IDettaglioPagamento dettaglio = new DettaglioNoleggio(nolo.Id, persone[i],
                                 a,/*MOCK COSTO*/99.99, inizio, fine, username);
                             /***PERSISTENZA IDETTAGLIO***/
+                            nolo.AddDettaglio((DettaglioNoleggio) dettaglio);
                         }
                 }
                 Pagamento pag = new Pagamento(nolo.Id, 0);

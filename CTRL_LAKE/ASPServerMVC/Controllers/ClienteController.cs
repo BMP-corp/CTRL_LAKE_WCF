@@ -40,6 +40,8 @@ namespace WebMVCTempl.Controllers
                 
                 ViewData["Cliente"] = c;
                 ViewData["Noleggi"] = noleggi;
+                if (TempData["Message"] != null)
+                    ViewData["Message"] = TempData["Message"];
                 return View();
             }
             else return RedirectToAction("../Account/Login");
@@ -79,7 +81,7 @@ namespace WebMVCTempl.Controllers
                     /*******/
                     string message = webClient.CreaNoleggio((string)Session["Username"], inizio, fine, tipoAttr, numPersone);
                     /*******/
-                    ViewData["Message"] = message;
+                    TempData["Message"] = message;
                     return RedirectToAction("../Cliente/HomeCliente");
                 }
             }

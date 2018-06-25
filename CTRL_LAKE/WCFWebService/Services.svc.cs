@@ -24,6 +24,8 @@ namespace WCFWebService
             return cr;
         }
 
+
+
         public string GetString()
         {
 #if MOCK
@@ -32,6 +34,8 @@ namespace WCFWebService
             //database implementation
 #endif
         }
+
+
 
         public List<string> getList()
         {
@@ -59,6 +63,8 @@ namespace WCFWebService
 #endif
             return productList;
         }
+
+
 
         public Cliente getCliente()
         {
@@ -127,6 +133,8 @@ namespace WCFWebService
 #endif
         }
 
+
+
         public string CancellaPrenotazione(int daEliminare)
         {
 
@@ -161,6 +169,8 @@ namespace WCFWebService
             }
             return noleggi;
         }
+
+
 
         public int[][] DisponibilitaAttrezzatura(DateTime date)
         {

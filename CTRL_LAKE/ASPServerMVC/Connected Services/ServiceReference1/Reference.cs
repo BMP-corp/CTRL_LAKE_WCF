@@ -733,18 +733,6 @@ namespace WebMVCTempl.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServices/CreaNoleggio", ReplyAction="http://tempuri.org/IServices/CreaNoleggioResponse")]
         System.Threading.Tasks.Task<string> CreaNoleggioAsync(string user, System.DateTime inizio, System.DateTime fine, string[] attr, int[] pers);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServices/DeleteUser", ReplyAction="http://tempuri.org/IServices/DeleteUserResponse")]
-        string DeleteUser(WebMVCTempl.ServiceReference1.UserAccount user);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServices/DeleteUser", ReplyAction="http://tempuri.org/IServices/DeleteUserResponse")]
-        System.Threading.Tasks.Task<string> DeleteUserAsync(WebMVCTempl.ServiceReference1.UserAccount user);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServices/getCliente", ReplyAction="http://tempuri.org/IServices/getClienteResponse")]
-        WebMVCTempl.ServiceReference1.Cliente getCliente();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServices/getCliente", ReplyAction="http://tempuri.org/IServices/getClienteResponse")]
-        System.Threading.Tasks.Task<WebMVCTempl.ServiceReference1.Cliente> getClienteAsync();
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServices/CancellaPrenotazione", ReplyAction="http://tempuri.org/IServices/CancellaPrenotazioneResponse")]
         string CancellaPrenotazione(int daEliminare);
         
@@ -756,6 +744,18 @@ namespace WebMVCTempl.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServices/GetPrenotazioni", ReplyAction="http://tempuri.org/IServices/GetPrenotazioniResponse")]
         System.Threading.Tasks.Task<WebMVCTempl.ServiceReference1.Noleggio[]> GetPrenotazioniAsync(string username);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServices/DeleteUser", ReplyAction="http://tempuri.org/IServices/DeleteUserResponse")]
+        string DeleteUser(WebMVCTempl.ServiceReference1.UserAccount user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServices/DeleteUser", ReplyAction="http://tempuri.org/IServices/DeleteUserResponse")]
+        System.Threading.Tasks.Task<string> DeleteUserAsync(WebMVCTempl.ServiceReference1.UserAccount user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServices/getCliente", ReplyAction="http://tempuri.org/IServices/getClienteResponse")]
+        WebMVCTempl.ServiceReference1.Cliente getCliente();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServices/getCliente", ReplyAction="http://tempuri.org/IServices/getClienteResponse")]
+        System.Threading.Tasks.Task<WebMVCTempl.ServiceReference1.Cliente> getClienteAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -825,22 +825,6 @@ namespace WebMVCTempl.ServiceReference1 {
             return base.Channel.CreaNoleggioAsync(user, inizio, fine, attr, pers);
         }
         
-        public string DeleteUser(WebMVCTempl.ServiceReference1.UserAccount user) {
-            return base.Channel.DeleteUser(user);
-        }
-        
-        public System.Threading.Tasks.Task<string> DeleteUserAsync(WebMVCTempl.ServiceReference1.UserAccount user) {
-            return base.Channel.DeleteUserAsync(user);
-        }
-        
-        public WebMVCTempl.ServiceReference1.Cliente getCliente() {
-            return base.Channel.getCliente();
-        }
-        
-        public System.Threading.Tasks.Task<WebMVCTempl.ServiceReference1.Cliente> getClienteAsync() {
-            return base.Channel.getClienteAsync();
-        }
-        
         public string CancellaPrenotazione(int daEliminare) {
             return base.Channel.CancellaPrenotazione(daEliminare);
         }
@@ -855,6 +839,22 @@ namespace WebMVCTempl.ServiceReference1 {
         
         public System.Threading.Tasks.Task<WebMVCTempl.ServiceReference1.Noleggio[]> GetPrenotazioniAsync(string username) {
             return base.Channel.GetPrenotazioniAsync(username);
+        }
+        
+        public string DeleteUser(WebMVCTempl.ServiceReference1.UserAccount user) {
+            return base.Channel.DeleteUser(user);
+        }
+        
+        public System.Threading.Tasks.Task<string> DeleteUserAsync(WebMVCTempl.ServiceReference1.UserAccount user) {
+            return base.Channel.DeleteUserAsync(user);
+        }
+        
+        public WebMVCTempl.ServiceReference1.Cliente getCliente() {
+            return base.Channel.getCliente();
+        }
+        
+        public System.Threading.Tasks.Task<WebMVCTempl.ServiceReference1.Cliente> getClienteAsync() {
+            return base.Channel.getClienteAsync();
         }
     }
 }
