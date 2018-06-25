@@ -22,6 +22,12 @@ namespace WCFWebService
         string Register(Cliente c, string pw);
 
         [OperationContract]
+        int[][] DisponibilitaAttrezzatura(DateTime date);
+
+        [OperationContract]
+        string CreaNoleggio(string user, DateTime inizio, DateTime fine, string[] attr, int[] pers);
+
+        [OperationContract]
         string DeleteUser(UserAccount user);
         [OperationContract]
         Cliente getCliente();
@@ -29,5 +35,8 @@ namespace WCFWebService
         string CancellaPrenotazione(int daEliminare);
         [OperationContract]
         List<Noleggio> GetPrenotazioni(string username);
+
+
+
     }
 }

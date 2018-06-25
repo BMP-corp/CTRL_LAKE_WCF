@@ -159,10 +159,19 @@ namespace WCFWebService
                 if (nol.Cliente.Username.Equals(username))
                     noleggi.Add(nol);
             }
-
             return noleggi;
-
         }
+
+        public int[][] DisponibilitaAttrezzatura(DateTime date)
+        {
+            return gpc.Enc.GetDisponibilita(date);
+        }
+
+        public string CreaNoleggio(string user, DateTime inizio, DateTime fine, string[] attr, int[] pers)
+        {
+            return gpc.Enc.CreaNoleggio(user, inizio, fine, attr, pers);
+        }
+
     }
 }
 

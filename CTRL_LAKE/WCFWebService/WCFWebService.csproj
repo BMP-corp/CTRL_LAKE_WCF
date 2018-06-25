@@ -127,6 +127,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\EffettuaNoloController.cs" />
     <Compile Include="Controllers\GestioneAttrezzaturaController.cs" />
     <Compile Include="Controllers\GestionePrenotazioniController.cs" />
     <Compile Include="Controllers\Interfaces\IGestionePrenotazioniController.cs" />

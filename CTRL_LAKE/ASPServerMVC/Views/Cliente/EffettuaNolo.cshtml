@@ -1,0 +1,181 @@
+﻿@{
+    Layout = null;
+    DateTime selectedDate = (DateTime) ViewData["SelectedData"];
+    string stringDate = "" + selectedDate.Year + "-";
+    if (selectedDate.Month < 10) { stringDate += "0"; }
+    stringDate += selectedDate.Month + "-" + selectedDate.Day;
+    var elenco = ViewData["MapAttrezzature"] as int[][];
+    TimeSpan inizio = new TimeSpan(9, 0, 0);
+}
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0">
+    <title>Noleggio Attrezzatura</title>
+    <link href="http://fonts.googleapis.com/css?family=Fauna+One:400,400|Yanone+Kaffeesatz:200|Kite+One:400|Ubuntu:300," rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/standardize.css">
+    <link rel="stylesheet" href="css/noleggio-grid.css">
+    <link rel="stylesheet" href="css/noleggio.css">
+    <script src="~/Scripts/utils.js" type="text/javascript"></script>
+    <script src="~/Scripts/effettuaNolo.js" type="text/javascript"></script>
+
+
+</head>
+<body class="body page-noleggio clearfix">
+    <div class="centrovelicostyle centrovelicoinsidestyle element element-1"></div>
+    <p class="centrovelicostyle centrovelicoinsidestyle text text-1"><span><b>PRENOTA NOLEGGIO</b></span></p>
+    <p class="centrovelicostyle centrovelicoinsidestyle text text-2">Di seguito potrai prenotare l'attrezzatura per la tua uscita al lago. Compila subito i campi sottostanti!&nbsp;</p>
+    <div class="container container-1 clearfix">
+        <form name="formdisp" action="/Cliente/EffettuaNolo" method="post">
+            <input type="hidden" name="formname" value="form1" readonly />
+            <p class="centrovelicostyle centrovelicoinsidestyle text text-3"><b>Data Noleggio:</b></p>
+            <div class="wrapper wrapper-1"><input id="data" name="data" type="date" value="@stringDate"> </div>
+            <input type="submit" value="Cerca" />
+        </form>
+    </div>
+    <div class="container container-2 clearfix">
+        <p class="centrovelicostyle centrovelicoinsidestyle text text-5">DISPONIBILIT&Agrave;:</p>
+        <div class="wrapper wrapper-3">
+            <style type="text/css">
+
+                .tg {
+                    border-collapse: collapse;
+                    border-spacing: 0;
+                    border-color: #aaa;
+                    width: 100%
+                }
+
+                    .tg td {
+                        font-family: Arial, sans-serif;
+                        font-size: 14px;
+                        padding: 10px 5px;
+                        border-style: solid;
+                        border-width: 1px;
+                        overflow: hidden;
+                        word-break: normal;
+                        border-color: #aaa;
+                        color: #333;
+                        background-color: #fff;
+                    }
+
+                    .tg th {
+                        font-family: Arial, sans-serif;
+                        font-size: 14px;
+                        font-weight: normal;
+                        padding: 10px 5px;
+                        border-style: solid;
+                        border-width: 1px;
+                        overflow: hidden;
+                        word-break: normal;
+                        border-color: #aaa;
+                        color: #fff;
+                        background-color: #f38630;
+                    }
+
+                    .tg .tg-baqh {
+                        text-align: center;
+                        vertical-align: top
+                    }
+
+                    .tg .tg-amwm {
+                        font-weight: bold;
+                        text-align: center;
+                        vertical-align: top
+                    }
+
+                    .tg .tg-yw4l {
+                        vertical-align: top
+                    }
+            </style>
+            <table class="tg">
+                <tr>
+                    <th class="tg-amwm">Orario</th>
+                    <th class="tg-amwm">Barche Disponibili</th>
+                    <th class="tg-amwm">Canoe Disponibili</th>
+                    <th class="tg-amwm">Windsurf Disponibili</th>
+                    <th class="tg-amwm">Sup Disponibili</th>
+                </tr>
+                @for (int i = 0; i < elenco.Length; i++)
+                {
+                    <tr>
+                        <td class="tg-baqh">@(inizio.Hours + i):00 - @(inizio.Hours + i + 1):00</td>
+                        @for (int k = 0; k < elenco[i].Length; k++)
+                        {
+                            <td class="tg-baqh">@elenco[i][k]</td>
+                        }
+                    </tr>
+                }
+            </table>
+        </div>
+        <button class="centrovelicostyle centrovelicoinsidestyle _button _button-1">Seleziona</button>
+    </div>
+    <div class="centrovelicostyle centrovelicoinsidestyle container container-3 clearfix">
+
+    </div>
+    <div class="container container-4 clearfix">
+        <p class="centrovelicostyle centrovelicoinsidestyle text text-9">AGGIUNTA ATTREZZATURA</p>
+        <div class="element element-3"></div>
+        <div class="container clearfix">
+            <label class="checkbox-label checkbox-label-1 clearfix">
+                <input class="checkbox" type="radio" name="toAdd">
+                <span class="point-text">Barca  &nbsp;</span>
+            </label>
+            <label class="text text-10">Persone: </label>
+            <input class="_select _select-1" id="pers_b" type="number" min="1" max="5" value="1" />
+            <button class="_button _button-3" onclick="aggiungiBarca(myGetElementById('pers_b').value, myGetElementById('riepilogoDiv'))">Aggiungi</button>
+            <br /><br />
+            <label class="checkbox-label checkbox-label-1 clearfix">
+                <input class="checkbox" type="radio" name="toAdd">
+                <span class="point-text">Canoa  &nbsp;</span>
+            </label>
+            <span class="text text-10">Persone: </span>
+            <input class="_select _select-1" id="pers_c" type="number" min="1" max="2" value="1" />
+            <button class="_button _button-3" onclick="aggiungiCanoa(myGetElementById('pers_c').value, myGetElementById('riepilogoDiv'))">Aggiungi</button>
+            <br /><br />
+            <label class="checkbox-label checkbox-label-1 clearfix">
+                <input class="checkbox" type="radio" name="toAdd">
+                <span class="point-text">Windsurf  &nbsp;</span>
+            </label>
+            <span class="text text-10">Persone: </span>
+            <input class="_select _select-1" id="pers_w" type="number" min="1" max="1" value="1" />
+            <button class="_button _button-3" onclick="aggiungiWindsurf(myGetElementById('pers_w').value, myGetElementById('riepilogoDiv'))">Aggiungi</button>
+            <br /><br />
+            <label class="checkbox-label checkbox-label-1 clearfix">
+                <input class="checkbox" type="radio" name="toAdd">
+                <span class="point-text">Sup  &nbsp;</span>
+            </label>
+            <span class="text text-10">Persone</span>
+            <input class="_select _select-1" id="pers_s" type="number" min="1" max="1" value="1" />
+            <button class="_button _button-3" onclick="aggiungiSup(myGetElementById('pers_s').value, myGetElementById('riepilogoDiv'))">Aggiungi</button>
+            <br />
+        </div>
+    </div>
+    <br />
+    <br />
+    <br />
+    <div class="container container-6 clearfix">
+        <form name="formnolo" action="/Cliente/EffettuaNolo" method="post">
+            <input type="hidden" name="formname" value="form2" readonly />
+            <input type="date" name="data" value="@stringDate" readonly />
+            <p class="centrovelicostyle centrovelicoinsidestyle text text-6">Seleziona l'orario:</p>
+            <div class="centrovelicostyle centrovelicoinsidestyle element element-2"></div>
+            <p class="centrovelicostyle centrovelicoinsidestyle text text-7"><b>Ora Inizio:</b></p>
+            <div class="centrovelicostyle centrovelicoinsidestyle wrapper wrapper-4"><input name="starttime" type="number" min="9" max="18" value="9" required /></div>
+            <p class="centrovelicostyle centrovelicoinsidestyle text text-8"><b>Ora Fine:</b></p>
+            <div class="wrapper wrapper-5"><input name="endtime" type="number" min="10" max="19" value="10" required /> </div>
+            <!-- <button class="centrovelicostyle centrovelicoinsidestyle _button _button-2">Filtra</button> -->
+
+            <p class="centrovelicostyle centrovelicoinsidestyle text text-12">RIEPLOGO:</p>
+            <div class="wrapper wrapper-6" id="riepilogoDiv"><input id="totali" name="totali" type="number" value="0" readonly /><br /></div>
+            <div class="element element-4"></div>
+            <p class="centrovelicostyle centrovelicoinsidestyle text text-13">TOTALE:</p>
+            <div class="wrapper wrapper-7"></div>
+            <input type="submit" value="Conferma" />
+        </form>
+
+    </div>
+    <button onClick="window.location='homecliente.html';" class="centrovelicostyle centrovelicoinsidestyle _button _button-7">Annulla</button>
+</body>
+</html>

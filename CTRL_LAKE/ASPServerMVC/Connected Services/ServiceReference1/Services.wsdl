@@ -5,6 +5,7 @@
       <xsd:import schemaLocation="http://localhost:52651/Services.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:52651/Services.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:52651/Services.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WCFWebService.Model" />
+      <xsd:import schemaLocation="http://localhost:52651/Services.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IServices_Login_InputMessage">
@@ -24,6 +25,18 @@
   </wsdl:message>
   <wsdl:message name="IServices_Register_OutputMessage">
     <wsdl:part name="parameters" element="tns:RegisterResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServices_DisponibilitaAttrezzatura_InputMessage">
+    <wsdl:part name="parameters" element="tns:DisponibilitaAttrezzatura" />
+  </wsdl:message>
+  <wsdl:message name="IServices_DisponibilitaAttrezzatura_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DisponibilitaAttrezzaturaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServices_CreaNoleggio_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreaNoleggio" />
+  </wsdl:message>
+  <wsdl:message name="IServices_CreaNoleggio_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreaNoleggioResponse" />
   </wsdl:message>
   <wsdl:message name="IServices_DeleteUser_InputMessage">
     <wsdl:part name="parameters" element="tns:DeleteUser" />
@@ -61,6 +74,14 @@
     <wsdl:operation name="Register">
       <wsdl:input wsaw:Action="http://tempuri.org/IServices/Register" message="tns:IServices_Register_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServices/RegisterResponse" message="tns:IServices_Register_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DisponibilitaAttrezzatura">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServices/DisponibilitaAttrezzatura" message="tns:IServices_DisponibilitaAttrezzatura_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServices/DisponibilitaAttrezzaturaResponse" message="tns:IServices_DisponibilitaAttrezzatura_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreaNoleggio">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServices/CreaNoleggio" message="tns:IServices_CreaNoleggio_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServices/CreaNoleggioResponse" message="tns:IServices_CreaNoleggio_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="DeleteUser">
       <wsdl:input wsaw:Action="http://tempuri.org/IServices/DeleteUser" message="tns:IServices_DeleteUser_InputMessage" />
@@ -101,6 +122,24 @@
     </wsdl:operation>
     <wsdl:operation name="Register">
       <soap:operation soapAction="http://tempuri.org/IServices/Register" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DisponibilitaAttrezzatura">
+      <soap:operation soapAction="http://tempuri.org/IServices/DisponibilitaAttrezzatura" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreaNoleggio">
+      <soap:operation soapAction="http://tempuri.org/IServices/CreaNoleggio" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

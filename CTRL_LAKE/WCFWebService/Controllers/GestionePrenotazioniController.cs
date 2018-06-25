@@ -20,13 +20,19 @@ namespace WCFWebService.Controllers
 
         private static int curr_id;
 
-        public HashSet<Lezione> ElencoLezioni { get => elencoLezioni; set => elencoLezioni = value; }
+        private EffettuaNoloController enc;
+
+        public HashSet<Lezione> ElencoLezioni { get => ElencoLezioni1; set => ElencoLezioni1 = value; }
         public HashSet<Attrezzatura> ElencoAttrezzatura { get => elencoAttrezzatura; set => elencoAttrezzatura = value; }
         public HashSet<Noleggio> ElencoNoleggi { get => elencoNoleggi; set => elencoNoleggi = value; }
+        public HashSet<Cliente> ElencoClienti { get => elencoClienti; set => elencoClienti = value; }
+        public HashSet<Lezione> ElencoLezioni1 { get => elencoLezioni; set => elencoLezioni = value; }
 
-        
+        public EffettuaNoloController Enc { get => enc; set => enc = value; }
+
         public GestionePrenotazioniController()
         {
+            Enc = new EffettuaNoloController(this);
             if (!initialized)
                 init();
         }
@@ -36,8 +42,8 @@ namespace WCFWebService.Controllers
             ElencoAttrezzatura.Add(a);
             ElencoAttrezzatura.Add(new Attrezzatura("barcaVela", NewId(), 5));
             ElencoAttrezzatura.Add(new Attrezzatura("canoa", NewId(), 2));
-            Cliente c = new Cliente("Michele", "Campa", "Cliente", new DateTime(1996, 8, 11), "mc@ampa.it", "123456789");
-            elencoClienti.Add(c);
+            Cliente c = new Cliente("Michele", "Campa", "michele.campa.19", new DateTime(1996, 8, 11), "mc@ampa.it", "123456789");
+            ElencoClienti.Add(c);
             Noleggio nol = new Noleggio(NewId(), c, new DateTime(2018, 6, 28, 10, 0, 0), new DateTime(2018, 6, 28, 11, 0, 0));
             nol.AddDettaglio(new DettaglioNoleggio(nol.Id, 4, a, 45, new DateTime(2018, 6, 28, 10, 0, 0), new DateTime(2018, 6, 28, 11, 0, 0), "mc@ampa.it"));
             ElencoNoleggi.Add(nol);

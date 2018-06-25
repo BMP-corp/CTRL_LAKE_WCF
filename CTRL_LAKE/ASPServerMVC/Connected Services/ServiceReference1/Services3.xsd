@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:52651/Services.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WCFWebService.Model" />
+  <xs:import schemaLocation="http://localhost:52651/Services.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
   <xs:element name="Login">
     <xs:complexType>
       <xs:sequence>
@@ -45,10 +46,42 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="DisponibilitaAttrezzatura">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="date" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DisponibilitaAttrezzaturaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="DisponibilitaAttrezzaturaResult" nillable="true" type="q4:ArrayOfArrayOfint" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreaNoleggio">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="user" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="inizio" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="fine" type="xs:dateTime" />
+        <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="attr" nillable="true" type="q5:ArrayOfstring" />
+        <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="pers" nillable="true" type="q6:ArrayOfint" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreaNoleggioResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CreaNoleggioResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="DeleteUser">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/WCFWebService.Model" minOccurs="0" name="user" nillable="true" type="q4:UserAccount" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/WCFWebService.Model" minOccurs="0" name="user" nillable="true" type="q7:UserAccount" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -67,7 +100,7 @@
   <xs:element name="getClienteResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/WCFWebService.Model" minOccurs="0" name="getClienteResult" nillable="true" type="q5:Cliente" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/WCFWebService.Model" minOccurs="0" name="getClienteResult" nillable="true" type="q8:Cliente" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -95,7 +128,7 @@
   <xs:element name="GetPrenotazioniResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/WCFWebService.Model" minOccurs="0" name="GetPrenotazioniResult" nillable="true" type="q6:ArrayOfNoleggio" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/WCFWebService.Model" minOccurs="0" name="GetPrenotazioniResult" nillable="true" type="q9:ArrayOfNoleggio" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

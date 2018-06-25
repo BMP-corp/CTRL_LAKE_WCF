@@ -194,10 +194,17 @@
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Connected Services\ServiceReference1\Services1.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\effettuaNolo.js" />
+    <Content Include="Scripts\gestioneAttrezzatura.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\utils.js" />
+    <Content Include="Views\Cliente\noleggio.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -360,6 +367,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Registrazione\Register.cshtml" />
+    <Content Include="Views\Cliente\EffettuaNolo.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

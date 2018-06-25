@@ -34,17 +34,16 @@ namespace WCFWebService.Model
         }
 
         
-        
         public virtual bool isCancellabile()
         {
             return (this._impegni.ProssimiImpegni() == 0);
         }
-
+        
         public virtual List<Impegno> elencaImpegni()
         {
             return this._impegni.Impegni;
         }
-
+        
         public virtual bool IsLibero (DateTime inizio, DateTime fine)
         {
             bool result = true;

@@ -721,6 +721,18 @@ namespace WebMVCTempl.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServices/Register", ReplyAction="http://tempuri.org/IServices/RegisterResponse")]
         System.Threading.Tasks.Task<string> RegisterAsync(WebMVCTempl.ServiceReference1.Cliente c, string pw);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServices/DisponibilitaAttrezzatura", ReplyAction="http://tempuri.org/IServices/DisponibilitaAttrezzaturaResponse")]
+        int[][] DisponibilitaAttrezzatura(System.DateTime date);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServices/DisponibilitaAttrezzatura", ReplyAction="http://tempuri.org/IServices/DisponibilitaAttrezzaturaResponse")]
+        System.Threading.Tasks.Task<int[][]> DisponibilitaAttrezzaturaAsync(System.DateTime date);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServices/CreaNoleggio", ReplyAction="http://tempuri.org/IServices/CreaNoleggioResponse")]
+        string CreaNoleggio(string user, System.DateTime inizio, System.DateTime fine, string[] attr, int[] pers);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServices/CreaNoleggio", ReplyAction="http://tempuri.org/IServices/CreaNoleggioResponse")]
+        System.Threading.Tasks.Task<string> CreaNoleggioAsync(string user, System.DateTime inizio, System.DateTime fine, string[] attr, int[] pers);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServices/DeleteUser", ReplyAction="http://tempuri.org/IServices/DeleteUserResponse")]
         string DeleteUser(WebMVCTempl.ServiceReference1.UserAccount user);
         
@@ -795,6 +807,22 @@ namespace WebMVCTempl.ServiceReference1 {
         
         public System.Threading.Tasks.Task<string> RegisterAsync(WebMVCTempl.ServiceReference1.Cliente c, string pw) {
             return base.Channel.RegisterAsync(c, pw);
+        }
+        
+        public int[][] DisponibilitaAttrezzatura(System.DateTime date) {
+            return base.Channel.DisponibilitaAttrezzatura(date);
+        }
+        
+        public System.Threading.Tasks.Task<int[][]> DisponibilitaAttrezzaturaAsync(System.DateTime date) {
+            return base.Channel.DisponibilitaAttrezzaturaAsync(date);
+        }
+        
+        public string CreaNoleggio(string user, System.DateTime inizio, System.DateTime fine, string[] attr, int[] pers) {
+            return base.Channel.CreaNoleggio(user, inizio, fine, attr, pers);
+        }
+        
+        public System.Threading.Tasks.Task<string> CreaNoleggioAsync(string user, System.DateTime inizio, System.DateTime fine, string[] attr, int[] pers) {
+            return base.Channel.CreaNoleggioAsync(user, inizio, fine, attr, pers);
         }
         
         public string DeleteUser(WebMVCTempl.ServiceReference1.UserAccount user) {

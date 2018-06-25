@@ -86,7 +86,7 @@
                     }
             </style>
 
-            <form id="grid" action="/GestionePrenotazioni/HomeCliente?username=@cliente.Username" method="post">
+            <form id="grid" action="/Cliente/HomeCliente?username=@Session["Username"] method="post">
                 <table class="tg">
                     <tr>
                         <th class="tg-amwm">Data</th>
@@ -130,7 +130,7 @@
         <p class="text text-4">Per cancellare una prenotazione, selezionala tramite l'apposita spunta</p>
     </div>
     <div class="container container-2 clearfix">
-        <button onClick="window.location='noleggio.html';" class="_button _button-2">Prenota Noleggio</button>
+        <button class="_button _button-2"><a href="/Cliente/EffettuaNolo">Prenota Noleggio</a></button>
         <button onClick="window.location='prenotalezione.html';" class="_button _button-3">Prenota Lezione</button>
         <button onClick="window.location='modificapw.html';" class="_button _button-5">Modifica Password</button>
     </div>
