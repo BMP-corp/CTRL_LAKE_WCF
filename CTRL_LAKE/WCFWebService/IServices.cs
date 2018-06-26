@@ -36,11 +36,16 @@ namespace WCFWebService
         [OperationContract]
         List<string[]> GetLezioni(string username);
 
+        [OperationContract]
+        List<string>[] DisponibilitaIstruttori(DateTime date, string attivita);
+
+        [OperationContract]
+        Cliente GetCliente(string username);
+
         //////////////
         [OperationContract]
         string DeleteUser(UserAccount user);
-        [OperationContract]
-        Cliente getCliente();
+        
         
         
 

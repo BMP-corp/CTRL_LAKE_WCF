@@ -87,10 +87,10 @@ namespace WCFWebService.Model
             bool result = true;
             Impegno richiesto = null;
             if (Orario.Equals("mattina")
-                && fine.TimeOfDay.CompareTo(new TimeSpan(14, 0, 0)) >= 0)
+                && fine.TimeOfDay.CompareTo(new TimeSpan(14, 0, 0)) > 0)
                 return false;
             if (Orario.Equals("pomeriggio")
-                && inizio.TimeOfDay.CompareTo(new TimeSpan(14, 0, 0)) <= 0)
+                && inizio.TimeOfDay.CompareTo(new TimeSpan(14, 0, 0)) < 0)
                 return false;
             try
             {

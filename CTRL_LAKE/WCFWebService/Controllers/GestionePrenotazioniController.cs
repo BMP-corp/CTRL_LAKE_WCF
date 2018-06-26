@@ -21,17 +21,21 @@ namespace WCFWebService.Controllers
         private static int curr_id;
 
         private EffettuaNoloController enc;
+        private PrenotazioneLezioneController plc;
 
         public HashSet<Lezione> ElencoLezioni { get => elencoLezioni; set => elencoLezioni = value; }
         public HashSet<Attrezzatura> ElencoAttrezzatura { get => elencoAttrezzatura; set => elencoAttrezzatura = value; }
         public HashSet<Noleggio> ElencoNoleggi { get => elencoNoleggi; set => elencoNoleggi = value; }
         public HashSet<Cliente> ElencoClienti { get => elencoClienti; set => elencoClienti = value; }
+        public HashSet<Istruttore> ElencoIstruttori { get => elencoIstruttori; set => elencoIstruttori = value; }
 
         public EffettuaNoloController Enc { get => enc; set => enc = value; }
-
+        public PrenotazioneLezioneController Plc { get => plc; set => plc = value; }
+        
         public GestionePrenotazioniController()
         {
             Enc = new EffettuaNoloController(this);
+            Plc = new PrenotazioneLezioneController(this);
             if (!initialized)
                 init();
         }
@@ -48,7 +52,7 @@ namespace WCFWebService.Controllers
             ElencoNoleggi.Add(nol);
             Istruttore istr = new Istruttore("Francesco", "Mazzu", "francesco.mazzu.5678",
                 new DateTime(1996,4,1,0,0,0), "framaz@gmail.com", "3334456789", "fakeIban", "barcaVela", "mattina");
-            elencoIstruttori.Add(istr);
+            ElencoIstruttori.Add(istr);
             ElencoLezioni.Add(new Lezione(NewId(),istr, new DateTime(2018, 6, 29, 9, 0, 0), new DateTime(2018, 6, 29, 11, 0, 0), 1, c));
             initialized = true;
         }

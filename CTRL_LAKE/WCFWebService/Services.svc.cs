@@ -66,14 +66,15 @@ namespace WCFWebService
 
 
 
-        public Cliente getCliente()
+        public Cliente GetCliente(string username)
         {
-#if MOCK
-            Cliente c = new Cliente("Luca", "Braga", "luca.braga.21", new DateTime(2015, 05, 05), "bella@tin.it", "3478478002");
+            Cliente c = null;
+            foreach (Cliente c1 in gpc.ElencoClienti)
+                if (c1.Username == username)
+                {
+                    c = c1; break;
+                }
             return c;
-#else
-            //database implementation
-#endif
         }
 
 //        public UserAccount Login(String username)
@@ -212,6 +213,11 @@ namespace WCFWebService
         public int[][] DisponibilitaAttrezzatura(DateTime date)
         {
             return gpc.Enc.GetDisponibilita(date);
+        }
+
+        public List<string>[] DisponibilitaIstruttori(DateTime date, string attivita)
+        {
+            return gpc.Plc.GetDisponibilitaIstruttori(date, attivita);
         }
 
         public string CreaNoleggio(string user, DateTime inizio, DateTime fine, string[] attr, int[] pers)
