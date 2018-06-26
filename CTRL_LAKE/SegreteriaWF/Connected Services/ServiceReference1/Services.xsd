@@ -1,175 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:49920/Services.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WCFWebService.Model" />
-  <xs:import schemaLocation="http://localhost:49920/Services.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
-  <xs:element name="Login">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="LoginResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/WCFWebService.Model" minOccurs="0" name="LoginResult" nillable="true" type="q1:Credenziali" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetUser">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetUserResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/WCFWebService.Model" minOccurs="0" name="GetUserResult" nillable="true" type="q2:UserAccount" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="Register">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/WCFWebService.Model" minOccurs="0" name="c" nillable="true" type="q3:Cliente" />
-        <xs:element minOccurs="0" name="pw" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="RegisterResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="RegisterResult" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="DisponibilitaAttrezzatura">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="date" type="xs:dateTime" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="DisponibilitaAttrezzaturaResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="DisponibilitaAttrezzaturaResult" nillable="true" type="q4:ArrayOfArrayOfint" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="CreaNoleggio">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="user" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="inizio" type="xs:dateTime" />
-        <xs:element minOccurs="0" name="fine" type="xs:dateTime" />
-        <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="attr" nillable="true" type="q5:ArrayOfstring" />
-        <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="pers" nillable="true" type="q6:ArrayOfint" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="CreaNoleggioResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="CreaNoleggioResult" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="CancellaPrenotazione">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="daEliminare" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="CancellaPrenotazioneResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="CancellaPrenotazioneResult" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetPrenotazioni">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetPrenotazioniResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/WCFWebService.Model" minOccurs="0" name="GetPrenotazioniResult" nillable="true" type="q7:ArrayOfNoleggio" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetLezioni">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetLezioniResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetLezioniResult" nillable="true" type="q8:ArrayOfArrayOfstring" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetListLezioni">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetListLezioniResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/WCFWebService.Model" minOccurs="0" name="GetListLezioniResult" nillable="true" type="q9:ArrayOfLezione" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="DeleteUser">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/WCFWebService.Model" minOccurs="0" name="user" nillable="true" type="q10:UserAccount" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="DeleteUserResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="DeleteUserResult" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="getCliente">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="getClienteResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/WCFWebService.Model" minOccurs="0" name="getClienteResult" nillable="true" type="q11:Cliente" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetString">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetStringResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="GetStringResult" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/WCFWebService.Model" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/WCFWebService.Model" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="Credenziali">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ruolo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Credenziali" nillable="true" type="tns:Credenziali" />
+  <xs:complexType name="UserAccount">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AccountRole" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Cognome" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Nome" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Telefono" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserAccount" nillable="true" type="tns:UserAccount" />
+  <xs:complexType name="Cliente">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Cognome" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DataNascita" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Nome" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Telefono" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Cliente" nillable="true" type="tns:Cliente" />
+  <xs:complexType name="ArrayOfNoleggio">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Noleggio" nillable="true" type="tns:Noleggio" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfNoleggio" nillable="true" type="tns:ArrayOfNoleggio" />
+  <xs:complexType name="Noleggio">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Cliente" nillable="true" type="tns:Cliente" />
+      <xs:element minOccurs="0" name="ElencoDettagli" nillable="true" type="tns:ArrayOfDettaglioNoleggio" />
+      <xs:element minOccurs="0" name="Fine" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Inizio" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Noleggio" nillable="true" type="tns:Noleggio" />
+  <xs:complexType name="ArrayOfDettaglioNoleggio">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DettaglioNoleggio" nillable="true" type="tns:DettaglioNoleggio" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDettaglioNoleggio" nillable="true" type="tns:ArrayOfDettaglioNoleggio" />
+  <xs:complexType name="DettaglioNoleggio">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Attrezzatura" nillable="true" type="tns:Attrezzatura" />
+      <xs:element minOccurs="0" name="Costo" type="xs:double" />
+      <xs:element minOccurs="0" name="Fine" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="IdAttrezzatura" type="xs:int" />
+      <xs:element minOccurs="0" name="Inizio" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Utilizzatori" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DettaglioNoleggio" nillable="true" type="tns:DettaglioNoleggio" />
+  <xs:complexType name="Attrezzatura">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IdAttrezzatura" type="xs:int" />
+      <xs:element minOccurs="0" name="Impegni" nillable="true" type="tns:CalendarioImpegni" />
+      <xs:element minOccurs="0" name="Posti" type="xs:int" />
+      <xs:element minOccurs="0" name="Tipo" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Attrezzatura" nillable="true" type="tns:Attrezzatura" />
+  <xs:complexType name="CalendarioImpegni">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id_user" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Impegni" nillable="true" type="tns:ArrayOfImpegno" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CalendarioImpegni" nillable="true" type="tns:CalendarioImpegni" />
+  <xs:complexType name="ArrayOfImpegno">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Impegno" nillable="true" type="tns:Impegno" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfImpegno" nillable="true" type="tns:ArrayOfImpegno" />
+  <xs:complexType name="Impegno">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Fine" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id_user" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Inizio" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Impegno" nillable="true" type="tns:Impegno" />
+  <xs:complexType name="ArrayOfLezione">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Lezione" nillable="true" type="tns:Lezione" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLezione" nillable="true" type="tns:ArrayOfLezione" />
+  <xs:complexType name="Lezione">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Cliente" nillable="true" type="tns:Cliente" />
+      <xs:element minOccurs="0" name="Costo" type="xs:double" />
+      <xs:element minOccurs="0" name="Fine" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Inizio" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Istruttore" nillable="true" type="tns:Istruttore" />
+      <xs:element minOccurs="0" name="Partecipanti" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Lezione" nillable="true" type="tns:Lezione" />
+  <xs:complexType name="Istruttore">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Attivita" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Cognome" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DataNascita" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Iban" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Impegni" nillable="true" type="tns:CalendarioImpegni" />
+      <xs:element minOccurs="0" name="Nome" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Orario" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Telefono" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Istruttore" nillable="true" type="tns:Istruttore" />
 </xs:schema>

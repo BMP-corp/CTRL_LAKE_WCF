@@ -53,6 +53,8 @@ namespace WCFWebService.Controllers
             Istruttore istr = new Istruttore("Francesco", "Mazzu", "francesco.mazzu.5678",
                 new DateTime(1996,4,1,0,0,0), "framaz@gmail.com", "3334456789", "fakeIban", "barcaVela", "mattina");
             ElencoIstruttori.Add(istr);
+            ElencoIstruttori.Add(new Istruttore("Andrew", "Smith", "andrew.smith.1938",
+                new DateTime(1992, 6, 12, 0, 0, 0), "asmith19@gmail.com", "329341938", "fakeIban2", "windsurf", "pomeriggio"));
             ElencoLezioni.Add(new Lezione(NewId(),istr, new DateTime(2018, 6, 29, 9, 0, 0), new DateTime(2018, 6, 29, 11, 0, 0), 1, c));
             initialized = true;
         }

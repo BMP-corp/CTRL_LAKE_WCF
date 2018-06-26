@@ -3,7 +3,9 @@
     DateTime selectedDate = (DateTime) ViewData["SelectedData"];
     string stringDate = "" + selectedDate.Year + "-";
     if (selectedDate.Month < 10) { stringDate += "0"; }
-    stringDate += selectedDate.Month + "-" + selectedDate.Day;
+    stringDate += selectedDate.Month + "-";
+    if (selectedDate.Day < 10) { stringDate += "0"; }
+    stringDate += selectedDate.Day;
     var elenco = ViewData["MapAttrezzature"] as int[][];
     TimeSpan inizio = new TimeSpan(9, 0, 0);
 }
@@ -109,7 +111,6 @@
                 }
             </table>
         </div>
-        <button class="centrovelicostyle centrovelicoinsidestyle _button _button-1">Seleziona</button>
     </div>
     <div class="centrovelicostyle centrovelicoinsidestyle container container-3 clearfix">
 
@@ -170,12 +171,15 @@
             <p class="centrovelicostyle centrovelicoinsidestyle text text-12">RIEPLOGO:</p>
             <div class="wrapper wrapper-6" id="riepilogoDiv"><input id="totali" name="totali" type="number" value="0" readonly /><br /></div>
             <div class="element element-4"></div>
+            <hr />
             <p class="centrovelicostyle centrovelicoinsidestyle text text-13">TOTALE:</p>
             <div class="wrapper wrapper-7"></div>
             <input type="submit" value="Conferma" />
+
+            <span>&nbsp;&nbsp;</span>
+            <button class="centrovelicostyle centrovelicoinsidestyle _button _button-7"><a href="/Cliente/HomeCliente">Annulla</a></button>
         </form>
 
     </div>
-    <button onClick="window.location='homecliente.html';" class="centrovelicostyle centrovelicoinsidestyle _button _button-7">Annulla</button>
 </body>
 </html>

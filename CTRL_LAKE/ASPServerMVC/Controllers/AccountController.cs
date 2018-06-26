@@ -78,91 +78,11 @@ namespace WebMVCTempl.Controllers
                         ModelState.AddModelError("", "Username o Password errati.");
 
                     }
-                    //Session["Username"] = user.Username.ToString();
-                    //if (usr.AccountRole == "Cliente")
-                    //    return RedirectToAction("../Cliente/HomeCliente");
-                    //else if (usr.AccountRole == "Istruttore")
-                    //    return RedirectToAction("../Istruttore/HomeIstruttore");
-                    //else if (usr.AccountRole == "Admin")
-                    //    return RedirectToAction("../Admin/HomeAmministratore");
-                    //else if (usr.AccountRole == "Segreteria")
-                    //    return RedirectToAction("../Segreteria/HomeSegreteria");
-                    //else if (usr.AccountRole == "Bar")
-                    //    return RedirectToAction("../Bar/HomeBar");
-                    //else ModelState.AddModelError("", "Utente non assegnato. Chi diavolo sei? Contatta subito l'Amministratore!");
-
                 }
             }
             return View();
         }
 
-        //metodo POST per effettuare il login
-        //[HttpPost]
-        //public ActionResult Login()
-        //{   //LOCALDB
-            //using (OurDbContext db = new OurDbContext())
-            //{
-            //    var usr = db.UserAccount.Single(u => u.Username == user.Username && u.Password == user.Password);
-            //    if (usr != null)
-            //    {
-            //        //Session["UserID"] = user.UserID.ToString();
-            //        Session["Username"] = user.Username.ToString();
-            //        return RedirectToAction("LoggedIn");
-            //    }
-            //    else
-            //    {
-            //        ModelState.AddModelError("", "Username or Password errati.");
-            //    }
-            //}
-            //string username = Request.Form["username"];
-            //string password = Request.Form["password"];
-            //if (username != null && password != null)
-            //{
-            //    Credenziali account = webClient.Login(username, password);
-            //}
 
-            //    if (username != null)
-            //{
-            //    UserAccount usr = webClient.Login(user.Username);
-            //    if (usr != null)
-            //    {
-            //        Session["Username"] = user.Username.ToString();
-            //        if (usr.AccountRole == "Cliente")
-            //            return RedirectToAction("../Cliente/HomeCliente");
-            //        else if (usr.AccountRole == "Istruttore")
-            //            return RedirectToAction("../Istruttore/HomeIstruttore");
-            //        else if (usr.AccountRole == "Admin")
-            //            return RedirectToAction("../Admin/HomeAmministratore");
-            //        else if (usr.AccountRole == "Segreteria")
-            //            return RedirectToAction("../Segreteria/HomeSegreteria");
-            //        else if (usr.AccountRole == "Bar")
-            //            return RedirectToAction("../Bar/HomeBar");
-            //        else ModelState.AddModelError("", "Utente non assegnato. Chi diavolo sei? Contatta subito l'Amministratore!");
-            //    }
-            //    else
-            //    {
-            //        ModelState.AddModelError("", "Username or Password errati. Sforzati un po'.");
-            //    }
-            //}
-        //    return View();
-        //}
-
-
-        //TODO MM$ DA SISTEMARE: non riceve nessun tipo di account, quindi non può rimuoverlo
-        //    public ActionResult DeleteUser(UserAccount account)
-        //    {
-        //        if (ModelState.IsValid)
-        //        {
-        //            using (OurDbContext db = new OurDbContext())
-        //            {
-        //                db.UserAccount.Remove(account);
-        //                db.SaveChanges();
-
-        //            }
-        //            ModelState.Clear(); //pulisce il contenuto di tutti gli input controls 
-        //            ViewBag.Message ="Account " + account.Username + ":" + account.Username + " Rimosso Correttamente.";
-        //        }
-        //        return RedirectToAction("Index");
-        //    }
     }
 }

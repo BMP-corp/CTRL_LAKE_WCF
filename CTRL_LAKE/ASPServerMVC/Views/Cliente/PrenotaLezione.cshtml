@@ -1,33 +1,44 @@
 ﻿@{
-        Layout = null;
-        DateTime selectedDate = (DateTime)ViewData["SelectedData"];
-        string selectedActivity = (string)ViewData["SelectedActivity"];
-        string stringDate = "" + selectedDate.Year + "-";
-        if (selectedDate.Month < 10) { stringDate += "0"; }
-        stringDate += selectedDate.Month + "-" + selectedDate.Day;
-        var elencoIstruttori = ViewData["MapIstruttori"] as string[][];
-        var elencoAttrezzature = ViewData["MapAttrezzature"] as int[][];
-        TimeSpan inizio = new TimeSpan(9, 0, 0);
+    Layout = null;
+    DateTime selectedDate = (DateTime)ViewData["SelectedData"];
+    string selectedActivity = (string)ViewData["SelectedActivity"];
+    string stringDate = "" + selectedDate.Year + "-";
+    if (selectedDate.Month < 10) { stringDate += "0"; }
+    stringDate += selectedDate.Month + "-";
+    if (selectedDate.Day < 10) { stringDate += "0"; }
+    stringDate += selectedDate.Day;
+    var elencoIstruttori = ViewData["MapIstruttori"] as string[][];
+    var elencoAttrezzature = ViewData["MapAttrezzature"] as int[][];
+    TimeSpan inizio = new TimeSpan(9, 0, 0);
 
-        int[] attrByTipo(int type) //0:barcaVela, 1:canoa, 2:windsur, 3:canoa
-        {                           //estraggo le disponibilità del solo tipo di attrezzatura che mi interessa
-            int[] res = new int[10];
-            for (int i=0; i<10; i++)
-            {
-                res[i] = elencoAttrezzature[i][type];
-            }
-            return res;
-        }
-
-        string attrPlurale = null;
-        int[] attrDisp=null;
-        switch (selectedActivity)
+    int[] attrByTipo(int type) //0:barcaVela, 1:canoa, 2:windsur, 3:canoa
+    {                           //estraggo le disponibilità del solo tipo di attrezzatura che mi interessa
+        int[] res = new int[10];
+        for (int i=0; i<10; i++)
         {
-            case ("barcaVela"): attrPlurale = "Barche a Vela"; attrDisp = attrByTipo(0);  break;
-            case ("canoa"): attrPlurale = "Canoe"; attrDisp = attrByTipo(1); break;
-            case ("windsurf"): attrPlurale = "Windsurf"; attrDisp = attrByTipo(2); break;
-            case ("sup"): attrPlurale = "Sup"; attrDisp = attrByTipo(3); break;
+            res[i] = elencoAttrezzature[i][type];
         }
+        return res;
+    }
+
+    HashSet<string> setIstr = new HashSet<string>(); //set per riempire la combo box selezione cliente
+    foreach (string[] j in elencoIstruttori) {
+        foreach (string k in j)
+        {
+            setIstr.Add(k);
+        }
+    }
+
+    string attrPlurale = null;
+    int[] attrDisp=null;
+    switch (selectedActivity)
+    {
+        case ("barcaVela"): attrPlurale = "Barche a Vela"; attrDisp = attrByTipo(0);  break;
+        case ("canoa"): attrPlurale = "Canoe"; attrDisp = attrByTipo(1); break;
+        case ("windsurf"): attrPlurale = "Windsurf"; attrDisp = attrByTipo(2); break;
+        case ("sup"): attrPlurale = "Sup"; attrDisp = attrByTipo(3); break;
+    }
+
     }
 
 
@@ -138,52 +149,42 @@
                 }
             </table>
         </div>
-        <p class="centrovelicostyle centrovelicoinsidestyle text text-6">Partecipanti max (1-5)</p>
-        <select class="centrovelicostyle centrovelicoinsidestyle _select _select-2" name="Quantity">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-        </select>
-        <button class="centrovelicostyle centrovelicoinsidestyle _button _button-1">Conferma</button>
+        
+        
     </div>
     <div class="centrovelicostyle centrovelicoinsidestyle container container-3 clearfix">
-        <p class="centrovelicostyle centrovelicoinsidestyle text text-7">DETTAGLI</p>
+        <p style="font-size: 22pt" class="centrovelicostyle centrovelicoinsidestyle text text-7">PRENOTA</p>
+        <q style="font-size: 16pt">Si ricorda che è possibile prenotare una lezione solamente in ore contigue e con lo stesso istruttore.</q>
         <div class="centrovelicostyle centrovelicoinsidestyle element element-2"></div>
-        <p class="centrovelicostyle centrovelicoinsidestyle text text-8">Numero attrezzature:</p>
-        <p class="centrovelicostyle centrovelicoinsidestyle text text-9"><b>x</b></p>
-        <p class="centrovelicostyle centrovelicoinsidestyle text text-10">Preferenza istruttore:</p>
-        <label class="radio-label radio-label-1 clearfix">
-            <input class="radio" type="radio">
-            <span class="point-text">Si</span>
-        </label>
-        <label class="radio-label radio-label-2 clearfix">
-            <input class="radio" type="radio">
-            <span class="point-text">No</span>
-        </label>
-        <p class="centrovelicostyle centrovelicoinsidestyle text text-11">Seleziona Istruttore:</p>
-        <select id="selezIstrPLez" class="_select _select-3" name="SelezIstrPLez">
-            <option value="Luigi">Luigi</option>
-        </select>
-        <p class="centrovelicostyle centrovelicoinsidestyle text text-12">Desidera noleggiare l'attrezzatura?</p>
-        <label class="radio-label radio-label-3 clearfix">
-            <input class="radio" type="radio">
-            <span class="point-text">Si</span>
-        </label>
-        <label class="radio-label radio-label-4 clearfix">
-            <input class="radio" type="radio">
-            <span class="point-text">No</span>
-        </label>
-        <button class="centrovelicostyle centrovelicoinsidestyle _button _button-2">Conferma</button>
+        <form name="form2" action="/Cliente/PrenotaLezione" method="post">
+
+            <input type="hidden" name="formname" value="form2" readonly />
+            <input type="date" name="data" value="@stringDate" readonly />
+
+            <label class="centrovelicostyle centrovelicoinsidestyle text text-7"><b>Ora Inizio: </b></label>
+            <span class="centrovelicostyle centrovelicoinsidestyle wrapper wrapper-4"><input name="starttime" type="number" min="9" max="18" value="9" required /></span>
+            <label class="centrovelicostyle centrovelicoinsidestyle text text-8"><b>Ora Fine:   </b></label>
+            <span class="wrapper wrapper-5"><input name="endtime" type="number" min="10" max="19" value="10" required /></span>
+
+            <label class="centrovelicostyle centrovelicoinsidestyle text text-6">Partecipanti:  </label>
+            <input type="number" name="partecipanti" min="1" max="5" value="1" required />
+
+            <label class="centrovelicostyle centrovelicoinsidestyle text text-10">Selezione istruttore: </label>
+            <select name="nomeistr" required>
+                @foreach (string nome in setIstr)
+        {
+            <option value="@nome">@nome</option>
+}
+            </select>
+            <input type="hidden" name="attivita" value="@selectedActivity" readonly/>
+
+            <hr/>
+            <div class="centrovelicostyle centrovelicoinsidestyle wrapper wrapper-4"><text>TOTALE: 0.00€</text></div>
+            <input type="submit" value="Conferma" />
+        </form>
     </div>
-    <div class="centrovelicostyle centrovelicoinsidestyle container container-4 clearfix">
-        <p class="centrovelicostyle centrovelicoinsidestyle text text-13">RIEPLOGO:</p>
-        <div class="centrovelicostyle centrovelicoinsidestyle wrapper wrapper-3"><text>Riepilogo Costi</text></div>
-        <div class="centrovelicostyle centrovelicoinsidestyle element element-3"></div>
-        <p class="centrovelicostyle centrovelicoinsidestyle text text-14">TOTALE:</p>
-        <div class="centrovelicostyle centrovelicoinsidestyle wrapper wrapper-4"><text>TOTALE: 0.00€</text></div>
-    </div>
-    <button class="centrovelicostyle centrovelicoinsidestyle _button _button-3">Annulla</button>
-    <button onClick="window.location='homecliente.html';" class="centrovelicostyle centrovelicoinsidestyle _button _button-4">Prenota</button>
+    <br/><br/>
+    <button class="centrovelicostyle centrovelicoinsidestyle _button _button-3"><a href="/Cliente/HomeCliente">Annulla</a></button>
     <div class="container container-5"></div>
 </body>
 </html>

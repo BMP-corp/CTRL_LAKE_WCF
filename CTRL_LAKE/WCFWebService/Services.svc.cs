@@ -238,7 +238,10 @@ namespace WCFWebService
             return gpc.Enc.CreaNoleggio(user, inizio, fine, attr, pers);
         }
 
-
+        public string CreaLezione(string username, DateTime inizio, DateTime fine, string istr, int persone, string attivita)
+        {
+            return gpc.Plc.CreaLezione(username, inizio, fine, istr, persone, attivita);
+        }
     }
 }
 

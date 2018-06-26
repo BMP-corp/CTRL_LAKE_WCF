@@ -112,24 +112,19 @@ namespace WebMVCTempl.Controllers
                     ViewData["SelectedActivity"] = attivita;
                     return View();
                 }
-                else ///richiesta per effettuare il noleggio
+                else ///richiesta per effettuare il noleggio (da form2)
                 {
                     DateTime date = DateTime.Parse(Request.Form["data"]);
                     int start = Int32.Parse(Request.Form["starttime"]);
                     int end = Int32.Parse(Request.Form["endtime"]);
+                    string istr = Request.Form["nomeistr"];
                     DateTime inizio = new DateTime(date.Year, date.Month, date.Day, start, 0, 0);
                     DateTime fine = new DateTime(date.Year, date.Month, date.Day, end, 0, 0);
-                    int numDettagli = Int32.Parse(Request.Form["totali"]);
-                    string[] tipoAttr = new string[numDettagli];
-                    int[] numPersone = new int[numDettagli];
-                    string user = (string)Session["Username"];
-                    for (int i = 0; i < numDettagli; i++)
-                    {
-                        tipoAttr[i] = Request.Form["attr" + i];
-                        numPersone[i] = Int32.Parse(Request.Form["pers" + i]);
-                    }
+                    int partecipanti = Int32.Parse(Request.Form["partecipanti"]);
+                    string attivita = Request.Form["attivita"];
+
                     /*******/
-                    string message = webClient.CreaNoleggio((string)Session["Username"], inizio, fine, tipoAttr, numPersone);
+                    string message = webClient.CreaLezione((string)Session["Username"],inizio,fine,istr,partecipanti, attivita);
                     /*******/
                     TempData["Message"] = message;
                     return RedirectToAction("../Cliente/HomeCliente");
@@ -143,8 +138,6 @@ namespace WebMVCTempl.Controllers
                 ViewData["SelectedActivity"] = "barcaVela";
                 return View();
             }
-
-            return View();
         }
     }
 

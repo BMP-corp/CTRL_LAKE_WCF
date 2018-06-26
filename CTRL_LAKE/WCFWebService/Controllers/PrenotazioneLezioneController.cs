@@ -25,27 +25,44 @@ namespace WCFWebService.Controllers
         //}
         
 
-        public Lezione creaLezione(DateTime inizio, DateTime fine, Cliente c, Istruttore i, int partecipanti, int id)
+        public string CreaLezione(string username, DateTime inizio, DateTime fine, string istr, int persone, string attivita)
         {
-
+            string result = "";
             Lezione lezione = null;
             try
             {
-                lezione = new Lezione(gpc.NewId(), i, inizio, fine, partecipanti, c);
+                Istruttore istruttore = null;
+                Cliente c = null;
+                foreach (Istruttore i2 in gpc.ElencoIstruttori)
+                {
+                    if (i2.Nome == istr
+                        && i2.IsLibero(inizio, fine)
+                        && i2.Attivita == attivita)
+                    {
+                        istruttore = i2; break;
+                    }
+                }
+                foreach (Cliente c2 in gpc.ElencoClienti)
+                {
+                    if (c2.Username == username)
+                    {
+                        c = c2; break;
+                    }
+                }
+                lezione = new Lezione(gpc.NewId(), istruttore, inizio, fine, persone, c);
                 /*operazione di retrieve del costo della lezione*/ double costo = 30;
                 lezione.Costo = costo;
-                gpc.ElencoLezioni.Add(lezione); //qui o in GestionePrenotazioniController?
+                gpc.ElencoLezioni.Add(lezione); //MOCK (no DB)
+                result = "La tua prenotazione è stata completata!";
             } catch (Exception e)
             {
-                Console.WriteLine(e.StackTrace);
+                Console.WriteLine(e);
+                result = "Si è verificato un errore, la tua prenotazione non è andata a buon fine.\n" +
+                    "Controlla di non aver richiesto un istruttore non disponibile.";
             }
-            return lezione;
+            return result;
         }
-
-        public void eliminaLezione(int id)
-        {
-            throw new NotImplementedException();
-        }
+        
 
         //public Dictionary<int, List<Attrezzatura>> mostraDisponibilitaAttrezzatura(DateTime giorno, string tipo)
         //{

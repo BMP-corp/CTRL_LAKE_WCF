@@ -44,11 +44,12 @@ namespace WCFWebService
         [OperationContract]
         Cliente GetCliente(string username);
 
+        [OperationContract]
+        string CreaLezione(string username, DateTime inizio, DateTime fine, string istr, int persone, string attivita);
+
         //////////////
         [OperationContract]
         string DeleteUser(UserAccount user);
-        [OperationContract]
-        Cliente getCliente();
         [OperationContract]
         string GetString();
 
