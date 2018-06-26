@@ -56,6 +56,12 @@
   <wsdl:message name="IServices_GetLezioni_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetLezioniResponse" />
   </wsdl:message>
+  <wsdl:message name="IServices_GetListLezioni_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListLezioni" />
+  </wsdl:message>
+  <wsdl:message name="IServices_GetListLezioni_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListLezioniResponse" />
+  </wsdl:message>
   <wsdl:message name="IServices_DeleteUser_InputMessage">
     <wsdl:part name="parameters" element="tns:DeleteUser" />
   </wsdl:message>
@@ -106,6 +112,10 @@
     <wsdl:operation name="GetLezioni">
       <wsdl:input wsaw:Action="http://tempuri.org/IServices/GetLezioni" message="tns:IServices_GetLezioni_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServices/GetLezioniResponse" message="tns:IServices_GetLezioni_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListLezioni">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServices/GetListLezioni" message="tns:IServices_GetListLezioni_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServices/GetListLezioniResponse" message="tns:IServices_GetListLezioni_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="DeleteUser">
       <wsdl:input wsaw:Action="http://tempuri.org/IServices/DeleteUser" message="tns:IServices_DeleteUser_InputMessage" />
@@ -187,6 +197,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetLezioni">
       <soap:operation soapAction="http://tempuri.org/IServices/GetLezioni" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListLezioni">
+      <soap:operation soapAction="http://tempuri.org/IServices/GetListLezioni" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
