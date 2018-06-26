@@ -53,8 +53,7 @@ namespace WCFWebService
         //////////////
         [OperationContract]
         string DeleteUser(UserAccount user);
-        [OperationContract]
-        Cliente getCliente();
+        
         [OperationContract]
         string GetString();
 

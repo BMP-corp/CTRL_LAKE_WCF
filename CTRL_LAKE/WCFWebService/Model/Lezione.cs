@@ -100,6 +100,11 @@ namespace WCFWebService.Model
             _usernameCliente = cliente.Username;
             _usernameIstruttore = istruttore.Username;
         }
+
+        public Lezione()
+        {
+
+        }
         
         public virtual int GetId()
         {

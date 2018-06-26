@@ -30,7 +30,7 @@ namespace WCFWebService.Model
         public virtual string Cognome { get => _cognome; set => _cognome = value; }
 
         [DataMember]
-        public virtual string Username { get => _username; set => _username = value; }
+        public virtual string Username { get => _username; set => _username = value;  }
 
         [DataMember]
         public virtual DateTime DataNascita { get => _dataNascita; set => _dataNascita = value; }
@@ -55,7 +55,7 @@ namespace WCFWebService.Model
 
         public Istruttore()
         {
-            Impegni = new CalendarioImpegni();
+            Impegni = new CalendarioImpegni(Username);
         }
 
         public Istruttore(string nome, string cognome, string username, DateTime dataNascita,
@@ -77,10 +77,7 @@ namespace WCFWebService.Model
             _orario = orario;
         }
 
-        public Istruttore ()
-        {
-            _impegni = new CalendarioImpegni(Username);
-        }
+ 
 
         public virtual List<Impegno> elencaImpegni()
         {
@@ -116,7 +113,16 @@ namespace WCFWebService.Model
         {
             try
             {
-                this.Impegni.Aggiungi(inizio, fine);
+                if(this.Impegni.Impegni != null)
+                {
+                    this.Impegni.Aggiungi(inizio, fine);
+                }
+                else
+                {
+                    this.Impegni = new CalendarioImpegni(this.Username);
+                    this.Impegni.Aggiungi(inizio, fine);
+                }
+                
             }
             catch (Exception e) { throw e; }
         }
@@ -130,6 +136,12 @@ namespace WCFWebService.Model
             catch (Exception e) {
                 throw e;
             }
+        }
+
+        public virtual void SetUsername(string username)
+        {
+            Username = username;
+            Impegni.Id_user = username;
         }
 
     }

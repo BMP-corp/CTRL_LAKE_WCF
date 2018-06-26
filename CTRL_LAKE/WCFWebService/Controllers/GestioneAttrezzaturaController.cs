@@ -73,7 +73,8 @@ namespace WCFWebService.Controllers
         public bool AggiornaAttrezzatura(Attrezzatura a, int quantita)
         {
             bool result = false;
-            a.IdAttrezzatura = 202;
+            a.IdAttrezzatura = _gpc.NewId();
+            List<Attrezzatura> temp = new List<Attrezzatura>();
             if (quantita > 0)
             {
                 while (quantita > 0)
@@ -89,15 +90,28 @@ namespace WCFWebService.Controllers
                 {
                     while (quantita < 0)
                     {
-                        if (attr.Tipo == a.Tipo && a.isCancellabile())
+
+                        if (attr.Tipo == a.Tipo && attr.isCancellabile())
                         {
-                            DeleteAttrezzatura(attr.IdAttrezzatura);
-                            _gpc.ElencoAttrezzatura.Remove(attr);
-                            break;
+                            temp.Add(attr);
+                            quantita++;
+                            
+                        //    DeleteAttrezzatura(attr.IdAttrezzatura);
+                        //    _gpc.ElencoAttrezzatura.RemoveWhere(s => s.IdAttrezzatura==attr.IdAttrezzatura);
+                        //    quantita++;
+                        //    break;
                         }
-                        quantita++;
+                        break;
+
                     }
+                    if (quantita == 0) break;
                 }
+                foreach(Attrezzatura a1 in temp)
+                {
+                    DeleteAttrezzatura(a1.IdAttrezzatura);
+                    _gpc.ElencoAttrezzatura.Remove(a1);
+                }
+
             }
             result = (quantita == 0);
             return result;

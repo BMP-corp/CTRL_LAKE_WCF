@@ -33,6 +33,7 @@ namespace WCFWebService.Model
         }
 
         public Attrezzatura() {
+            Impegni = new CalendarioImpegni("" + _idAttrezzatura);
         }
 
         
@@ -72,16 +73,17 @@ namespace WCFWebService.Model
             }
                 try
                 {
-                if (this.Impegni != null)
-                {
-                    this.Impegni.Aggiungi(inizio, fine);
-                }
-                else
-                {
-                    this.Impegni = new CalendarioImpegni(""+this._idAttrezzatura);
-                    this.Impegni.Aggiungi(inizio, fine);
-                }
-
+                    if(this.Impegni != null)
+                    {
+                        this.Impegni.Aggiungi(inizio, fine);
+                    }
+                    else
+                    {
+                        this.Impegni = new CalendarioImpegni();
+                        this.Impegni.Aggiungi(inizio, fine);
+                    }
+                    
+               
                 } catch (Exception e) { throw e; }
         }
 

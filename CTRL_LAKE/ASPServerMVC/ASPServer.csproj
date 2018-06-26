@@ -207,19 +207,22 @@
     <None Include="Connected Services\ServiceReference1\Services3.xsd">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="Connected Services\ServiceReference1\WebMVCTempl.ServiceReference1.Attrezzatura.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <Content Include="Connected Services\ServiceReference1\WebMVCTempl.ServiceReference1.Cliente.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\ServiceReference1\WebMVCTempl.ServiceReference1.Credenziali.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Connected Services\ServiceReference1\WebMVCTempl.ServiceReference1.Lezione.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <Content Include="Connected Services\ServiceReference1\WebMVCTempl.ServiceReference1.Noleggio.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\ServiceReference1\WebMVCTempl.ServiceReference1.UserAccount.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Connected Services\ServiceReference1\WebMVCTempl.ServiceReference1.Attrezzatura1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />

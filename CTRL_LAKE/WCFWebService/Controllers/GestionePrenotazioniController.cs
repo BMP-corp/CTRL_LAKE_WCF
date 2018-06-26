@@ -21,7 +21,7 @@ namespace WCFWebService.Controllers
         private static HashSet<Noleggio> elencoNoleggi = new HashSet<Noleggio>();
         private static bool initialized = false;
 
-        private static int curr_id;
+        private static int curr_id=210;
 
         private EffettuaNoloController enc;
         private PrenotazioneLezioneController plc;
@@ -92,15 +92,7 @@ namespace WCFWebService.Controllers
             return sess;
         }
 
-        /*public GestionePrenotazioniController()
-        {
-            this.ElencoAttrezzatura = getDbAttrezzatura(c);
-            this.elencoClienti = getDbClienti(c);
-            this.elencoIstruttori = getDbIstruttori(c);
-            //this.elencoLezioni = getDbLezioni();
-            //this.elencoNoleggi = getDbNoleggi();
-            curr_id = 100;
-        }*/
+        
 
 
 

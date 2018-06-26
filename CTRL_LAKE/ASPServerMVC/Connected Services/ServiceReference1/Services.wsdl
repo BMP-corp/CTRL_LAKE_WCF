@@ -68,6 +68,12 @@
   <wsdl:message name="IServices_GetLezioni_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetLezioniResponse" />
   </wsdl:message>
+  <wsdl:message name="IServices_GetListLezioni_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListLezioni" />
+  </wsdl:message>
+  <wsdl:message name="IServices_GetListLezioni_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListLezioniResponse" />
+  </wsdl:message>
   <wsdl:message name="IServices_DisponibilitaIstruttori_InputMessage">
     <wsdl:part name="parameters" element="tns:DisponibilitaIstruttori" />
   </wsdl:message>
@@ -85,6 +91,12 @@
   </wsdl:message>
   <wsdl:message name="IServices_DeleteUser_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServices_GetString_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetString" />
+  </wsdl:message>
+  <wsdl:message name="IServices_GetString_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStringResponse" />
   </wsdl:message>
   <wsdl:portType name="IServices">
     <wsdl:operation name="Login">
@@ -127,6 +139,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IServices/GetLezioni" message="tns:IServices_GetLezioni_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServices/GetLezioniResponse" message="tns:IServices_GetLezioni_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetListLezioni">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServices/GetListLezioni" message="tns:IServices_GetListLezioni_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServices/GetListLezioniResponse" message="tns:IServices_GetListLezioni_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="DisponibilitaIstruttori">
       <wsdl:input wsaw:Action="http://tempuri.org/IServices/DisponibilitaIstruttori" message="tns:IServices_DisponibilitaIstruttori_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServices/DisponibilitaIstruttoriResponse" message="tns:IServices_DisponibilitaIstruttori_OutputMessage" />
@@ -138,6 +154,10 @@
     <wsdl:operation name="DeleteUser">
       <wsdl:input wsaw:Action="http://tempuri.org/IServices/DeleteUser" message="tns:IServices_DeleteUser_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServices/DeleteUserResponse" message="tns:IServices_DeleteUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetString">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServices/GetString" message="tns:IServices_GetString_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServices/GetStringResponse" message="tns:IServices_GetString_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IServices" type="tns:IServices">
@@ -232,6 +252,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetListLezioni">
+      <soap:operation soapAction="http://tempuri.org/IServices/GetListLezioni" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="DisponibilitaIstruttori">
       <soap:operation soapAction="http://tempuri.org/IServices/DisponibilitaIstruttori" style="document" />
       <wsdl:input>
@@ -271,7 +300,7 @@
   </wsdl:binding>
   <wsdl:service name="Services">
     <wsdl:port name="BasicHttpBinding_IServices" binding="tns:BasicHttpBinding_IServices">
-      <soap:address location="http://localhost:49920/Services.svc" />
+      <soap:address location="http://localhost:52651/Services.svc" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>
