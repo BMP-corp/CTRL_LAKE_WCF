@@ -120,10 +120,24 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetListLezioni">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListLezioniResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/WCFWebService.Model" minOccurs="0" name="GetListLezioniResult" nillable="true" type="q9:ArrayOfLezione" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="DeleteUser">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/WCFWebService.Model" minOccurs="0" name="user" nillable="true" type="q9:UserAccount" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/WCFWebService.Model" minOccurs="0" name="user" nillable="true" type="q10:UserAccount" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -142,7 +156,7 @@
   <xs:element name="getClienteResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/WCFWebService.Model" minOccurs="0" name="getClienteResult" nillable="true" type="q10:Cliente" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/WCFWebService.Model" minOccurs="0" name="getClienteResult" nillable="true" type="q11:Cliente" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

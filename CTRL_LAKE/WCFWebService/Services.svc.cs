@@ -28,11 +28,7 @@ namespace WCFWebService
 
         public string GetString()
         {
-#if MOCK
             return "BellaVez";
-#else            
-            //database implementation
-#endif
         }
 
 
@@ -181,11 +177,14 @@ namespace WCFWebService
         public List<Noleggio> GetPrenotazioni(string username)
         {
             List<Noleggio> noleggi = new List<Noleggio>();
-            foreach (Noleggio nol in gpc.ElencoNoleggi)
-            {
-                if (nol.Cliente.Username.Equals(username))
+            if(username != "Segreteria")
+                foreach (Noleggio nol in gpc.ElencoNoleggi)
+                {
+                    if (nol.Cliente.Username.Equals(username))
+                        noleggi.Add(nol);
+                }
+            else foreach (Noleggio nol in gpc.ElencoNoleggi)
                     noleggi.Add(nol);
-            }
             return noleggi;
         }
 
@@ -209,6 +208,20 @@ namespace WCFWebService
             return lezioni;
         }
 
+        public List<Lezione> GetListLezioni(string username)
+        {
+            List<Lezione> lezioni = new List<Lezione>();
+            if (username != "Segreteria")
+                foreach (Lezione lez in gpc.ElencoLezioni)
+                {
+                 if (lez.Cliente.Username.Equals(username))
+                    lezioni.Add(lez);
+                }
+            else foreach (Lezione lez in gpc.ElencoLezioni)
+                lezioni.Add(lez);
+            return lezioni;
+        }
+
 
         public int[][] DisponibilitaAttrezzatura(DateTime date)
         {
@@ -224,6 +237,7 @@ namespace WCFWebService
         {
             return gpc.Enc.CreaNoleggio(user, inizio, fine, attr, pers);
         }
+
 
     }
 }

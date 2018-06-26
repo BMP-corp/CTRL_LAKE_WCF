@@ -2,10 +2,10 @@
 <wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Services" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
-      <xsd:import schemaLocation="http://localhost:52651/Services.svc?xsd=xsd0" namespace="http://tempuri.org/" />
-      <xsd:import schemaLocation="http://localhost:52651/Services.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://localhost:52651/Services.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WCFWebService.Model" />
-      <xsd:import schemaLocation="http://localhost:52651/Services.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:49920/Services.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:49920/Services.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:49920/Services.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WCFWebService.Model" />
+      <xsd:import schemaLocation="http://localhost:49920/Services.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IServices_Login_InputMessage">
@@ -56,23 +56,29 @@
   <wsdl:message name="IServices_GetLezioni_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetLezioniResponse" />
   </wsdl:message>
-  <wsdl:message name="IServices_DisponibilitaIstruttori_InputMessage">
-    <wsdl:part name="parameters" element="tns:DisponibilitaIstruttori" />
+  <wsdl:message name="IServices_GetListLezioni_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListLezioni" />
   </wsdl:message>
-  <wsdl:message name="IServices_DisponibilitaIstruttori_OutputMessage">
-    <wsdl:part name="parameters" element="tns:DisponibilitaIstruttoriResponse" />
-  </wsdl:message>
-  <wsdl:message name="IServices_GetCliente_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetCliente" />
-  </wsdl:message>
-  <wsdl:message name="IServices_GetCliente_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetClienteResponse" />
+  <wsdl:message name="IServices_GetListLezioni_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListLezioniResponse" />
   </wsdl:message>
   <wsdl:message name="IServices_DeleteUser_InputMessage">
     <wsdl:part name="parameters" element="tns:DeleteUser" />
   </wsdl:message>
   <wsdl:message name="IServices_DeleteUser_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServices_getCliente_InputMessage">
+    <wsdl:part name="parameters" element="tns:getCliente" />
+  </wsdl:message>
+  <wsdl:message name="IServices_getCliente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getClienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServices_GetString_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetString" />
+  </wsdl:message>
+  <wsdl:message name="IServices_GetString_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStringResponse" />
   </wsdl:message>
   <wsdl:portType name="IServices">
     <wsdl:operation name="Login">
@@ -107,17 +113,21 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IServices/GetLezioni" message="tns:IServices_GetLezioni_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServices/GetLezioniResponse" message="tns:IServices_GetLezioni_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="DisponibilitaIstruttori">
-      <wsdl:input wsaw:Action="http://tempuri.org/IServices/DisponibilitaIstruttori" message="tns:IServices_DisponibilitaIstruttori_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IServices/DisponibilitaIstruttoriResponse" message="tns:IServices_DisponibilitaIstruttori_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetCliente">
-      <wsdl:input wsaw:Action="http://tempuri.org/IServices/GetCliente" message="tns:IServices_GetCliente_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IServices/GetClienteResponse" message="tns:IServices_GetCliente_OutputMessage" />
+    <wsdl:operation name="GetListLezioni">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServices/GetListLezioni" message="tns:IServices_GetListLezioni_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServices/GetListLezioniResponse" message="tns:IServices_GetListLezioni_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="DeleteUser">
       <wsdl:input wsaw:Action="http://tempuri.org/IServices/DeleteUser" message="tns:IServices_DeleteUser_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServices/DeleteUserResponse" message="tns:IServices_DeleteUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getCliente">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServices/getCliente" message="tns:IServices_getCliente_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServices/getClienteResponse" message="tns:IServices_getCliente_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetString">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServices/GetString" message="tns:IServices_GetString_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServices/GetStringResponse" message="tns:IServices_GetString_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IServices" type="tns:IServices">
@@ -194,17 +204,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="DisponibilitaIstruttori">
-      <soap:operation soapAction="http://tempuri.org/IServices/DisponibilitaIstruttori" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetCliente">
-      <soap:operation soapAction="http://tempuri.org/IServices/GetCliente" style="document" />
+    <wsdl:operation name="GetListLezioni">
+      <soap:operation soapAction="http://tempuri.org/IServices/GetListLezioni" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -214,6 +215,15 @@
     </wsdl:operation>
     <wsdl:operation name="DeleteUser">
       <soap:operation soapAction="http://tempuri.org/IServices/DeleteUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCliente">
+      <soap:operation soapAction="http://tempuri.org/IServices/getCliente" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
