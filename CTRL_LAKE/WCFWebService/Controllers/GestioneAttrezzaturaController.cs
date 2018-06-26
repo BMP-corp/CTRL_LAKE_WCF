@@ -1,4 +1,7 @@
-﻿using System;
+﻿using NHibernate;
+using NHibernate.Cfg;
+using NHibernate.Criterion;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,39 +12,97 @@ namespace WCFWebService.Controllers
 {
     public class GestioneAttrezzaturaController
     {
+        private GestionePrenotazioniController _gpc;
         private Dictionary<string, int[]> map = new Dictionary<string, int[]>();
         private bool initialized = false;
 
-#if MOCK
-        public void init() {
-            map.Add("barcaVela", new int[] { 5, 1 });
-            map.Add("canoa", new int[] { 12, 3 });
-            map.Add("windsurf", new int[] { 15, 2 });
-            map.Add("sup", new int[] { 12, 6 });
+        public GestioneAttrezzaturaController(GestionePrenotazioniController gpc)
+        {
+            _gpc = gpc;
         }
-#else
 
-        //db implementation
+        public static ISession OpenConnection()
+        {
+            Configuration myCfg = new Configuration();
+            myCfg.Configure();
+            ISessionFactory factory = myCfg.BuildSessionFactory();
+            ISession sess = factory.OpenSession();
+            return sess;
+        }
 
-#endif
+        public static void InsertAttrezzatura(Attrezzatura attrezzatura)
+        {
+            ISession session = OpenConnection();
+            using (session.BeginTransaction())
+            {
+                try
+                {
+                    session.Save(attrezzatura);
+                    session.Transaction.Commit();
+                }
+                catch (Exception e)
+                {
+                    Console.Write(e.Message);
+                }
+            }
 
-        //public ActionResult GestioneAttrezzatura()
-        //{
-        //    if (!initialized)
-        //        init();
-        //    ViewData["Message"] = "";
-        //    if (Request.RequestType.Equals("POST"))
-        //    {
-        //        string tipoDaAggiornare = Request.Form["tipo_attrezzatura"];
-        //        int quantita = Int32.Parse(Request.Form["quantity"]);
-        //        /*** operazioni sul model ***/
-        //        map[tipoDaAggiornare][0] += quantita;
-        //        map[tipoDaAggiornare][1] += quantita;
-        //        /****************************/
-        //        ViewData["Message"] = "Operazione Completata";
-        //    }
-        //    ViewData["MapAttrezzature"] = map;
-        //    return View();
-        //}
+        }
+
+        public static void DeleteAttrezzatura(int id)
+        {
+            ISession session = OpenConnection();
+            using (session.BeginTransaction())
+            {
+
+                try
+                {
+                    Attrezzatura attrezzatura = (Attrezzatura)session.CreateCriteria<Attrezzatura>()
+                        .Add(Restrictions.Eq("IdAttrezzatura", id)).UniqueResult();
+                    session.Delete(attrezzatura);
+                    session.Transaction.Commit();
+
+                }
+                catch (Exception e)
+                {
+                    Console.Write(e.Message);
+                }
+            }
+
+        }
+
+        public bool AggiornaAttrezzatura(Attrezzatura a, int quantita)
+        {
+            bool result = false;
+            a.IdAttrezzatura = 202;
+            if (quantita > 0)
+            {
+                while (quantita > 0)
+                {
+                    InsertAttrezzatura(a);
+                    _gpc.ElencoAttrezzatura.Add(a);
+                    quantita--;
+                }
+            }
+            else
+            {
+                foreach (Attrezzatura attr in _gpc.ElencoAttrezzatura)
+                {
+                    while (quantita < 0)
+                    {
+                        if (attr.Tipo == a.Tipo && a.isCancellabile())
+                        {
+                            DeleteAttrezzatura(attr.IdAttrezzatura);
+                            _gpc.ElencoAttrezzatura.Remove(attr);
+                            break;
+                        }
+                        quantita++;
+                    }
+                }
+            }
+            result = (quantita == 0);
+            return result;
+        }
+
+       
     }
 }

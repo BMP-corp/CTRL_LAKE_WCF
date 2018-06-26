@@ -17,6 +17,7 @@ namespace WCFWebService
         private static GestionePrenotazioniController gpc = new GestionePrenotazioniController();
         private static LoginController lc = new LoginController();
         private static RegistrazioneController rc = new RegistrazioneController();
+        
 
         public Credenziali Login(string username, string password)
         {
@@ -24,6 +25,39 @@ namespace WCFWebService
             return cr;
         }
 
+        public Attrezzatura[] GetAttrezzatura()
+        {
+            {
+                HashSet<Attrezzatura> temp = gpc.ElencoAttrezzatura;
+                int i = 0;
+                Attrezzatura[] res = new Attrezzatura[temp.Count];
+                foreach (Attrezzatura a in temp)
+                {
+                    res[i] = a;
+                    i++;
+                }
+                return res;
+            }
+        }
+
+        public bool AggiornaAttrezzatura(Attrezzatura a, int quantita)
+        {
+            bool result = gpc.Gap.AggiornaAttrezzatura(a, quantita);
+            return result;
+        }
+
+        private static int AttrPosti(string tipoAttr)
+        {
+            int result = 1;
+            switch (tipoAttr)
+            {
+                case ("barcaVela"): result = 5; break;
+                case ("canoa"): result = 2; break;
+                default: result = 1; break;
+            }
+            return result;
+        }
+    
 
 
         public string GetString()

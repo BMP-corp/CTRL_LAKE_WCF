@@ -21,13 +21,15 @@ namespace WCFWebService.Model
         public virtual int IdAttrezzatura { get => _idAttrezzatura; set => _idAttrezzatura = value; }
         [DataMember]
         public virtual int Posti { get => _posti; set => _posti = value; }
+        [DataMember]
+        public virtual CalendarioImpegni Impegni { get => _impegni; set => _impegni = value; }
 
         public Attrezzatura(string tipo, int idAttrezzatura, int posti)
         {
             Tipo = tipo;
             IdAttrezzatura = idAttrezzatura;
             Posti = posti;
-            _impegni = new CalendarioImpegni(""+_idAttrezzatura);
+            Impegni = new CalendarioImpegni(""+_idAttrezzatura);
         }
 
         public Attrezzatura() {
@@ -36,12 +38,12 @@ namespace WCFWebService.Model
         
         public virtual bool isCancellabile()
         {
-            return (this._impegni.ProssimiImpegni() == 0);
+            return (this.Impegni.ProssimiImpegni() == 0);
         }
         
         public virtual List<Impegno> elencaImpegni()
         {
-            return this._impegni.Impegni;
+            return this.Impegni.Impegni;
         }
         
         public virtual bool IsLibero (DateTime inizio, DateTime fine)
@@ -70,14 +72,14 @@ namespace WCFWebService.Model
             }
                 try
                 {
-                if (this._impegni != null)
+                if (this.Impegni != null)
                 {
-                    this._impegni.Aggiungi(inizio, fine);
+                    this.Impegni.Aggiungi(inizio, fine);
                 }
                 else
                 {
-                    this._impegni = new CalendarioImpegni(""+this._idAttrezzatura);
-                    this._impegni.Aggiungi(inizio, fine);
+                    this.Impegni = new CalendarioImpegni(""+this._idAttrezzatura);
+                    this.Impegni.Aggiungi(inizio, fine);
                 }
 
                 } catch (Exception e) { throw e; }
@@ -87,7 +89,7 @@ namespace WCFWebService.Model
         {
             try
             {
-                this._impegni.Rimuovi(inizio, fine);
+                this.Impegni.Rimuovi(inizio, fine);
             } catch (Exception e) { throw e; }
         }
 

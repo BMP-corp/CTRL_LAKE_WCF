@@ -24,6 +24,7 @@ namespace WCFWebService.Controllers
         private static int curr_id;
 
         private EffettuaNoloController enc;
+        private GestioneAttrezzaturaController gap;
 
         public HashSet<Lezione> ElencoLezioni { get => elencoLezioni; set => elencoLezioni = value; }
         public HashSet<Attrezzatura> ElencoAttrezzatura { get => elencoAttrezzatura; set => elencoAttrezzatura = value; }
@@ -33,11 +34,13 @@ namespace WCFWebService.Controllers
 
 
         public EffettuaNoloController Enc { get => enc; set => enc = value; }
-       
+        public GestioneAttrezzaturaController Gap { get => gap; set => gap = value; }
 
         public GestionePrenotazioniController()
         {
             Enc = new EffettuaNoloController(this);
+            Gap = new GestioneAttrezzaturaController(this);
+
             if (!initialized)
                 Init();
         }
@@ -59,6 +62,7 @@ namespace WCFWebService.Controllers
             ElencoIstruttori = GetListaIstruttori();
             //ElencoLezioni = GetListaLezioni();
             ElencoNoleggi = GetListaNoleggi();
+            initialized = true;
 
         }
 
@@ -194,7 +198,6 @@ namespace WCFWebService.Controllers
         public static HashSet<Istruttore> GetListaIstruttori()
         {
             HashSet<Istruttore> res = new HashSet<Istruttore>();
-            Istruttore istruttore = null;
             List<Credenziali> temp = null;
             List<Impegno> impegni = null;
             List<Istruttore> list = null;
@@ -217,14 +220,19 @@ namespace WCFWebService.Controllers
                         criteriaIstruttori.Add(Expression.Like("Username", cred.Username));
                         list = (List<Istruttore>)criteriaIstruttori.List<Istruttore>();
 
-                        critImp = sess.CreateCriteria<Impegno>();
-                        impegni = (List<Impegno>)critImp.Add(Expression.Like("Id_user", istruttore.Username)).List<Impegno>();
-                        foreach (Impegno imp in impegni)
+                        
+                        foreach(Istruttore i in list)
                         {
-                            istruttore.Riserva(imp.Inizio, imp.Fine);
+                            critImp = sess.CreateCriteria<Impegno>();
+                            impegni = (List<Impegno>)critImp.Add(Expression.Like("Id_user", i.Username)).List<Impegno>();
+                            foreach (Impegno imp in impegni)
+                            {
+                                i.Riserva(imp.Inizio, imp.Fine);
+                            }
+                            //aggiungo istruttore alla lista istruttori
+                            res.Add(i);
                         }
-                        //aggiungo istruttore alla lista istruttori
-                        res.Add(istruttore);
+                        
                     }
 
                 }

@@ -103,7 +103,7 @@
         <div class="centrovelicostyle centrovelicoinsidestyle element"></div>
         <p class="text text-5">Tipologia: </p>
         <!-- ***** BOX SELEZIONE ATTREZZATURA DA AGGIORNARE ***** -->
-        <form id="aggiornaAttr" action="/GestioneAttrezzatura/GestioneAttrezzatura" method="post">
+        <form id="aggiornaAttr" action="/Admin/GestioneAttrezzatura" method="post">
             <select class="_select _select-1" name="tipo_attrezzatura" onchange="aggiornaQuantita(this, myGetElementById('resDiv'))">
                 @foreach (string tipo in elenco.Keys)
                 {
