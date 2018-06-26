@@ -31,10 +31,37 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetAttrezzatura">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAttrezzaturaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/WCFWebService.Model" minOccurs="0" name="GetAttrezzaturaResult" nillable="true" type="q3:ArrayOfAttrezzatura" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AggiornaAttrezzatura">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/WCFWebService.Model" minOccurs="0" name="a" nillable="true" type="q4:Attrezzatura" />
+        <xs:element minOccurs="0" name="quantita" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AggiornaAttrezzaturaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AggiornaAttrezzaturaResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="Register">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/WCFWebService.Model" minOccurs="0" name="c" nillable="true" type="q3:Cliente" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/WCFWebService.Model" minOccurs="0" name="c" nillable="true" type="q5:Cliente" />
         <xs:element minOccurs="0" name="pw" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -56,7 +83,7 @@
   <xs:element name="DisponibilitaAttrezzaturaResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="DisponibilitaAttrezzaturaResult" nillable="true" type="q4:ArrayOfArrayOfint" />
+        <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="DisponibilitaAttrezzaturaResult" nillable="true" type="q6:ArrayOfArrayOfint" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -66,8 +93,8 @@
         <xs:element minOccurs="0" name="user" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="inizio" type="xs:dateTime" />
         <xs:element minOccurs="0" name="fine" type="xs:dateTime" />
-        <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="attr" nillable="true" type="q5:ArrayOfstring" />
-        <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="pers" nillable="true" type="q6:ArrayOfint" />
+        <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="attr" nillable="true" type="q7:ArrayOfstring" />
+        <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="pers" nillable="true" type="q8:ArrayOfint" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -102,7 +129,7 @@
   <xs:element name="GetPrenotazioniResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/WCFWebService.Model" minOccurs="0" name="GetPrenotazioniResult" nillable="true" type="q7:ArrayOfNoleggio" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/WCFWebService.Model" minOccurs="0" name="GetPrenotazioniResult" nillable="true" type="q9:ArrayOfNoleggio" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -116,7 +143,7 @@
   <xs:element name="GetLezioniResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetLezioniResult" nillable="true" type="q8:ArrayOfArrayOfstring" />
+        <xs:element xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetLezioniResult" nillable="true" type="q10:ArrayOfArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -130,7 +157,7 @@
   <xs:element name="GetListLezioniResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/WCFWebService.Model" minOccurs="0" name="GetListLezioniResult" nillable="true" type="q9:ArrayOfLezione" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/WCFWebService.Model" minOccurs="0" name="GetListLezioniResult" nillable="true" type="q11:ArrayOfLezione" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -145,7 +172,7 @@
   <xs:element name="DisponibilitaIstruttoriResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="DisponibilitaIstruttoriResult" nillable="true" type="q10:ArrayOfArrayOfstring" />
+        <xs:element xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="DisponibilitaIstruttoriResult" nillable="true" type="q12:ArrayOfArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -159,33 +186,14 @@
   <xs:element name="GetClienteResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/WCFWebService.Model" minOccurs="0" name="GetClienteResult" nillable="true" type="q11:Cliente" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="CreaLezione">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="inizio" type="xs:dateTime" />
-        <xs:element minOccurs="0" name="fine" type="xs:dateTime" />
-        <xs:element minOccurs="0" name="istr" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="persone" type="xs:int" />
-        <xs:element minOccurs="0" name="attivita" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="CreaLezioneResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="CreaLezioneResult" nillable="true" type="xs:string" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/WCFWebService.Model" minOccurs="0" name="GetClienteResult" nillable="true" type="q13:Cliente" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="DeleteUser">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/WCFWebService.Model" minOccurs="0" name="user" nillable="true" type="q12:UserAccount" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/WCFWebService.Model" minOccurs="0" name="user" nillable="true" type="q14:UserAccount" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

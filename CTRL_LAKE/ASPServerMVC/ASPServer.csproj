@@ -207,6 +207,9 @@
     <None Include="Connected Services\ServiceReference1\Services3.xsd">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="Connected Services\ServiceReference1\WebMVCTempl.ServiceReference1.Attrezzatura.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <Content Include="Connected Services\ServiceReference1\WebMVCTempl.ServiceReference1.Cliente.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -375,6 +378,7 @@
     <Content Include="Views\Registrazione\Register.cshtml" />
     <Content Include="Views\Cliente\EffettuaNolo.cshtml" />
     <Content Include="Views\Cliente\PrenotaLezione.cshtml" />
+    <Content Include="Views\Admin\GestioneAttrezzatura.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

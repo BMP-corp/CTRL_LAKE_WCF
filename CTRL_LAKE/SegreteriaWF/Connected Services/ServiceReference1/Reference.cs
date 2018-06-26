@@ -233,6 +233,237 @@ namespace SegreteriaWF.ServiceReference1 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Attrezzatura", Namespace="http://schemas.datacontract.org/2004/07/WCFWebService.Model")]
+    [System.SerializableAttribute()]
+    public partial class Attrezzatura : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdAttrezzaturaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private SegreteriaWF.ServiceReference1.CalendarioImpegni ImpegniField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int PostiField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TipoField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int IdAttrezzatura {
+            get {
+                return this.IdAttrezzaturaField;
+            }
+            set {
+                if ((this.IdAttrezzaturaField.Equals(value) != true)) {
+                    this.IdAttrezzaturaField = value;
+                    this.RaisePropertyChanged("IdAttrezzatura");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SegreteriaWF.ServiceReference1.CalendarioImpegni Impegni {
+            get {
+                return this.ImpegniField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ImpegniField, value) != true)) {
+                    this.ImpegniField = value;
+                    this.RaisePropertyChanged("Impegni");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Posti {
+            get {
+                return this.PostiField;
+            }
+            set {
+                if ((this.PostiField.Equals(value) != true)) {
+                    this.PostiField = value;
+                    this.RaisePropertyChanged("Posti");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Tipo {
+            get {
+                return this.TipoField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TipoField, value) != true)) {
+                    this.TipoField = value;
+                    this.RaisePropertyChanged("Tipo");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CalendarioImpegni", Namespace="http://schemas.datacontract.org/2004/07/WCFWebService.Model")]
+    [System.SerializableAttribute()]
+    public partial class CalendarioImpegni : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string Id_userField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private SegreteriaWF.ServiceReference1.Impegno[] ImpegniField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Id_user {
+            get {
+                return this.Id_userField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Id_userField, value) != true)) {
+                    this.Id_userField = value;
+                    this.RaisePropertyChanged("Id_user");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public SegreteriaWF.ServiceReference1.Impegno[] Impegni {
+            get {
+                return this.ImpegniField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ImpegniField, value) != true)) {
+                    this.ImpegniField = value;
+                    this.RaisePropertyChanged("Impegni");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Impegno", Namespace="http://schemas.datacontract.org/2004/07/WCFWebService.Model")]
+    [System.SerializableAttribute()]
+    public partial class Impegno : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime FineField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string Id_userField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime InizioField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime Fine {
+            get {
+                return this.FineField;
+            }
+            set {
+                if ((this.FineField.Equals(value) != true)) {
+                    this.FineField = value;
+                    this.RaisePropertyChanged("Fine");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Id_user {
+            get {
+                return this.Id_userField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Id_userField, value) != true)) {
+                    this.Id_userField = value;
+                    this.RaisePropertyChanged("Id_user");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime Inizio {
+            get {
+                return this.InizioField;
+            }
+            set {
+                if ((this.InizioField.Equals(value) != true)) {
+                    this.InizioField = value;
+                    this.RaisePropertyChanged("Inizio");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Cliente", Namespace="http://schemas.datacontract.org/2004/07/WCFWebService.Model")]
     [System.SerializableAttribute()]
     public partial class Cliente : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -624,237 +855,6 @@ namespace SegreteriaWF.ServiceReference1 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Attrezzatura", Namespace="http://schemas.datacontract.org/2004/07/WCFWebService.Model")]
-    [System.SerializableAttribute()]
-    public partial class Attrezzatura : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdAttrezzaturaField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SegreteriaWF.ServiceReference1.CalendarioImpegni ImpegniField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int PostiField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string TipoField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int IdAttrezzatura {
-            get {
-                return this.IdAttrezzaturaField;
-            }
-            set {
-                if ((this.IdAttrezzaturaField.Equals(value) != true)) {
-                    this.IdAttrezzaturaField = value;
-                    this.RaisePropertyChanged("IdAttrezzatura");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SegreteriaWF.ServiceReference1.CalendarioImpegni Impegni {
-            get {
-                return this.ImpegniField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ImpegniField, value) != true)) {
-                    this.ImpegniField = value;
-                    this.RaisePropertyChanged("Impegni");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Posti {
-            get {
-                return this.PostiField;
-            }
-            set {
-                if ((this.PostiField.Equals(value) != true)) {
-                    this.PostiField = value;
-                    this.RaisePropertyChanged("Posti");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Tipo {
-            get {
-                return this.TipoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TipoField, value) != true)) {
-                    this.TipoField = value;
-                    this.RaisePropertyChanged("Tipo");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="CalendarioImpegni", Namespace="http://schemas.datacontract.org/2004/07/WCFWebService.Model")]
-    [System.SerializableAttribute()]
-    public partial class CalendarioImpegni : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string Id_userField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private SegreteriaWF.ServiceReference1.Impegno[] ImpegniField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Id_user {
-            get {
-                return this.Id_userField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Id_userField, value) != true)) {
-                    this.Id_userField = value;
-                    this.RaisePropertyChanged("Id_user");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public SegreteriaWF.ServiceReference1.Impegno[] Impegni {
-            get {
-                return this.ImpegniField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ImpegniField, value) != true)) {
-                    this.ImpegniField = value;
-                    this.RaisePropertyChanged("Impegni");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Impegno", Namespace="http://schemas.datacontract.org/2004/07/WCFWebService.Model")]
-    [System.SerializableAttribute()]
-    public partial class Impegno : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime FineField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string Id_userField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime InizioField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime Fine {
-            get {
-                return this.FineField;
-            }
-            set {
-                if ((this.FineField.Equals(value) != true)) {
-                    this.FineField = value;
-                    this.RaisePropertyChanged("Fine");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Id_user {
-            get {
-                return this.Id_userField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Id_userField, value) != true)) {
-                    this.Id_userField = value;
-                    this.RaisePropertyChanged("Id_user");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime Inizio {
-            get {
-                return this.InizioField;
-            }
-            set {
-                if ((this.InizioField.Equals(value) != true)) {
-                    this.InizioField = value;
-                    this.RaisePropertyChanged("Inizio");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Lezione", Namespace="http://schemas.datacontract.org/2004/07/WCFWebService.Model")]
     [System.SerializableAttribute()]
     public partial class Lezione : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -1199,6 +1199,18 @@ namespace SegreteriaWF.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServices/GetUser", ReplyAction="http://tempuri.org/IServices/GetUserResponse")]
         System.Threading.Tasks.Task<SegreteriaWF.ServiceReference1.UserAccount> GetUserAsync(string username);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServices/GetAttrezzatura", ReplyAction="http://tempuri.org/IServices/GetAttrezzaturaResponse")]
+        SegreteriaWF.ServiceReference1.Attrezzatura[] GetAttrezzatura();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServices/GetAttrezzatura", ReplyAction="http://tempuri.org/IServices/GetAttrezzaturaResponse")]
+        System.Threading.Tasks.Task<SegreteriaWF.ServiceReference1.Attrezzatura[]> GetAttrezzaturaAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServices/AggiornaAttrezzatura", ReplyAction="http://tempuri.org/IServices/AggiornaAttrezzaturaResponse")]
+        bool AggiornaAttrezzatura(SegreteriaWF.ServiceReference1.Attrezzatura a, int quantita);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServices/AggiornaAttrezzatura", ReplyAction="http://tempuri.org/IServices/AggiornaAttrezzaturaResponse")]
+        System.Threading.Tasks.Task<bool> AggiornaAttrezzaturaAsync(SegreteriaWF.ServiceReference1.Attrezzatura a, int quantita);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServices/Register", ReplyAction="http://tempuri.org/IServices/RegisterResponse")]
         string Register(SegreteriaWF.ServiceReference1.Cliente c, string pw);
         
@@ -1307,6 +1319,22 @@ namespace SegreteriaWF.ServiceReference1 {
         
         public System.Threading.Tasks.Task<SegreteriaWF.ServiceReference1.UserAccount> GetUserAsync(string username) {
             return base.Channel.GetUserAsync(username);
+        }
+        
+        public SegreteriaWF.ServiceReference1.Attrezzatura[] GetAttrezzatura() {
+            return base.Channel.GetAttrezzatura();
+        }
+        
+        public System.Threading.Tasks.Task<SegreteriaWF.ServiceReference1.Attrezzatura[]> GetAttrezzaturaAsync() {
+            return base.Channel.GetAttrezzaturaAsync();
+        }
+        
+        public bool AggiornaAttrezzatura(SegreteriaWF.ServiceReference1.Attrezzatura a, int quantita) {
+            return base.Channel.AggiornaAttrezzatura(a, quantita);
+        }
+        
+        public System.Threading.Tasks.Task<bool> AggiornaAttrezzaturaAsync(SegreteriaWF.ServiceReference1.Attrezzatura a, int quantita) {
+            return base.Channel.AggiornaAttrezzaturaAsync(a, quantita);
         }
         
         public string Register(SegreteriaWF.ServiceReference1.Cliente c, string pw) {

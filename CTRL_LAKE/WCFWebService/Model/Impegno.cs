@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace WCFWebService.Model
 {
-     [DataContract]
-     public class Impegno
+    [DataContract]
+    public class Impegno
     {
 
         private DateTime _inizio;
@@ -26,8 +26,8 @@ namespace WCFWebService.Model
         {
             if (inizio.CompareTo(fine) >= 0)
                 throw new Exception("Impossibile creare impegno: intervallo non valido");
-            if(inizio.TimeOfDay.CompareTo(new TimeSpan(9,0,0))<0
-                || fine.TimeOfDay.CompareTo(new TimeSpan(19,0,0))>0)
+            if (inizio.TimeOfDay.CompareTo(new TimeSpan(9, 0, 0)) < 0
+                || fine.TimeOfDay.CompareTo(new TimeSpan(19, 0, 0)) > 0)
                 throw new Exception("Impossibile creare impegno: orari non possibili");
             if (!inizio.Date.Equals(fine.Date))
                 throw new Exception("Impossibile creare impegno: non ammessi inizio e fine in due giorni distinti");

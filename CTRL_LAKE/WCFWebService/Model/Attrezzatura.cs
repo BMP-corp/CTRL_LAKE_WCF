@@ -22,7 +22,7 @@ namespace WCFWebService.Model
         [DataMember]
         public virtual int Posti { get => _posti; set => _posti = value; }
         [DataMember]
-        public CalendarioImpegni Impegni { get => _impegni; set => _impegni = value; }
+        public virtual CalendarioImpegni Impegni { get => _impegni; set => _impegni = value; }
 
         public Attrezzatura(string tipo, int idAttrezzatura, int posti)
         {
@@ -33,6 +33,7 @@ namespace WCFWebService.Model
         }
 
         public Attrezzatura() {
+            Impegni = new CalendarioImpegni("" + _idAttrezzatura);
         }
 
         
@@ -72,7 +73,17 @@ namespace WCFWebService.Model
             }
                 try
                 {
-                    this.Impegni.Aggiungi(inizio, fine);
+                    if(this.Impegni != null)
+                    {
+                        this.Impegni.Aggiungi(inizio, fine);
+                    }
+                    else
+                    {
+                        this.Impegni = new CalendarioImpegni();
+                        this.Impegni.Aggiungi(inizio, fine);
+                    }
+                    
+               
                 } catch (Exception e) { throw e; }
         }
 

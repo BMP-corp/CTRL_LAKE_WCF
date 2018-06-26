@@ -20,8 +20,8 @@ namespace WCFWebService.Model
         private string _telefono;
         private string _iban;
         private string _attivita;
-        private string _orario;
         private CalendarioImpegni _impegni;
+        private string _orario;
 
         [DataMember]
         public virtual string Nome { get => _nome; set => _nome = value; }
@@ -30,7 +30,7 @@ namespace WCFWebService.Model
         public virtual string Cognome { get => _cognome; set => _cognome = value; }
 
         [DataMember]
-        public virtual string Username { get => _username; set => _username = value; }
+        public virtual string Username { get => _username; set => _username = value;  }
 
         [DataMember]
         public virtual DateTime DataNascita { get => _dataNascita; set => _dataNascita = value; }
@@ -55,7 +55,7 @@ namespace WCFWebService.Model
 
         public Istruttore()
         {
-            Impegni = new CalendarioImpegni();
+            Impegni = new CalendarioImpegni(Username);
         }
 
         public Istruttore(string nome, string cognome, string username, DateTime dataNascita,
@@ -69,13 +69,15 @@ namespace WCFWebService.Model
             Telefono = telefono;
             Iban = iban;
             Attivita = attivita;
-            Impegni = new CalendarioImpegni(Username);
+            _impegni = new CalendarioImpegni(Username);
             if (!orario.Equals("mattina") && !orario.Equals("pomeriggio"))
             {
                 throw new Exception("tipo di orari istruttore non corretto");
             }
-            Orario = orario;
+            _orario = orario;
         }
+
+ 
 
         public virtual List<Impegno> elencaImpegni()
         {
@@ -111,7 +113,16 @@ namespace WCFWebService.Model
         {
             try
             {
-                this.Impegni.Aggiungi(inizio, fine);
+                if(this.Impegni.Impegni != null)
+                {
+                    this.Impegni.Aggiungi(inizio, fine);
+                }
+                else
+                {
+                    this.Impegni = new CalendarioImpegni(this.Username);
+                    this.Impegni.Aggiungi(inizio, fine);
+                }
+                
             }
             catch (Exception e) { throw e; }
         }
@@ -125,6 +136,12 @@ namespace WCFWebService.Model
             catch (Exception e) {
                 throw e;
             }
+        }
+
+        public virtual void SetUsername(string username)
+        {
+            Username = username;
+            Impegni.Id_user = username;
         }
 
     }

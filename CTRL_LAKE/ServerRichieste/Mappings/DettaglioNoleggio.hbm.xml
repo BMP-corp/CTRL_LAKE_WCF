@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<hibernate-mapping  xmlns="urn:nhibernate-mapping-2.2"
+                    assembly="ServerRichieste"
+                    namespace="ServerRichieste">
+  <class name="DettaglioNoleggio" table="NOLEGGI">
+    <composite-id name="DettaglioNoleggioId">
+      <key-property name="Username" column="username" />
+      <key-property name="IdAttrezzatura" column="idattrezzatura" />
+      <key-property name="Inizio" column="inizio" />
+      <key-property name="Fine" column="fine" />
+    </composite-id>
+    <property name="Id" column="idnoleggio"/>
+    <property name="Utilizzatori" column="utilizzatori"/>
+  </class>
+</hibernate-mapping>

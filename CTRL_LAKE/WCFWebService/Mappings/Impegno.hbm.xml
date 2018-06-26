@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="WCFWebService"
+                   namespace="WCFWebService.Model">
+  <class name="Impegno" table="Impegni">
+    <composite-id>
+      <key-property name="Inizio" column="inizio"/>
+      <key-property name="Fine" column="fine"/>
+      <key-property name="Id_user" column="id_user"/>
+    </composite-id>
+  </class>
+</hibernate-mapping>

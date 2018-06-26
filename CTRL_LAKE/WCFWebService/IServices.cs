@@ -19,6 +19,12 @@ namespace WCFWebService
         UserAccount GetUser(String username);
 
         [OperationContract]
+        Attrezzatura[] GetAttrezzatura();
+
+        [OperationContract]
+        bool AggiornaAttrezzatura(Attrezzatura a, int quantita);
+
+        [OperationContract]
         string Register(Cliente c, string pw);
 
         [OperationContract]

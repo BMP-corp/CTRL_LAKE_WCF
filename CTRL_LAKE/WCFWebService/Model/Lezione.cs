@@ -18,7 +18,9 @@ namespace WCFWebService.Model
         private int _partecipanti;
         private Cliente _cliente;
         private double _costo;
-
+        private string _usernameIstruttore;
+        private string _usernameCliente;
+        
 
         [DataMember]
         public virtual int Id { get => _id; set => _id = value; }
@@ -63,11 +65,13 @@ namespace WCFWebService.Model
                 Istruttore.Riserva(inizio, fine);
             }
             catch (Exception e) { throw e; }
-            Inizio = inizio;
-            Fine = fine;
-            Partecipanti = partecipanti;
-            Cliente = cliente;
-            Costo = costo;
+            _inizio = inizio;
+            _fine = fine;
+            _partecipanti = partecipanti;
+            _cliente = cliente;
+            _costo = costo;
+            _usernameCliente = cliente.Username;
+            _usernameIstruttore = istruttore.Username;
         }
 
         public Lezione(int id, Istruttore istruttore, DateTime inizio, DateTime fine, int partecipanti, Cliente cliente)
@@ -89,13 +93,17 @@ namespace WCFWebService.Model
             {
                 Istruttore.Riserva(inizio, fine);
             } catch (Exception e) { throw e; }
-            Inizio = inizio;
-            Fine = fine;
-            Partecipanti = partecipanti;
-            Cliente = cliente;
+            _inizio = inizio;
+            _fine = fine;
+            _partecipanti = partecipanti;
+            _cliente = cliente;
+            _usernameCliente = cliente.Username;
+            _usernameIstruttore = istruttore.Username;
         }
 
-        public Lezione(){
+        public Lezione()
+        {
+
         }
         
         public virtual int GetId()

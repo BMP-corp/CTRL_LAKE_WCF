@@ -99,6 +99,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="Connected Services\ServiceReference1\SegreteriaWF.ServiceReference1.Attrezzatura.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\ServiceReference1\SegreteriaWF.ServiceReference1.Cliente.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

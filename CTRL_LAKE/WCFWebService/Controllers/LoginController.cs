@@ -12,6 +12,7 @@ namespace WCFWebService.Controllers
 {
     public class LoginController
     {
+        private GestionePrenotazioniController gpc;
         public LoginController() { }
 
         public static ISession OpenConnection()

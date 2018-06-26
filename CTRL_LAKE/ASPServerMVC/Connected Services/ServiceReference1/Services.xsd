@@ -20,6 +20,42 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="UserAccount" nillable="true" type="tns:UserAccount" />
+  <xs:complexType name="ArrayOfAttrezzatura">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Attrezzatura" nillable="true" type="tns:Attrezzatura" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAttrezzatura" nillable="true" type="tns:ArrayOfAttrezzatura" />
+  <xs:complexType name="Attrezzatura">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IdAttrezzatura" type="xs:int" />
+      <xs:element minOccurs="0" name="Impegni" nillable="true" type="tns:CalendarioImpegni" />
+      <xs:element minOccurs="0" name="Posti" type="xs:int" />
+      <xs:element minOccurs="0" name="Tipo" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Attrezzatura" nillable="true" type="tns:Attrezzatura" />
+  <xs:complexType name="CalendarioImpegni">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id_user" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Impegni" nillable="true" type="tns:ArrayOfImpegno" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CalendarioImpegni" nillable="true" type="tns:CalendarioImpegni" />
+  <xs:complexType name="ArrayOfImpegno">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Impegno" nillable="true" type="tns:Impegno" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfImpegno" nillable="true" type="tns:ArrayOfImpegno" />
+  <xs:complexType name="Impegno">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Fine" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id_user" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Inizio" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Impegno" nillable="true" type="tns:Impegno" />
   <xs:complexType name="Cliente">
     <xs:sequence>
       <xs:element minOccurs="0" name="Cognome" nillable="true" type="xs:string" />
@@ -66,36 +102,6 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="DettaglioNoleggio" nillable="true" type="tns:DettaglioNoleggio" />
-  <xs:complexType name="Attrezzatura">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="IdAttrezzatura" type="xs:int" />
-      <xs:element minOccurs="0" name="Impegni" nillable="true" type="tns:CalendarioImpegni" />
-      <xs:element minOccurs="0" name="Posti" type="xs:int" />
-      <xs:element minOccurs="0" name="Tipo" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="Attrezzatura" nillable="true" type="tns:Attrezzatura" />
-  <xs:complexType name="CalendarioImpegni">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Id_user" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Impegni" nillable="true" type="tns:ArrayOfImpegno" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="CalendarioImpegni" nillable="true" type="tns:CalendarioImpegni" />
-  <xs:complexType name="ArrayOfImpegno">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Impegno" nillable="true" type="tns:Impegno" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfImpegno" nillable="true" type="tns:ArrayOfImpegno" />
-  <xs:complexType name="Impegno">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Fine" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="Id_user" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Inizio" type="xs:dateTime" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="Impegno" nillable="true" type="tns:Impegno" />
   <xs:complexType name="ArrayOfLezione">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="Lezione" nillable="true" type="tns:Lezione" />

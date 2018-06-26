@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                   assembly="WCFWebService"
+                   namespace="WCFWebService.Model">
+  <class name="Lezione" table="LEZIONI">
+      <id name="Id" column="id" />
+      <property name ="UsernameIstruttore" column="usernameistruttore"/>
+      <property name="UsernameCliente" column="usernamecliente"/>
+      <property name ="Inizio" column="inizio"/>
+      <property name="Fine" column="fine"/>
+      <property name="Partecipanti" column="utilizzatori"/>
+  </class>
+</hibernate-mapping>
