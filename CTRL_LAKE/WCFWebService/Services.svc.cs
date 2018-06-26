@@ -138,22 +138,40 @@ namespace WCFWebService
         public string CancellaPrenotazione(int daEliminare)
         {
 
-            Noleggio n = null;
-
+            Noleggio n = null; Lezione l = null;
+            bool foundNolo = false, foundLezione=false;
             foreach (Noleggio nol in gpc.ElencoNoleggi)
                 if (nol.Id == daEliminare)
                 {
-                    n = nol; break;
+                    n = nol; foundNolo = true;  break;
                 }
+            if (!foundNolo)
+                foreach(Lezione lez in gpc.ElencoLezioni)
+                    if (lez.Id == daEliminare)
+                    {
+                        l = lez; foundLezione = true; break;
+                    }
             try
             {
-                for (int i = n.ElencoDettagli.Count - 1; i >= 0; i--)
+                if (foundNolo)
                 {
-                    // METODO PERSISTENZA DELETE DETTAGLIO
-                    n.ElencoDettagli[i].Elimina(n.Inizio, n.Fine);
-                    n.RimuoviDettaglio(n.ElencoDettagli[i]);
+                    for (int i = n.ElencoDettagli.Count - 1; i >= 0; i--)
+                    {
+                        // METODO PERSISTENZA DELETE DETTAGLIO
+                        n.ElencoDettagli[i].Elimina(n.Inizio, n.Fine);
+                        n.RimuoviDettaglio(n.ElencoDettagli[i]);
+                    }
+                    gpc.ElencoNoleggi.Remove(n);
                 }
-                gpc.ElencoNoleggi.Remove(n);
+                else if (foundLezione)
+                {
+                    // METODO PERSISTENZA DELETE LEZIONE (?)
+                    gpc.ElencoLezioni.Remove(l);
+                }
+                else
+                {
+                    throw new Exception("NON TROVATO LEZIONE/NOLEGGIO DA ELIMINARE");
+                }
             }
             catch (Exception e) { return "Non è stato possibile rimuovere la prenotazione"; }
             return "Prenotazione Rimossa!";
@@ -170,6 +188,25 @@ namespace WCFWebService
             return noleggi;
         }
 
+
+        public List<string[]> GetLezioni(string username)
+        {
+            List<string[]> lezioni = new List<string[]>();
+            foreach (Lezione lez in gpc.ElencoLezioni)
+            {
+                if (lez.Cliente.Username.Equals(username)
+                    && lez.Inizio.CompareTo(DateTime.Today) >= 0)
+                {
+                    string[] l = new string[4];
+                    l[0] = "" + lez.Id;
+                    l[1] = lez.Inizio.ToString();
+                    l[2] = lez.Fine.ToString();
+                    l[3] = lez.Istruttore.Nome;
+                    lezioni.Add(l);
+                }
+            }
+            return lezioni;
+        }
 
 
         public int[][] DisponibilitaAttrezzatura(DateTime date)

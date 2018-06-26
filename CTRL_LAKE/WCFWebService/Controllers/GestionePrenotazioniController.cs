@@ -14,7 +14,7 @@ namespace WCFWebService.Controllers
         private static HashSet<Attrezzatura> elencoAttrezzatura = new HashSet<Attrezzatura>();
         private static HashSet<Cliente> elencoClienti = new HashSet<Cliente>();
         private static HashSet<Istruttore> elencoIstruttori = new HashSet<Istruttore>();
-        private static HashSet<Lezione> elencoLezioni;
+        private static HashSet<Lezione> elencoLezioni = new HashSet<Lezione>();
         private static HashSet<Noleggio> elencoNoleggi = new HashSet<Noleggio>();
         private static bool initialized = false;
 
@@ -22,11 +22,10 @@ namespace WCFWebService.Controllers
 
         private EffettuaNoloController enc;
 
-        public HashSet<Lezione> ElencoLezioni { get => ElencoLezioni1; set => ElencoLezioni1 = value; }
+        public HashSet<Lezione> ElencoLezioni { get => elencoLezioni; set => elencoLezioni = value; }
         public HashSet<Attrezzatura> ElencoAttrezzatura { get => elencoAttrezzatura; set => elencoAttrezzatura = value; }
         public HashSet<Noleggio> ElencoNoleggi { get => elencoNoleggi; set => elencoNoleggi = value; }
         public HashSet<Cliente> ElencoClienti { get => elencoClienti; set => elencoClienti = value; }
-        public HashSet<Lezione> ElencoLezioni1 { get => elencoLezioni; set => elencoLezioni = value; }
 
         public EffettuaNoloController Enc { get => enc; set => enc = value; }
 
@@ -47,6 +46,10 @@ namespace WCFWebService.Controllers
             Noleggio nol = new Noleggio(NewId(), c, new DateTime(2018, 6, 28, 10, 0, 0), new DateTime(2018, 6, 28, 11, 0, 0));
             nol.AddDettaglio(new DettaglioNoleggio(nol.Id, 4, a, 45, new DateTime(2018, 6, 28, 10, 0, 0), new DateTime(2018, 6, 28, 11, 0, 0), "mc@ampa.it"));
             ElencoNoleggi.Add(nol);
+            Istruttore istr = new Istruttore("Francesco", "Mazzu", "francesco.mazzu.5678",
+                new DateTime(1996,4,1,0,0,0), "framaz@gmail.com", "3334456789", "fakeIban", "barcaVela", "mattina");
+            elencoIstruttori.Add(istr);
+            ElencoLezioni.Add(new Lezione(NewId(),istr, new DateTime(2018, 6, 29, 9, 0, 0), new DateTime(2018, 6, 29, 11, 0, 0), 1, c));
             initialized = true;
         }
 

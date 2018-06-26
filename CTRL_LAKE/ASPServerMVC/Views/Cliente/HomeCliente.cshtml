@@ -4,7 +4,7 @@
     ViewBag.Title = "HomeCliente";
     Layout = "~/Views/Shared/_cubetheme.cshtml";
     var elencoNoleggi = ViewData["Noleggi"] as WebMVCTempl.ServiceReference1.Noleggio[];
-    //var elencoLezioni = ViewData["Lezioni"] as WebMVCTempl.ServiceReference1.;
+    var elencoLezioni = ViewData["Lezioni"] as string[][];
 
     var cliente = ViewData["Cliente"] as WebMVCTempl.ServiceReference1.Cliente;
     var message = ViewData["Message"] as string;
@@ -117,6 +117,19 @@
                     <td class="tg-baqh"><input name="todelete" type="radio" value="@n.Id" required /></td>
                 </tr>
 }
+                    }
+                    @foreach (string[] lezione in elencoLezioni)
+    {
+                        DateTime inizio = DateTime.Parse(lezione[1]);
+                        DateTime fine = DateTime.Parse(lezione[2]);
+                <tr>
+                    <td class="tg-baqh">@inizio.Date.ToString()</td>
+                    <td class="tg-baqh">@inizio.Hour:00 - @fine.Hour:00</td>
+                    <td class="tg-baqh">&nbsp;</td>
+                    <td class="tg-baqh">@lezione[3]</td>
+                    <td class="tg-baqh"><input name="todelete" type="radio" value="@lezione[0]" required /></td>
+                </tr>
+    }
                     <tr>
                         <td class="tg-baqh">&nbsp;</td>
                         <td class="tg-baqh">&nbsp;</td>

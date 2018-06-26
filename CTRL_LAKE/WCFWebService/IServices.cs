@@ -33,6 +33,9 @@ namespace WCFWebService
         [OperationContract]
         List<Noleggio> GetPrenotazioni(string username);
 
+        [OperationContract]
+        List<string[]> GetLezioni(string username);
+
         //////////////
         [OperationContract]
         string DeleteUser(UserAccount user);

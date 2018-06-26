@@ -25,7 +25,7 @@ namespace WebMVCTempl.Controllers
 
                         string res = webClient.CancellaPrenotazione(daEliminare);
 
-                        ViewData["Message"] = "res"; 
+                        ViewData["Message"] = res; 
                     }
                     catch (Exception e)
                     {
@@ -35,11 +35,12 @@ namespace WebMVCTempl.Controllers
                 }
                 Cliente c = webClient.getCliente();
                 Noleggio[] noleggi = webClient.GetPrenotazioni((string)Session["Username"]);
-                //List<Noleggio> noleggi = webClient.GetPrenotazioni((string)Session["Username"]);
+                string[][] lezioni = webClient.GetLezioni((string)Session["Username"]);
                 
                 
                 ViewData["Cliente"] = c;
                 ViewData["Noleggi"] = noleggi;
+                ViewData["Lezioni"] = lezioni;
                 if (TempData["Message"] != null)
                     ViewData["Message"] = TempData["Message"];
                 return View();

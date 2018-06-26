@@ -52,6 +52,7 @@ namespace WCFWebService.Controllers
                 Noleggio nolo = new Noleggio(gpc.NewId(), c, inizio, fine);
                 for (int i=0; i<attr.Length; i++)
                 {
+                    bool aggiunto = false;
                     foreach (Attrezzatura a in gpc.ElencoAttrezzatura)
                         if (a.Tipo.Equals(attr[i]) && a.IsLibero(inizio, fine))
                         {
@@ -59,7 +60,11 @@ namespace WCFWebService.Controllers
                                 a,/*MOCK COSTO*/99.99, inizio, fine, username);
                             /***PERSISTENZA IDETTAGLIO***/
                             nolo.AddDettaglio((DettaglioNoleggio) dettaglio);
+                            aggiunto = true;
+                            break;
                         }
+                    if (!aggiunto)
+                        throw new Exception("ATTREZZATURA ADEGUATA NON TROVATA");
                 }
                 Pagamento pag = new Pagamento(nolo.Id, 0);
                 foreach (IDettaglioPagamento idp in nolo.ElencoDettagli)

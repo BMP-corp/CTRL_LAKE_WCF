@@ -899,6 +899,12 @@ namespace WebMVCTempl.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServices/GetPrenotazioni", ReplyAction="http://tempuri.org/IServices/GetPrenotazioniResponse")]
         System.Threading.Tasks.Task<WebMVCTempl.ServiceReference1.Noleggio[]> GetPrenotazioniAsync(string username);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServices/GetLezioni", ReplyAction="http://tempuri.org/IServices/GetLezioniResponse")]
+        string[][] GetLezioni(string username);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServices/GetLezioni", ReplyAction="http://tempuri.org/IServices/GetLezioniResponse")]
+        System.Threading.Tasks.Task<string[][]> GetLezioniAsync(string username);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServices/DeleteUser", ReplyAction="http://tempuri.org/IServices/DeleteUserResponse")]
         string DeleteUser(WebMVCTempl.ServiceReference1.UserAccount user);
         
@@ -993,6 +999,14 @@ namespace WebMVCTempl.ServiceReference1 {
         
         public System.Threading.Tasks.Task<WebMVCTempl.ServiceReference1.Noleggio[]> GetPrenotazioniAsync(string username) {
             return base.Channel.GetPrenotazioniAsync(username);
+        }
+        
+        public string[][] GetLezioni(string username) {
+            return base.Channel.GetLezioni(username);
+        }
+        
+        public System.Threading.Tasks.Task<string[][]> GetLezioniAsync(string username) {
+            return base.Channel.GetLezioniAsync(username);
         }
         
         public string DeleteUser(WebMVCTempl.ServiceReference1.UserAccount user) {
