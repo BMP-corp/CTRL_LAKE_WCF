@@ -905,6 +905,18 @@ namespace WebMVCTempl.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServices/GetLezioni", ReplyAction="http://tempuri.org/IServices/GetLezioniResponse")]
         System.Threading.Tasks.Task<string[][]> GetLezioniAsync(string username);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServices/DisponibilitaIstruttori", ReplyAction="http://tempuri.org/IServices/DisponibilitaIstruttoriResponse")]
+        string[][] DisponibilitaIstruttori(System.DateTime date, string attivita);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServices/DisponibilitaIstruttori", ReplyAction="http://tempuri.org/IServices/DisponibilitaIstruttoriResponse")]
+        System.Threading.Tasks.Task<string[][]> DisponibilitaIstruttoriAsync(System.DateTime date, string attivita);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServices/GetCliente", ReplyAction="http://tempuri.org/IServices/GetClienteResponse")]
+        WebMVCTempl.ServiceReference1.Cliente GetCliente(string username);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServices/GetCliente", ReplyAction="http://tempuri.org/IServices/GetClienteResponse")]
+        System.Threading.Tasks.Task<WebMVCTempl.ServiceReference1.Cliente> GetClienteAsync(string username);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServices/DeleteUser", ReplyAction="http://tempuri.org/IServices/DeleteUserResponse")]
         string DeleteUser(WebMVCTempl.ServiceReference1.UserAccount user);
         
@@ -916,12 +928,6 @@ namespace WebMVCTempl.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServices/getCliente", ReplyAction="http://tempuri.org/IServices/getClienteResponse")]
         System.Threading.Tasks.Task<WebMVCTempl.ServiceReference1.Cliente> getClienteAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServices/GetString", ReplyAction="http://tempuri.org/IServices/GetStringResponse")]
-        string GetString();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServices/GetString", ReplyAction="http://tempuri.org/IServices/GetStringResponse")]
-        System.Threading.Tasks.Task<string> GetStringAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1015,6 +1021,22 @@ namespace WebMVCTempl.ServiceReference1 {
             return base.Channel.GetLezioniAsync(username);
         }
         
+        public string[][] DisponibilitaIstruttori(System.DateTime date, string attivita) {
+            return base.Channel.DisponibilitaIstruttori(date, attivita);
+        }
+        
+        public System.Threading.Tasks.Task<string[][]> DisponibilitaIstruttoriAsync(System.DateTime date, string attivita) {
+            return base.Channel.DisponibilitaIstruttoriAsync(date, attivita);
+        }
+        
+        public WebMVCTempl.ServiceReference1.Cliente GetCliente(string username) {
+            return base.Channel.GetCliente(username);
+        }
+        
+        public System.Threading.Tasks.Task<WebMVCTempl.ServiceReference1.Cliente> GetClienteAsync(string username) {
+            return base.Channel.GetClienteAsync(username);
+        }
+        
         public string DeleteUser(WebMVCTempl.ServiceReference1.UserAccount user) {
             return base.Channel.DeleteUser(user);
         }
@@ -1029,14 +1051,6 @@ namespace WebMVCTempl.ServiceReference1 {
         
         public System.Threading.Tasks.Task<WebMVCTempl.ServiceReference1.Cliente> getClienteAsync() {
             return base.Channel.getClienteAsync();
-        }
-        
-        public string GetString() {
-            return base.Channel.GetString();
-        }
-        
-        public System.Threading.Tasks.Task<string> GetStringAsync() {
-            return base.Channel.GetStringAsync();
         }
     }
 }
