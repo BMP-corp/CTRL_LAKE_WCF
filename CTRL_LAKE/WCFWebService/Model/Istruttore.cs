@@ -97,7 +97,8 @@ namespace WCFWebService.Model
         {
             try
             {
-                this._impegni.Aggiungi(inizio, fine);
+                    this._impegni.Aggiungi(inizio, fine);
+             
             }
             catch (Exception e) { throw e; }
         }

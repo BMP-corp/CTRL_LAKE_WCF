@@ -70,7 +70,16 @@ namespace WCFWebService.Model
             }
                 try
                 {
+                if (this._impegni != null)
+                {
                     this._impegni.Aggiungi(inizio, fine);
+                }
+                else
+                {
+                    this._impegni = new CalendarioImpegni(""+this._idAttrezzatura);
+                    this._impegni.Aggiungi(inizio, fine);
+                }
+
                 } catch (Exception e) { throw e; }
         }
 

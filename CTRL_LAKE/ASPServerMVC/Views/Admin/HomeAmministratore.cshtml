@@ -1,12 +1,113 @@
-﻿@model WebMVCTempl.ServiceReference1.HttpWebServiceClient
+﻿@model WebMVCTempl.ServiceReference1.UserAccount
 
 @{
     ViewBag.Title = "HomeAmministratore";
     Layout = "~/Views/Shared/_cubetheme.cshtml";
 }
 
-<h1>HOME ADMIN</h1>
-@if (Session["Username"] != null)
-{
-    <h4>@Session["Username"].ToString()</h4>
-}
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0">
+    <title>Home Admin</title>
+    <link href="http://fonts.googleapis.com/css?family=Fauna+One:400|Kite+One:400|Ubuntu:300," rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/standardize.css">
+    <link rel="stylesheet" href="css/homeadmin-grid.css">
+    <link rel="stylesheet" href="css/homeadmin.css">
+</head>
+<body class="body page-homeadmin clearfix">
+    <div class="centrovelicostyle centrovelicoinsidestyle element"></div>
+    <p class="centrovelicostyle centrovelicoinsidestyle text text-1"><span><b>HOME AMMINISTRATORE</b></span></p>
+    <button onClick="window.location='login.html';" class="centrovelicostyle centrovelicoinsidestyle _button _button-1">Logout</button>
+    <p class="centrovelicostyle centrovelicoinsidestyle text text-2">Benvenuto,&nbsp;</p>
+    <div class="centrovelicostyle centrovelicoinsidestyle wrapper wrapper-1"><text>Mario Rossi</text></div>
+    <div class="centrovelicostyle centrovelicoinsidestyle container container-1 clearfix">
+        <p class="centrovelicostyle centrovelicoinsidestyle text text-3">PROSPETTO SPESE:</p>
+        <div class="centrovelicostyle centrovelicoinsidestyle wrapper wrapper-2">
+            <style type="text/css">
+
+                .tg {
+                    border-collapse: collapse;
+                    border-spacing: 0;
+                    border-color: #aaa;
+                    width: 100%
+                }
+
+                    .tg td {
+                        font-family: Arial, sans-serif;
+                        font-size: 14px;
+                        padding: 10px 5px;
+                        border-style: solid;
+                        border-width: 1px;
+                        overflow: hidden;
+                        word-break: normal;
+                        border-color: #aaa;
+                        color: #333;
+                        background-color: #fff;
+                    }
+
+                    .tg th {
+                        font-family: Arial, sans-serif;
+                        font-size: 14px;
+                        font-weight: normal;
+                        padding: 10px 5px;
+                        border-style: solid;
+                        border-width: 1px;
+                        overflow: hidden;
+                        word-break: normal;
+                        border-color: #aaa;
+                        color: #fff;
+                        background-color: #f38630;
+                    }
+
+                    .tg .tg-baqh {
+                        text-align: center;
+                        vertical-align: top
+                    }
+
+                    .tg .tg-amwm {
+                        font-weight: bold;
+                        text-align: center;
+                        vertical-align: top
+                    }
+
+                    .tg .tg-yw4l {
+                        vertical-align: top
+                    }
+            </style>
+            <table class="tg">
+                <tr>
+                    <th class="tg-amwm">Data</th>
+                    <th class="tg-amwm">Orario</th>
+                    <th class="tg-amwm">Importo</th>
+                    <th class="tg-amwm">Causale</th>
+                </tr>
+                <tr>
+                    <td class="tg-baqh">05/09/2018</td>
+                    <td class="tg-baqh">10:15</td>
+                    <td class="tg-baqh">150€</td>
+                    <td class="tg-baqh">Noleggio Barca</td>
+                </tr>
+                <tr>
+                    <td class="tg-yw4l"></td>
+                    <td class="tg-yw4l"></td>
+                    <td class="tg-yw4l"></td>
+                    <td class="tg-yw4l"></td>
+                </tr>
+            </table>
+        </div>
+        <p class="centrovelicostyle centrovelicoinsidestyle text text-4"><b>Da:</b></p>
+        <div class="centrovelicostyle centrovelicoinsidestyle wrapper wrapper-3"><input id="noloDate" type="date" value="31-02-2018"> </div>
+        <p class="centrovelicostyle centrovelicoinsidestyle text text-5"><b>A:</b></p>
+        <div class="centrovelicostyle centrovelicoinsidestyle wrapper wrapper-4"><input id="noloDate" type="date" value="31-02-2018"> </div>
+        <button class="centrovelicostyle centrovelicoinsidestyle _button _button-2">Filtra</button>
+    </div>
+    <div class="centrovelicostyle centrovelicoinsidestyle container container-2 clearfix">
+        <button onClick="window.location='gestionepersonale.html';" class="centrovelicostyle centrovelicoinsidestyle _button _button-3">Gestione Personale</button>
+        <button class="centrovelicostyle centrovelicoinsidestyle _button _button-4"><a href="/Admin/GestioneAttrezzatura">Gestione Attrezzatura</a></button>
+        <button onClick="window.location='modificapw.html';" class="centrovelicostyle centrovelicoinsidestyle _button _button-5">Modifica Password</button>
+    </div>
+    <div class="container container-3"></div>
+</body>
+</html>

@@ -120,6 +120,20 @@
     <EmbeddedResource Include="Mappings\Credenziali.hbm.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
+    <EmbeddedResource Include="Mappings\Attrezzatura.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mappings\DettaglioNoleggio.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mappings\Impegno.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mappings\Istruttore.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <Content Include="Mappings\Lezione.hbm.xml" />
+    <Content Include="Mappings\Pagamento.hbm.xml" />
     <Content Include="Model\hibernate.cfg.xml" />
     <Content Include="Services.svc" />
     <Content Include="Web.config">

@@ -17,21 +17,24 @@ namespace WCFWebService.Model
         private int _partecipanti;
         private Cliente _cliente;
         private double _costo;
+        private string _usernameIstruttore;
+        private string _usernameCliente;
+        
 
         [DataMember]
-        public int Id { get => _id; set => _id = value; }
+        public virtual int Id { get => _id; set => _id = value; }
         [DataMember]
-        public Istruttore Istruttore { get => _istruttore; set => _istruttore = value; }
+        public virtual Istruttore Istruttore { get => _istruttore; set => _istruttore = value; }
         [DataMember]
-        public DateTime Inizio { get => _inizio; set => _inizio = value; }
+        public virtual DateTime Inizio { get => _inizio; set => _inizio = value; }
         [DataMember]
-        public DateTime Fine { get => _fine; set => _fine = value; }
+        public virtual DateTime Fine { get => _fine; set => _fine = value; }
         [DataMember]
-        public int Partecipanti { get => _partecipanti; set => _partecipanti = value; }
+        public virtual int Partecipanti { get => _partecipanti; set => _partecipanti = value; }
         [DataMember]
-        public Cliente Cliente { get => _cliente; set => _cliente = value; }
+        public virtual Cliente Cliente { get => _cliente; set => _cliente = value; }
         [DataMember]
-        public double Costo { get => _costo; set => _costo = value; }
+        public virtual double Costo { get => _costo; set => _costo = value; }
 
         public Lezione(int id, Istruttore istruttore, DateTime inizio, DateTime fine, int partecipanti, Cliente cliente, double costo)
         {
@@ -60,6 +63,8 @@ namespace WCFWebService.Model
             _partecipanti = partecipanti;
             _cliente = cliente;
             _costo = costo;
+            _usernameCliente = cliente.Username;
+            _usernameIstruttore = istruttore.Username;
         }
 
         public Lezione(int id, Istruttore istruttore, DateTime inizio, DateTime fine, int partecipanti, Cliente cliente)
@@ -85,6 +90,8 @@ namespace WCFWebService.Model
             _fine = fine;
             _partecipanti = partecipanti;
             _cliente = cliente;
+            _usernameCliente = cliente.Username;
+            _usernameIstruttore = istruttore.Username;
         }
         
         public virtual int GetId()
