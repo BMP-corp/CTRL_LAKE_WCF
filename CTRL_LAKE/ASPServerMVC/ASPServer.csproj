@@ -225,6 +225,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\IDettaglioPagamento.cs" />
     <Compile Include="Models\OurDbContext.cs" />
     <Compile Include="Models\UserAccount.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

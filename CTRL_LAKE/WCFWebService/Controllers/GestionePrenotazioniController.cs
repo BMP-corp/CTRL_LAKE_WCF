@@ -55,16 +55,6 @@ namespace WCFWebService.Controllers
         {
             return curr_id++;
         }
-
-        /*public GestionePrenotazioniController()
-        {
-            this.ElencoAttrezzatura = getDbAttrezzatura(c);
-            this.elencoClienti = getDbClienti(c);
-            this.elencoIstruttori = getDbIstruttori(c);
-            //this.elencoLezioni = getDbLezioni();
-            //this.elencoNoleggi = getDbNoleggi();
-            curr_id = 100;
-        }*/
         
 
 

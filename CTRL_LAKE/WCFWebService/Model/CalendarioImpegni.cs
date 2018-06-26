@@ -14,18 +14,21 @@ namespace WCFWebService.Model
         private List<Impegno> _impegni;
         private string _id_user;
 
+        [DataMember]
+        public string Id_user { get => _id_user; set => _id_user = value; }
+        [DataMember]
+        public List<Impegno> Impegni { get => _impegni; set => _impegni = value; }
+
+
         public CalendarioImpegni(string id_user)
         {
             _id_user = id_user;
             Impegni = new List<Impegno>();
         }
 
-        [DataMember]
-        public string Id_user { get => _id_user; set => _id_user = value; }
-        [DataMember]
-        public List<Impegno> Impegni { get => _impegni; set => _impegni = value; }
+        public CalendarioImpegni() { }
 
-        public Impegno GetImpegno (DateTime inizio, DateTime fine)
+        public virtual Impegno GetImpegno (DateTime inizio, DateTime fine)
         {
             Impegno res = null, i2 = null;
             try
@@ -44,7 +47,7 @@ namespace WCFWebService.Model
             return res;
         }
 
-        public void Aggiungi(DateTime inizio, DateTime fine)
+        public virtual void Aggiungi(DateTime inizio, DateTime fine)
         {
             Impegno imp = null;
             try
@@ -63,7 +66,7 @@ namespace WCFWebService.Model
                 throw new Exception("L'impegno richiesto si sovrappone con uno già esistente!");
         }
 
-        public void Rimuovi(DateTime inizio, DateTime fine)
+        public virtual void Rimuovi(DateTime inizio, DateTime fine)
         {
             Impegno imp = null;
             imp = this.GetImpegno(inizio, fine);
@@ -71,7 +74,7 @@ namespace WCFWebService.Model
                 throw new Exception("Impegno non presente in lista!");
         }
 
-        public int ProssimiImpegni()    // restituisce il numero degli impegni ancora da svolgere
+        public virtual int ProssimiImpegni()    // restituisce il numero degli impegni ancora da svolgere
         {
             int result = 0;
             foreach (Impegno i in this.Impegni)

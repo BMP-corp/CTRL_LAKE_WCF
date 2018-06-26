@@ -36,6 +36,8 @@ namespace WCFWebService.Model
             this._id_user = id_user;
         }
 
+        public Impegno() { }
+
         public virtual bool OverlapsWith(Impegno i2)
         {
             DateTime max_inizio = DateTime.Compare(this.Inizio, i2.Inizio) >= 0 ? this.Inizio : i2.Inizio;

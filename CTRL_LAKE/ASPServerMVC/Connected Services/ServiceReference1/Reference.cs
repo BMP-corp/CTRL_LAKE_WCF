@@ -635,6 +635,9 @@ namespace WebMVCTempl.ServiceReference1 {
         private int IdAttrezzaturaField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private WebMVCTempl.ServiceReference1.CalendarioImpegni ImpegniField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int PostiField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -664,6 +667,19 @@ namespace WebMVCTempl.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public WebMVCTempl.ServiceReference1.CalendarioImpegni Impegni {
+            get {
+                return this.ImpegniField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ImpegniField, value) != true)) {
+                    this.ImpegniField = value;
+                    this.RaisePropertyChanged("Impegni");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public int Posti {
             get {
                 return this.PostiField;
@@ -685,6 +701,144 @@ namespace WebMVCTempl.ServiceReference1 {
                 if ((object.ReferenceEquals(this.TipoField, value) != true)) {
                     this.TipoField = value;
                     this.RaisePropertyChanged("Tipo");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CalendarioImpegni", Namespace="http://schemas.datacontract.org/2004/07/WCFWebService.Model")]
+    [System.SerializableAttribute()]
+    public partial class CalendarioImpegni : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string Id_userField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private WebMVCTempl.ServiceReference1.Impegno[] ImpegniField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Id_user {
+            get {
+                return this.Id_userField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Id_userField, value) != true)) {
+                    this.Id_userField = value;
+                    this.RaisePropertyChanged("Id_user");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public WebMVCTempl.ServiceReference1.Impegno[] Impegni {
+            get {
+                return this.ImpegniField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ImpegniField, value) != true)) {
+                    this.ImpegniField = value;
+                    this.RaisePropertyChanged("Impegni");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Impegno", Namespace="http://schemas.datacontract.org/2004/07/WCFWebService.Model")]
+    [System.SerializableAttribute()]
+    public partial class Impegno : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime FineField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string Id_userField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime InizioField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime Fine {
+            get {
+                return this.FineField;
+            }
+            set {
+                if ((this.FineField.Equals(value) != true)) {
+                    this.FineField = value;
+                    this.RaisePropertyChanged("Fine");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Id_user {
+            get {
+                return this.Id_userField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Id_userField, value) != true)) {
+                    this.Id_userField = value;
+                    this.RaisePropertyChanged("Id_user");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime Inizio {
+            get {
+                return this.InizioField;
+            }
+            set {
+                if ((this.InizioField.Equals(value) != true)) {
+                    this.InizioField = value;
+                    this.RaisePropertyChanged("Inizio");
                 }
             }
         }

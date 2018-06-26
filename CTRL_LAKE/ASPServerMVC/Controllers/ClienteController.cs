@@ -25,7 +25,7 @@ namespace WebMVCTempl.Controllers
 
                         string res = webClient.CancellaPrenotazione(daEliminare);
 
-                        ViewData["Message"] = "res";
+                        ViewData["Message"] = "res"; 
                     }
                     catch (Exception e)
                     {
