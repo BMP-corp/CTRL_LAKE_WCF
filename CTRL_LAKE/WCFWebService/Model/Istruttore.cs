@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Runtime.Serialization;
+using WCFWebService;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace WCFWebService
+namespace WCFWebService.Model
 {
     [DataContract]
     public class Istruttore
@@ -17,27 +20,43 @@ namespace WCFWebService
         private string _telefono;
         private string _iban;
         private string _attivita;
-        private CalendarioImpegni _impegni;
         private string _orario;
+        private CalendarioImpegni _impegni;
 
         [DataMember]
         public virtual string Nome { get => _nome; set => _nome = value; }
+
         [DataMember]
         public virtual string Cognome { get => _cognome; set => _cognome = value; }
+
         [DataMember]
         public virtual string Username { get => _username; set => _username = value; }
+
         [DataMember]
         public virtual DateTime DataNascita { get => _dataNascita; set => _dataNascita = value; }
+
         [DataMember]
         public virtual string Email { get => _email; set => _email = value; }
+
         [DataMember]
         public virtual string Telefono { get => _telefono; set => _telefono = value; }
+
         [DataMember]
         public virtual string Iban { get => _iban; set => _iban = value; }
+
         [DataMember]
         public virtual string Attivita { get => _attivita; set => _attivita = value; }
+
         [DataMember]
         public virtual string Orario { get => _orario; set => _orario = value; }
+
+        [DataMember]
+        public virtual CalendarioImpegni Impegni { get => _impegni; set => _impegni = value; }
+
+        public Istruttore()
+        {
+            Impegni = new CalendarioImpegni();
+        }
 
         public Istruttore(string nome, string cognome, string username, DateTime dataNascita,
             string email, string telefono, string iban, string attivita, string orario)
@@ -50,32 +69,27 @@ namespace WCFWebService
             Telefono = telefono;
             Iban = iban;
             Attivita = attivita;
-            _impegni = new CalendarioImpegni(Username);
+            Impegni = new CalendarioImpegni(Username);
             if (!orario.Equals("mattina") && !orario.Equals("pomeriggio"))
             {
                 throw new Exception("tipo di orari istruttore non corretto");
             }
-            _orario = orario;
-        }
-
-        public Istruttore ()
-        {
-            _impegni = new CalendarioImpegni(Username);
+            Orario = orario;
         }
 
         public virtual List<Impegno> elencaImpegni()
         {
-            return this._impegni.Impegni;
+            return this.Impegni.Impegni;
         }
 
         public virtual bool IsLibero(DateTime inizio, DateTime fine)
         {
             bool result = true;
             Impegno richiesto = null;
-            if (_orario.Equals("mattina")
+            if (Orario.Equals("mattina")
                 && fine.TimeOfDay.CompareTo(new TimeSpan(14, 0, 0)) >= 0)
                 return false;
-            if (_orario.Equals("pomeriggio")
+            if (Orario.Equals("pomeriggio")
                 && inizio.TimeOfDay.CompareTo(new TimeSpan(14, 0, 0)) <= 0)
                 return false;
             try
@@ -97,7 +111,7 @@ namespace WCFWebService
         {
             try
             {
-                this._impegni.Aggiungi(inizio, fine);
+                this.Impegni.Aggiungi(inizio, fine);
             }
             catch (Exception e) { throw e; }
         }
@@ -106,7 +120,7 @@ namespace WCFWebService
         {
             try
             {
-                this._impegni.Rimuovi(inizio, fine);
+                this.Impegni.Rimuovi(inizio, fine);
             }
             catch (Exception e) {
                 throw e;

@@ -5,6 +5,8 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 using NHibernate;
+using WCFWebService.Model;
+using WCFWebService.Controllers;
 
 namespace WCFWebService
 {
@@ -13,6 +15,17 @@ namespace WCFWebService
     public class Services : IServices
     {
         private static GestionePrenotazioniController gpc = new GestionePrenotazioniController();
+        private static LoginController lc = new LoginController();
+        private static RegistrazioneController rc = new RegistrazioneController();
+
+        public Credenziali Login(string username, string password)
+        {
+            Credenziali cr = lc.VerificaLogin(username, password);
+            return cr;
+        }
+
+
+
         public string GetString()
         {
 #if MOCK
@@ -21,6 +34,8 @@ namespace WCFWebService
             //database implementation
 #endif
         }
+
+
 
         public List<string> getList()
         {
@@ -49,6 +64,8 @@ namespace WCFWebService
             return productList;
         }
 
+
+
         public Cliente getCliente()
         {
 #if MOCK
@@ -59,27 +76,27 @@ namespace WCFWebService
 #endif
         }
 
-        public UserAccount Login(String username)
-        {
-#if MOCK
-            UserAccount user = new UserAccount();
-            if (username == "Cliente")
-            {
-                user.Username = "Cliente";
-                user.Password = "c";
-                user.AccountRole = "Cliente";
-            }
-            else if (username == "Segreteria")
-            {
-                user.Username = "Segreteria";
-                user.Password = "s";
-                user.AccountRole = "Segreteria";
-            }
-            return user;
-#else
-            //data base implementation
-#endif
-        }
+//        public UserAccount Login(String username)
+//        {
+//#if MOCK
+//            UserAccount user = new UserAccount();
+//            if (username == "Cliente")
+//            {
+//                user.Username = "Cliente";
+//                user.Password = "c";
+//                user.AccountRole = "Cliente";
+//            }
+//            else if (username == "Segreteria")
+//            {
+//                user.Username = "Segreteria";
+//                user.Password = "s";
+//                user.AccountRole = "Segreteria";
+//            }
+//            return user;
+//#else
+//            //data base implementation
+//#endif
+//        }
 
         public UserAccount GetUser(String username)
         {
@@ -101,14 +118,9 @@ namespace WCFWebService
 #endif
         }
 
-        public string Register(UserAccount user)
+        public string Register(Cliente c, string pw)
         {
-#if MOCK
-            string username = "nome.cognome";
-            return username;
-#else
-            //db implementation
-#endif
+            return rc.RegistraCliente(c, pw);
         }
 
         public string DeleteUser(UserAccount user)
@@ -120,6 +132,8 @@ namespace WCFWebService
             //db implementation
 #endif
         }
+
+
 
         public string CancellaPrenotazione(int daEliminare)
         {
@@ -153,10 +167,21 @@ namespace WCFWebService
                 if (nol.Cliente.Username.Equals(username))
                     noleggi.Add(nol);
             }
-
             return noleggi;
-
         }
+
+
+
+        public int[][] DisponibilitaAttrezzatura(DateTime date)
+        {
+            return gpc.Enc.GetDisponibilita(date);
+        }
+
+        public string CreaNoleggio(string user, DateTime inizio, DateTime fine, string[] attr, int[] pers)
+        {
+            return gpc.Enc.CreaNoleggio(user, inizio, fine, attr, pers);
+        }
+
     }
 }
 

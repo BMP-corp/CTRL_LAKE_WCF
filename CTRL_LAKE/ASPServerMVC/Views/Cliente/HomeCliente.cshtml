@@ -1,9 +1,11 @@
-﻿@model WebMVCTempl.ServiceReference1.HttpWebServiceClient
+﻿@model WebMVCTempl.ServiceReference1.Credenziali
 
 @{
     ViewBag.Title = "HomeCliente";
     Layout = "~/Views/Shared/_cubetheme.cshtml";
     var elencoNoleggi = ViewData["Noleggi"] as WebMVCTempl.ServiceReference1.Noleggio[];
+    //var elencoLezioni = ViewData["Lezioni"] as WebMVCTempl.ServiceReference1.;
+
     var cliente = ViewData["Cliente"] as WebMVCTempl.ServiceReference1.Cliente;
     var message = ViewData["Message"] as string;
 }
@@ -86,7 +88,7 @@
                     }
             </style>
 
-            <form id="grid" action="/GestionePrenotazioni/HomeCliente?username=@cliente.Username" method="post">
+            <form id="grid" action="../Cliente/HomeCliente?username=@Session["Username"]" method="post">
                 <table class="tg">
                     <tr>
                         <th class="tg-amwm">Data</th>
@@ -96,25 +98,25 @@
                         <th class="tg-amwm">&nbsp;</th>
                     </tr>
                     @foreach (WebMVCTempl.ServiceReference1.Noleggio n in elencoNoleggi)
-                    {
-                        <tr>
-                            <td class="tg-baqh">@n.Inizio.Date.ToString()</td>
-                            <td class="tg-baqh">@n.Inizio.Hour:00 - @n.Fine.Hour:00</td>
-                            @{ string attrezzatura = "";
-                                foreach(WebMVCTempl.ServiceReference1.DettaglioNoleggio dn in n.ElencoDettagli)
-                                {
-                                    attrezzatura += (dn.Attrezzatura.Tipo + ", ");
-                                }
-                                if (attrezzatura.Length > 3)
-                                {
-                                    attrezzatura.Substring(0, attrezzatura.Length - 3);
-                                }
-                            }
-                            <td class="tg-baqh">@attrezzatura</td>
-                            <td class="tg-baqh">&nbsp;</td>
-                            <td class="tg-baqh"><input name="todelete" type="radio" value="@n.Id" required /></td>
-                        </tr>
+    {
+                <tr>
+                    <td class="tg-baqh">@n.Inizio.Date.ToString()</td>
+                    <td class="tg-baqh">@n.Inizio.Hour:00 - @n.Fine.Hour:00</td>
+                    @{ string attrezzatura = "";
+        foreach (WebMVCTempl.ServiceReference1.DettaglioNoleggio dn in n.ElencoDettagli)
+        {
+            attrezzatura += (dn.Attrezzatura.Tipo + ", ");
+        }
+        if (attrezzatura.Length > 3)
+        {
+            attrezzatura.Substring(0, attrezzatura.Length - 3);
+        }
                     }
+                    <td class="tg-baqh">@attrezzatura</td>
+                    <td class="tg-baqh">&nbsp;</td>
+                    <td class="tg-baqh"><input name="todelete" type="radio" value="@n.Id" required /></td>
+                </tr>
+}
                     <tr>
                         <td class="tg-baqh">&nbsp;</td>
                         <td class="tg-baqh">&nbsp;</td>
@@ -123,14 +125,14 @@
                         <td class="tg-baqh">&nbsp;</td>
                     </tr>
                 </table>
-                <input type="submit" class="_button _button-4" value="Cancella Prenotazione"></input>
+                <input type="submit" class="_button _button-4" value="Cancella Prenotazione"/>
             </form>
             <p>Si ricorda che il termine effettivo delle attività è 10 minuti prima dell'orario indicato, per consentire una riconsegna puntuale dei natanti.</p>
         </div>
         <p class="text text-4">Per cancellare una prenotazione, selezionala tramite l'apposita spunta</p>
     </div>
     <div class="container container-2 clearfix">
-        <button onClick="window.location='noleggio.html';" class="_button _button-2">Prenota Noleggio</button>
+        <button class="_button _button-2"><a href="/Cliente/EffettuaNolo">Prenota Noleggio</a></button>
         <button onClick="window.location='prenotalezione.html';" class="_button _button-3">Prenota Lezione</button>
         <button onClick="window.location='modificapw.html';" class="_button _button-5">Modifica Password</button>
     </div>

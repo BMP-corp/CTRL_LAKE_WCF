@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using WCFWebService.Model;
 
 
-namespace CTRL_LAKE.Controllers
+namespace WCFWebService.Controllers
 {
     public class GestioneAttrezzaturaController
     {

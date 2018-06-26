@@ -4,7 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Web;
 
-namespace WCFWebService
+namespace WCFWebService.Model
 {
     [DataContract]
     public class Pagamento
@@ -48,19 +48,19 @@ namespace WCFWebService
         /*****BUSINESS******/
         public virtual void AddDettaglio(IDettaglioPagamento dettaglio)
         {
-           bool exists = false;
-            foreach (IDettaglioPagamento d in Dettagli)
-                if (d.GetId() == dettaglio.GetId())
-                {
-                    exists = true;
-                    break;
-                }
-            if (!exists)
-            {
+           //bool exists = false;
+           // foreach (IDettaglioPagamento d in Dettagli)
+           //     if (d.GetId() == dettaglio.GetId())
+           //     {
+           //         exists = true;
+           //         break;
+           //     }
+           // if (!exists)
+           // {
                 Dettagli.Add(dettaglio);
                 Totale = CalcolaTotale();
-            }
-            else throw new Exception("Dettaglio già esistente");
+            //}
+            //else throw new Exception("Dettaglio già esistente");
         }
 
         public virtual bool IsPagato()

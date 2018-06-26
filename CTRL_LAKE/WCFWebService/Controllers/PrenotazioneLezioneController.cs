@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using WCFWebService.Interfaces;
+using WCFWebService.Controllers.Interfaces;
+using WCFWebService.Model;
 
-namespace WCFWebService
+namespace WCFWebService.Controllers
 {
-    public class PrenotazioneLezioneController : IPrenotazioneLezioneController
+    public class PrenotazioneLezioneController 
     {
         private GestionePrenotazioniController ctrl;
 
@@ -32,7 +33,7 @@ namespace WCFWebService
             Lezione lezione = null;
             try
             {
-                lezione = new Lezione(ctrl.newId(), i, inizio, fine, partecipanti, c);
+                lezione = new Lezione(ctrl.NewId(), i, inizio, fine, partecipanti, c);
                 /*operazione di retrieve del costo della lezione*/ double costo = 30;
                 lezione.Costo = costo;
                 ctrl.ElencoLezioni.Add(lezione); //qui o in GestionePrenotazioniController?

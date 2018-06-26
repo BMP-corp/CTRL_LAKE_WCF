@@ -104,6 +104,8 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\mytemplate\css\annullaacquisto-grid.css" />
     <Content Include="Content\mytemplate\css\annullaacquisto.css" />
     <Content Include="Content\mytemplate\css\gestioneattrezzatura-grid.css" />
@@ -187,7 +189,22 @@
     <Content Include="Content\mythemehomepage\js\modernizr-2.6.2.min.js" />
     <Content Include="Content\mythemehomepage\js\owl.carousel.min.js" />
     <Content Include="Content\mythemehomepage\js\respond.min.js" />
+    <Content Include="Content\Site.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Connected Services\ServiceReference1\Services1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\effettuaNolo.js" />
+    <Content Include="Scripts\gestioneAttrezzatura.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\utils.js" />
+    <Content Include="Views\Cliente\noleggio.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -202,11 +219,13 @@
     <Compile Include="Controllers\BarController.cs" />
     <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\IstruttoreController.cs" />
+    <Compile Include="Controllers\RegistrazioneController.cs" />
     <Compile Include="Controllers\SegreteriaController.cs" />
     <Compile Include="Controllers\SharedController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\IDettaglioPagamento.cs" />
     <Compile Include="Models\OurDbContext.cs" />
     <Compile Include="Models\UserAccount.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -309,13 +328,16 @@
     <None Include="Connected Services\ServiceReference1\Services.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ServiceReference1\Services1.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Connected Services\ServiceReference1\Services2.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\ServiceReference1\Services3.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <Content Include="Connected Services\ServiceReference1\WebMVCTempl.ServiceReference1.Cliente.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ServiceReference1\WebMVCTempl.ServiceReference1.Credenziali.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\ServiceReference1\WebMVCTempl.ServiceReference1.Noleggio.datasource">
@@ -324,12 +346,14 @@
     <Content Include="Connected Services\ServiceReference1\WebMVCTempl.ServiceReference1.UserAccount.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_mytemplate.cshtml" />
     <Content Include="Views\Shared\_cubetheme.cshtml" />
     <Content Include="Views\Shared\LoginTmp.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\LoggedIn.cshtml" />
     <Content Include="Views\Account\Index.cshtml" />
     <Content Include="Views\Shared\Home.cshtml" />
@@ -339,6 +363,12 @@
     <Content Include="Views\Istruttore\HomeIstruttore.cshtml" />
     <Content Include="Views\Segreteria\HomeSegreteria.cshtml" />
     <Content Include="Views\Bar\HomeBar.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Registrazione\Register.cshtml" />
+    <Content Include="Views\Cliente\EffettuaNolo.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

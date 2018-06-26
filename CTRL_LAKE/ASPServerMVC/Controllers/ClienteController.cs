@@ -10,26 +10,12 @@ namespace WebMVCTempl.Controllers
     public class ClienteController : Controller
     {
         ServicesClient webClient = new ServicesClient();
+
+
         public ActionResult HomeCliente()
         {
             if (Session["Username"] != null)
             {
-
-                //if (!initialized)
-                //{
-                //    init();
-                //}
-                //var username = Request.QueryString["username"];
-                //Cliente c = null;
-                //foreach (Cliente c1 in elencoClienti)
-                //{
-                //    if (c1.Username.Equals(username))
-                //    {
-                //        c = c1; break;
-                //    }
-                //}
-                //if (c == null)
-                //    return Redirect("/Home/Index");
                 ViewData["Message"] = "";
                 if (Request.RequestType.Equals("POST"))
                 {
@@ -39,7 +25,7 @@ namespace WebMVCTempl.Controllers
 
                         string res = webClient.CancellaPrenotazione(daEliminare);
 
-                        ViewData["Message"] = "res";
+                        ViewData["Message"] = "res"; 
                     }
                     catch (Exception e)
                     {
@@ -54,10 +40,61 @@ namespace WebMVCTempl.Controllers
                 
                 ViewData["Cliente"] = c;
                 ViewData["Noleggi"] = noleggi;
+                if (TempData["Message"] != null)
+                    ViewData["Message"] = TempData["Message"];
                 return View();
             }
             else return RedirectToAction("../Account/Login");
-
         }
+
+
+
+        
+        public ActionResult EffettuaNolo()
+        {
+            if (Request.RequestType.Equals("POST"))
+            {
+                if (Request.Form["formname"].Equals("form1"))
+                {
+                    /////richiesta per cambio data ( => visualizzazione disponibilità)
+                    DateTime date = DateTime.Parse(Request.Form["data"]);
+                    ViewData["MapAttrezzature"] = webClient.DisponibilitaAttrezzatura(date);
+                    ViewData["SelectedData"] = date;
+                    return View();
+                }
+                else ///richiesta per effettuare il noleggio
+                {
+                    DateTime date = DateTime.Parse(Request.Form["data"]);
+                    int start = Int32.Parse(Request.Form["starttime"]);
+                    int end = Int32.Parse(Request.Form["endtime"]);
+                    DateTime inizio = new DateTime(date.Year, date.Month, date.Day, start, 0, 0);
+                    DateTime fine = new DateTime(date.Year, date.Month, date.Day, end, 0, 0);
+                    int numDettagli = Int32.Parse(Request.Form["totali"]);
+                    string[] tipoAttr = new string[numDettagli];
+                    int[] numPersone = new int[numDettagli];
+                    string user = (string) Session["Username"];
+                    for (int i=0; i<numDettagli; i++)
+                    {
+                        tipoAttr[i] = Request.Form["attr" + i];
+                        numPersone[i] = Int32.Parse(Request.Form["pers" + i]);
+                    }
+                    /*******/
+                    string message = webClient.CreaNoleggio((string)Session["Username"], inizio, fine, tipoAttr, numPersone);
+                    /*******/
+                    TempData["Message"] = message;
+                    return RedirectToAction("../Cliente/HomeCliente");
+                }
+            }
+            else        //GET: primo accesso alla pagina, si vogliono vedere le disponibilita' di oggi
+            {
+                ViewData["MapAttrezzature"]=webClient.DisponibilitaAttrezzatura(DateTime.Today);
+                ViewData["SelectedData"] = DateTime.Today;
+                return View();
+            }
+
+            return View();
+        }
+
     }
+
 }

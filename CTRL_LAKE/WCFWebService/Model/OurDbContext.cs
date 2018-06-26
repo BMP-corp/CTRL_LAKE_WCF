@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Data.Entity;
 
-namespace WCFWebService
+namespace WCFWebService.Model
 {
     /*
      * Aggiungere System.Data.Entity (se non installato installarlo con nuget)

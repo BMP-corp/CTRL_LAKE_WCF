@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WCFWebService
+namespace WCFWebService.Model
 {
      [DataContract]
      public class Impegno
@@ -35,6 +35,8 @@ namespace WCFWebService
             this.Fine = fine;
             this._id_user = id_user;
         }
+
+        public Impegno() { }
 
         public virtual bool OverlapsWith(Impegno i2)
         {

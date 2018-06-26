@@ -114,6 +114,12 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Mappings\Cliente.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mappings\Credenziali.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <Content Include="Model\hibernate.cfg.xml" />
     <Content Include="Services.svc" />
     <Content Include="Web.config">
@@ -121,15 +127,19 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\EffettuaNoloController.cs" />
     <Compile Include="Controllers\GestioneAttrezzaturaController.cs" />
     <Compile Include="Controllers\GestionePrenotazioniController.cs" />
     <Compile Include="Controllers\Interfaces\IGestionePrenotazioniController.cs" />
     <Compile Include="Controllers\Interfaces\IPrenotazioneLezioneController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PrenotazioneLezioneController.cs" />
+    <Compile Include="Controllers\RegistrazioneController.cs" />
     <Compile Include="IServices.cs" />
     <Compile Include="Model\Attrezzatura.cs" />
     <Compile Include="Model\CalendarioImpegni.cs" />
     <Compile Include="Model\Cliente.cs" />
+    <Compile Include="Model\Credenziali.cs" />
     <Compile Include="Model\DettaglioExtra.cs" />
     <Compile Include="Model\DettaglioNoleggio.cs" />
     <Compile Include="Model\IDettaglioPagamento.cs" />

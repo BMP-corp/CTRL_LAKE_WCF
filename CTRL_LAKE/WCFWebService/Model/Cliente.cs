@@ -4,7 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Web;
 
-namespace WCFWebService
+namespace WCFWebService.Model
 {
     [DataContract]
     public class Cliente
@@ -17,17 +17,17 @@ namespace WCFWebService
         private string _telefono;
 
         [DataMember]
-        public string Nome { get => _nome; set => _nome = value; }
+        public virtual string Nome { get => _nome; set => _nome = value; }
         [DataMember]
-        public string Cognome { get => _cognome; set => _cognome = value; }
+        public virtual string Cognome { get => _cognome; set => _cognome = value; }
         [DataMember]
-        public string Username { get => _username; set => _username = value; }
+        public virtual string Username { get => _username; set => _username = value; }
         [DataMember]
-        public string Email { get => _email; set => _email = value; }
+        public virtual string Email { get => _email; set => _email = value; }
         [DataMember]
-        public DateTime DataNascita { get => _dataNascita; set => _dataNascita = value; }
+        public virtual DateTime DataNascita { get => _dataNascita; set => _dataNascita = value; }
         [DataMember]
-        public string Telefono { get => _telefono; set => _telefono = value; }
+        public virtual string Telefono { get => _telefono; set => _telefono = value; }
 
         public Cliente(string nome, string cognome, string username, DateTime dataNascita, string email, string telefono)
         {

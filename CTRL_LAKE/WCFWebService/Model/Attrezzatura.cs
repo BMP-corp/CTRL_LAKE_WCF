@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.Serialization;
 
-namespace WCFWebService
+namespace WCFWebService.Model
 {
     [DataContract]
     public class Attrezzatura
@@ -21,30 +21,31 @@ namespace WCFWebService
         public virtual int IdAttrezzatura { get => _idAttrezzatura; set => _idAttrezzatura = value; }
         [DataMember]
         public virtual int Posti { get => _posti; set => _posti = value; }
+        [DataMember]
+        public CalendarioImpegni Impegni { get => _impegni; set => _impegni = value; }
 
         public Attrezzatura(string tipo, int idAttrezzatura, int posti)
         {
             Tipo = tipo;
             IdAttrezzatura = idAttrezzatura;
             Posti = posti;
-            _impegni = new CalendarioImpegni(""+_idAttrezzatura);
+            Impegni = new CalendarioImpegni(""+_idAttrezzatura);
         }
 
         public Attrezzatura() {
         }
 
         
-        
         public virtual bool isCancellabile()
         {
-            return (this._impegni.ProssimiImpegni() == 0);
+            return (this.Impegni.ProssimiImpegni() == 0);
         }
-
+        
         public virtual List<Impegno> elencaImpegni()
         {
-            return this._impegni.Impegni;
+            return this.Impegni.Impegni;
         }
-
+        
         public virtual bool IsLibero (DateTime inizio, DateTime fine)
         {
             bool result = true;
@@ -71,7 +72,7 @@ namespace WCFWebService
             }
                 try
                 {
-                    this._impegni.Aggiungi(inizio, fine);
+                    this.Impegni.Aggiungi(inizio, fine);
                 } catch (Exception e) { throw e; }
         }
 
@@ -79,7 +80,7 @@ namespace WCFWebService
         {
             try
             {
-                this._impegni.Rimuovi(inizio, fine);
+                this.Impegni.Rimuovi(inizio, fine);
             } catch (Exception e) { throw e; }
         }
 
