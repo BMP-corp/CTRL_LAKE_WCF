@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Web;
 using System.Threading.Tasks;
+using WCFWebService;
 
 namespace WCFWebService.Model
 {
@@ -23,16 +24,22 @@ namespace WCFWebService.Model
 
         [DataMember]
         public virtual int Id { get => _id; set => _id = value; }
+
         [DataMember]
         public virtual Istruttore Istruttore { get => _istruttore; set => _istruttore = value; }
+
         [DataMember]
         public virtual DateTime Inizio { get => _inizio; set => _inizio = value; }
+
         [DataMember]
         public virtual DateTime Fine { get => _fine; set => _fine = value; }
+
         [DataMember]
         public virtual int Partecipanti { get => _partecipanti; set => _partecipanti = value; }
+
         [DataMember]
         public virtual Cliente Cliente { get => _cliente; set => _cliente = value; }
+
         [DataMember]
         public virtual double Costo { get => _costo; set => _costo = value; }
 
@@ -51,11 +58,11 @@ namespace WCFWebService.Model
             if (costo <= 0)
                 throw new Exception("Impossibile creare lezione: costo non valido");
             
-            _id = id;
-            _istruttore = istruttore;
+            Id = id;
+            Istruttore = istruttore;
             try
             {
-                _istruttore.Riserva(inizio, fine);
+                Istruttore.Riserva(inizio, fine);
             }
             catch (Exception e) { throw e; }
             _inizio = inizio;
@@ -80,11 +87,11 @@ namespace WCFWebService.Model
             if (partecipanti <= 0 || partecipanti > 5)
                 throw new Exception("Impossibile creare lezione: numero partecipanti non valido");
 
-            _id = id;
-            _istruttore = istruttore;
+            Id = id;
+            Istruttore = istruttore;
             try
             {
-                _istruttore.Riserva(inizio, fine);
+                Istruttore.Riserva(inizio, fine);
             } catch (Exception e) { throw e; }
             _inizio = inizio;
             _fine = fine;
@@ -96,20 +103,18 @@ namespace WCFWebService.Model
         
         public virtual int GetId()
         {
-            return _id;
+            return Id;
         }
-
-        //Calcola costo si potrebbe eliminare in quanto equivalente al get 
-        //CalcolaCosto è richesta dall' interfaccia, non si può togliere. Il get si.
+        
         public virtual double CalcolaCosto()
         {
-           return _costo;
+           return Costo;
         }
 
         public override string ToString()
         {
             string result;
-            result = "ID: " + _id + " ISTRUTTORE: " + _istruttore + " CLIENTE: " + _cliente;
+            result = "ID: " + Id + " ISTRUTTORE: " + Istruttore + " CLIENTE: " + Cliente;
             return result;
         }
     }

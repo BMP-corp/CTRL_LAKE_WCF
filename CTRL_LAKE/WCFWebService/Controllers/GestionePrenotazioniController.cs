@@ -24,6 +24,7 @@ namespace WCFWebService.Controllers
         private static int curr_id;
 
         private EffettuaNoloController enc;
+        private PrenotazioneLezioneController plc;
         private GestioneAttrezzaturaController gap;
 
         public HashSet<Lezione> ElencoLezioni { get => elencoLezioni; set => elencoLezioni = value; }
@@ -34,11 +35,14 @@ namespace WCFWebService.Controllers
 
 
         public EffettuaNoloController Enc { get => enc; set => enc = value; }
+        public PrenotazioneLezioneController Plc { get => plc; set => plc = value; }
+        
         public GestioneAttrezzaturaController Gap { get => gap; set => gap = value; }
 
         public GestionePrenotazioniController()
         {
             Enc = new EffettuaNoloController(this);
+            Plc = new PrenotazioneLezioneController(this);
             Gap = new GestioneAttrezzaturaController(this);
 
             if (!initialized)

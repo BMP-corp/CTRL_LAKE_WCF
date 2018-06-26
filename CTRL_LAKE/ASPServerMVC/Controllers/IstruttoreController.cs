@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebMVCTempl.ServiceReference1;
 
 namespace WebMVCTempl.Controllers
 {
     public class IstruttoreController : Controller
     {
+        
         // GET: Istruttore
         public ActionResult HomeIstruttore()
         {

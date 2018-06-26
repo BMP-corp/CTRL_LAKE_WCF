@@ -62,11 +62,7 @@ namespace WCFWebService
 
         public string GetString()
         {
-#if MOCK
             return "BellaVez";
-#else            
-            //database implementation
-#endif
         }
 
 
@@ -100,14 +96,15 @@ namespace WCFWebService
 
 
 
-        public Cliente getCliente()
+        public Cliente GetCliente(string username)
         {
-#if MOCK
-            Cliente c = new Cliente("Luca", "Braga", "luca.braga.21", new DateTime(2015, 05, 05), "bella@tin.it", "3478478002");
+            Cliente c = null;
+            foreach (Cliente c1 in gpc.ElencoClienti)
+                if (c1.Username == username)
+                {
+                    c = c1; break;
+                }
             return c;
-#else
-            //database implementation
-#endif
         }
 
 //        public UserAccount Login(String username)
@@ -172,22 +169,40 @@ namespace WCFWebService
         public string CancellaPrenotazione(int daEliminare)
         {
 
-            Noleggio n = null;
-
+            Noleggio n = null; Lezione l = null;
+            bool foundNolo = false, foundLezione=false;
             foreach (Noleggio nol in gpc.ElencoNoleggi)
                 if (nol.Id == daEliminare)
                 {
-                    n = nol; break;
+                    n = nol; foundNolo = true;  break;
                 }
+            if (!foundNolo)
+                foreach(Lezione lez in gpc.ElencoLezioni)
+                    if (lez.Id == daEliminare)
+                    {
+                        l = lez; foundLezione = true; break;
+                    }
             try
             {
-                for (int i = n.ElencoDettagli.Count - 1; i >= 0; i--)
+                if (foundNolo)
                 {
-                    // METODO PERSISTENZA DELETE DETTAGLIO
-                    n.ElencoDettagli[i].Elimina(n.Inizio, n.Fine);
-                    n.RimuoviDettaglio(n.ElencoDettagli[i]);
+                    for (int i = n.ElencoDettagli.Count - 1; i >= 0; i--)
+                    {
+                        // METODO PERSISTENZA DELETE DETTAGLIO
+                        n.ElencoDettagli[i].Elimina(n.Inizio, n.Fine);
+                        n.RimuoviDettaglio(n.ElencoDettagli[i]);
+                    }
+                    gpc.ElencoNoleggi.Remove(n);
                 }
-                gpc.ElencoNoleggi.Remove(n);
+                else if (foundLezione)
+                {
+                    // METODO PERSISTENZA DELETE LEZIONE (?)
+                    gpc.ElencoLezioni.Remove(l);
+                }
+                else
+                {
+                    throw new Exception("NON TROVATO LEZIONE/NOLEGGIO DA ELIMINARE");
+                }
             }
             catch (Exception e) { return "Non è stato possibile rimuovere la prenotazione"; }
             return "Prenotazione Rimossa!";
@@ -196,14 +211,50 @@ namespace WCFWebService
         public List<Noleggio> GetPrenotazioni(string username)
         {
             List<Noleggio> noleggi = new List<Noleggio>();
-            foreach (Noleggio nol in gpc.ElencoNoleggi)
-            {
-                if (nol.Cliente.Username.Equals(username))
+            if(username != "Segreteria")
+                foreach (Noleggio nol in gpc.ElencoNoleggi)
+                {
+                    if (nol.Cliente.Username.Equals(username))
+                        noleggi.Add(nol);
+                }
+            else foreach (Noleggio nol in gpc.ElencoNoleggi)
                     noleggi.Add(nol);
-            }
             return noleggi;
         }
 
+
+        public List<string[]> GetLezioni(string username)
+        {
+            List<string[]> lezioni = new List<string[]>();
+            foreach (Lezione lez in gpc.ElencoLezioni)
+            {
+                if (lez.Cliente.Username.Equals(username)
+                    && lez.Inizio.CompareTo(DateTime.Today) >= 0)
+                {
+                    string[] l = new string[4];
+                    l[0] = "" + lez.Id;
+                    l[1] = lez.Inizio.ToString();
+                    l[2] = lez.Fine.ToString();
+                    l[3] = lez.Istruttore.Nome;
+                    lezioni.Add(l);
+                }
+            }
+            return lezioni;
+        }
+
+        public List<Lezione> GetListLezioni(string username)
+        {
+            List<Lezione> lezioni = new List<Lezione>();
+            if (username != "Segreteria")
+                foreach (Lezione lez in gpc.ElencoLezioni)
+                {
+                 if (lez.Cliente.Username.Equals(username))
+                    lezioni.Add(lez);
+                }
+            else foreach (Lezione lez in gpc.ElencoLezioni)
+                lezioni.Add(lez);
+            return lezioni;
+        }
 
 
         public int[][] DisponibilitaAttrezzatura(DateTime date)
@@ -211,10 +262,16 @@ namespace WCFWebService
             return gpc.Enc.GetDisponibilita(date);
         }
 
+        public List<string>[] DisponibilitaIstruttori(DateTime date, string attivita)
+        {
+            return gpc.Plc.GetDisponibilitaIstruttori(date, attivita);
+        }
+
         public string CreaNoleggio(string user, DateTime inizio, DateTime fine, string[] attr, int[] pers)
         {
             return gpc.Enc.CreaNoleggio(user, inizio, fine, attr, pers);
         }
+
 
     }
 }

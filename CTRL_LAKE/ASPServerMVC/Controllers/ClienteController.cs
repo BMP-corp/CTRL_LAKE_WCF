@@ -25,7 +25,7 @@ namespace WebMVCTempl.Controllers
 
                         string res = webClient.CancellaPrenotazione(daEliminare);
 
-                        ViewData["Message"] = "res";
+                        ViewData["Message"] = res; 
                     }
                     catch (Exception e)
                     {
@@ -33,13 +33,14 @@ namespace WebMVCTempl.Controllers
                         ViewData["Message"] = "Non è stato possibile rimuovere la prenotazione";
                     }
                 }
-                Cliente c = webClient.getCliente();
+                Cliente c = webClient.GetCliente((string)Session["Username"]);
                 Noleggio[] noleggi = webClient.GetPrenotazioni((string)Session["Username"]);
-                //List<Noleggio> noleggi = webClient.GetPrenotazioni((string)Session["Username"]);
+                string[][] lezioni = webClient.GetLezioni((string)Session["Username"]);
                 
                 
                 ViewData["Cliente"] = c;
                 ViewData["Noleggi"] = noleggi;
+                ViewData["Lezioni"] = lezioni;
                 if (TempData["Message"] != null)
                     ViewData["Message"] = TempData["Message"];
                 return View();
@@ -95,6 +96,56 @@ namespace WebMVCTempl.Controllers
             return View();
         }
 
+
+        public ActionResult PrenotaLezione()
+        {
+            if (Request.RequestType.Equals("POST"))
+            {
+                if (Request.Form["formname"].Equals("form1"))
+                {
+                    /////richiesta per cambio data ( => visualizzazione disponibilità)
+                    DateTime date = DateTime.Parse(Request.Form["data"]);
+                    string attivita = Request.Form["attivita"];
+                    ViewData["MapAttrezzature"] = webClient.DisponibilitaAttrezzatura(date);
+                    ViewData["MapIstruttori"] = webClient.DisponibilitaIstruttori(date, attivita);
+                    ViewData["SelectedData"] = date;
+                    ViewData["SelectedActivity"] = attivita;
+                    return View();
+                }
+                else ///richiesta per effettuare il noleggio
+                {
+                    DateTime date = DateTime.Parse(Request.Form["data"]);
+                    int start = Int32.Parse(Request.Form["starttime"]);
+                    int end = Int32.Parse(Request.Form["endtime"]);
+                    DateTime inizio = new DateTime(date.Year, date.Month, date.Day, start, 0, 0);
+                    DateTime fine = new DateTime(date.Year, date.Month, date.Day, end, 0, 0);
+                    int numDettagli = Int32.Parse(Request.Form["totali"]);
+                    string[] tipoAttr = new string[numDettagli];
+                    int[] numPersone = new int[numDettagli];
+                    string user = (string)Session["Username"];
+                    for (int i = 0; i < numDettagli; i++)
+                    {
+                        tipoAttr[i] = Request.Form["attr" + i];
+                        numPersone[i] = Int32.Parse(Request.Form["pers" + i]);
+                    }
+                    /*******/
+                    string message = webClient.CreaNoleggio((string)Session["Username"], inizio, fine, tipoAttr, numPersone);
+                    /*******/
+                    TempData["Message"] = message;
+                    return RedirectToAction("../Cliente/HomeCliente");
+                }
+            }
+            else        //GET: primo accesso alla pagina, si vogliono vedere le disponibilita' di oggi
+            {
+                ViewData["MapIstruttori"] = webClient.DisponibilitaIstruttori(DateTime.Today, "barcaVela");
+                ViewData["MapAttrezzature"] = webClient.DisponibilitaAttrezzatura(DateTime.Today);
+                ViewData["SelectedData"] = DateTime.Today;
+                ViewData["SelectedActivity"] = "barcaVela";
+                return View();
+            }
+
+            return View();
+        }
     }
 
 }

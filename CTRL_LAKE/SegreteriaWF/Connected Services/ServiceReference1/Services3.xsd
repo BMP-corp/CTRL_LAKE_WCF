@@ -96,4 +96,37 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Impegno" nillable="true" type="tns:Impegno" />
+  <xs:complexType name="ArrayOfLezione">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Lezione" nillable="true" type="tns:Lezione" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLezione" nillable="true" type="tns:ArrayOfLezione" />
+  <xs:complexType name="Lezione">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Cliente" nillable="true" type="tns:Cliente" />
+      <xs:element minOccurs="0" name="Costo" type="xs:double" />
+      <xs:element minOccurs="0" name="Fine" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Inizio" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Istruttore" nillable="true" type="tns:Istruttore" />
+      <xs:element minOccurs="0" name="Partecipanti" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Lezione" nillable="true" type="tns:Lezione" />
+  <xs:complexType name="Istruttore">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Attivita" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Cognome" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DataNascita" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Iban" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Impegni" nillable="true" type="tns:CalendarioImpegni" />
+      <xs:element minOccurs="0" name="Nome" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Orario" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Telefono" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Istruttore" nillable="true" type="tns:Istruttore" />
 </xs:schema>

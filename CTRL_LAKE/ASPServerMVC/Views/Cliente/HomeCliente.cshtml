@@ -4,6 +4,8 @@
     ViewBag.Title = "HomeCliente";
     Layout = "~/Views/Shared/_cubetheme.cshtml";
     var elencoNoleggi = ViewData["Noleggi"] as WebMVCTempl.ServiceReference1.Noleggio[];
+    var elencoLezioni = ViewData["Lezioni"] as string[][];
+
     var cliente = ViewData["Cliente"] as WebMVCTempl.ServiceReference1.Cliente;
     var message = ViewData["Message"] as string;
 }
@@ -98,7 +100,7 @@
                     @foreach (WebMVCTempl.ServiceReference1.Noleggio n in elencoNoleggi)
     {
                 <tr>
-                    <td class="tg-baqh">@n.Inizio.Date.ToString()</td>
+                    <td class="tg-baqh">@n.Inizio.Date.ToString("dd/MM/yyyy")</td>
                     <td class="tg-baqh">@n.Inizio.Hour:00 - @n.Fine.Hour:00</td>
                     @{ string attrezzatura = "";
         foreach (WebMVCTempl.ServiceReference1.DettaglioNoleggio dn in n.ElencoDettagli)
@@ -115,6 +117,19 @@
                     <td class="tg-baqh"><input name="todelete" type="radio" value="@n.Id" required /></td>
                 </tr>
 }
+                    }
+                    @foreach (string[] lezione in elencoLezioni)
+    {
+                        DateTime inizio = DateTime.Parse(lezione[1]);
+                        DateTime fine = DateTime.Parse(lezione[2]);
+                <tr>
+                    <td class="tg-baqh">@inizio.Date.ToString("dd/MM/yyyy")</td>
+                    <td class="tg-baqh">@inizio.Hour:00 - @fine.Hour:00</td>
+                    <td class="tg-baqh">&nbsp;</td>
+                    <td class="tg-baqh">@lezione[3]</td>
+                    <td class="tg-baqh"><input name="todelete" type="radio" value="@lezione[0]" required /></td>
+                </tr>
+    }
                     <tr>
                         <td class="tg-baqh">&nbsp;</td>
                         <td class="tg-baqh">&nbsp;</td>
@@ -131,7 +146,7 @@
     </div>
     <div class="container container-2 clearfix">
         <button class="_button _button-2"><a href="/Cliente/EffettuaNolo">Prenota Noleggio</a></button>
-        <button onClick="window.location='prenotalezione.html';" class="_button _button-3">Prenota Lezione</button>
+        <button class="_button _button-3"><a href="/Cliente/PrenotaLezione">Prenota Lezione</a></button>
         <button onClick="window.location='modificapw.html';" class="_button _button-5">Modifica Password</button>
     </div>
     <p>@message</p>

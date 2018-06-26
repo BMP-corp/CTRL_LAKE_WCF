@@ -9,8 +9,9 @@ using System.Threading.Tasks;
 
 namespace WCFWebService.Model
 {
+
     [DataContract]
-    public class Istruttore
+    public class IstruttoreX
     {
         private string _nome;
         private string _cognome;
@@ -20,8 +21,8 @@ namespace WCFWebService.Model
         private string _telefono;
         private string _iban;
         private string _attivita;
-        private CalendarioImpegni _impegni;
         private string _orario;
+        private CalendarioImpegni _impegni;
 
         [DataMember]
         public virtual string Nome { get => _nome; set => _nome = value; }
@@ -53,12 +54,12 @@ namespace WCFWebService.Model
         [DataMember]
         public virtual CalendarioImpegni Impegni { get => _impegni; set => _impegni = value; }
 
-        public Istruttore()
+        public IstruttoreX()
         {
             Impegni = new CalendarioImpegni();
         }
 
-        public Istruttore(string nome, string cognome, string username, DateTime dataNascita,
+        public IstruttoreX(string nome, string cognome, string username, DateTime dataNascita,
             string email, string telefono, string iban, string attivita, string orario)
         {
             Nome = nome;
@@ -69,17 +70,12 @@ namespace WCFWebService.Model
             Telefono = telefono;
             Iban = iban;
             Attivita = attivita;
-            _impegni = new CalendarioImpegni(Username);
+            Impegni = new CalendarioImpegni(Username);
             if (!orario.Equals("mattina") && !orario.Equals("pomeriggio"))
             {
                 throw new Exception("tipo di orari istruttore non corretto");
             }
-            _orario = orario;
-        }
-
-        public Istruttore ()
-        {
-            _impegni = new CalendarioImpegni(Username);
+            Orario = orario;
         }
 
         public virtual List<Impegno> elencaImpegni()
@@ -92,10 +88,10 @@ namespace WCFWebService.Model
             bool result = true;
             Impegno richiesto = null;
             if (Orario.Equals("mattina")
-                && fine.TimeOfDay.CompareTo(new TimeSpan(14, 0, 0)) > 0)
+                && fine.TimeOfDay.CompareTo(new TimeSpan(14, 0, 0)) >= 0)
                 return false;
             if (Orario.Equals("pomeriggio")
-                && inizio.TimeOfDay.CompareTo(new TimeSpan(14, 0, 0)) < 0)
+                && inizio.TimeOfDay.CompareTo(new TimeSpan(14, 0, 0)) <= 0)
                 return false;
             try
             {
@@ -127,7 +123,8 @@ namespace WCFWebService.Model
             {
                 this.Impegni.Rimuovi(inizio, fine);
             }
-            catch (Exception e) {
+            catch (Exception e)
+            {
                 throw e;
             }
         }

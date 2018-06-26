@@ -36,11 +36,7 @@ namespace WCFWebService.Model
             this._id_user = id_user;
         }
 
-        public Impegno()
-        {
-
-        }
-           
+        public Impegno() { }
 
         public virtual bool OverlapsWith(Impegno i2)
         {
