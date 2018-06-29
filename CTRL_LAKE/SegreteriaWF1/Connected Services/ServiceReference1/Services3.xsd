@@ -190,25 +190,6 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="CreaLezione">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="inizio" type="xs:dateTime" />
-        <xs:element minOccurs="0" name="fine" type="xs:dateTime" />
-        <xs:element minOccurs="0" name="istr" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="persone" type="xs:int" />
-        <xs:element minOccurs="0" name="attivita" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="CreaLezioneResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="CreaLezioneResult" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
   <xs:element name="DeleteUser">
     <xs:complexType>
       <xs:sequence>

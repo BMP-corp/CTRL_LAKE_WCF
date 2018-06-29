@@ -70,6 +70,7 @@ namespace WCFWebService.Controllers
                 foreach (IDettaglioPagamento idp in nolo.ElencoDettagli)
                     pag.AddDettaglio(idp);
                 /***PERSISTENZA PAGAMENTO***/
+                gpc.ElencoNoleggi.Add(nolo);
                 result = "La tua prenotazione è stata completata!";
             } catch(Exception e)
             {

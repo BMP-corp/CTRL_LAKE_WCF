@@ -24,7 +24,6 @@ namespace SegreteriaWF
         private BindingSource tableBindingS = new BindingSource();
         private DataTable dataTable;
         private DataSet dataSet = new DataSet();
-       
 
         Noleggio[] prenotazioni;
         Lezione[] lezioni;
@@ -210,8 +209,7 @@ namespace SegreteriaWF
 
         private void editPrenotazione_Click(object sender, EventArgs e)
         {
-            Cliente selectedCliente = service.GetCliente("alessia.perugini.2243");
-            ModificaPrenotazione modificaPrenotazione = new ModificaPrenotazione((DataRowView)tableBindingS.Current,(Cliente) selectedCliente);
+            ModificaPrenotazione modificaPrenotazione = new ModificaPrenotazione((DataRowView)tableBindingS.Current);
             modificaPrenotazione.Show();
 
             //tableBindingS.Position = 0; 
@@ -222,11 +220,6 @@ namespace SegreteriaWF
 
             //((DataRowView)tableBindingS.Current).Row.RejectChanges();
             //MAN: annulla le modifiche alla tabella
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

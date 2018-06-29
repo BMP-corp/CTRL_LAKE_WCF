@@ -51,7 +51,7 @@ namespace WCFWebService.Controllers
                 }
                 lezione = new Lezione(gpc.NewId(), istruttore, inizio, fine, persone, c);
                 /*operazione di retrieve del costo della lezione*/ double costo = 30;
-                lezione.Costo = costo;
+                lezione.Costo = 100;
                 gpc.ElencoLezioni.Add(lezione); //MOCK (no DB)
                 result = "La tua prenotazione è stata completata!";
             } catch (Exception e)

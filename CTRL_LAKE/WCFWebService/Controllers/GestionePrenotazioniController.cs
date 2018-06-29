@@ -21,7 +21,7 @@ namespace WCFWebService.Controllers
         private static HashSet<Noleggio> elencoNoleggi = new HashSet<Noleggio>();
         private static bool initialized = false;
 
-        private static int curr_id=210;
+        private static int curr_id=900;
 
         private EffettuaNoloController enc;
         private PrenotazioneLezioneController plc;
@@ -66,6 +66,37 @@ namespace WCFWebService.Controllers
             ElencoIstruttori = GetListaIstruttori();
             //ElencoLezioni = GetListaLezioni();
             ElencoNoleggi = GetListaNoleggi();
+
+            Istruttore istr1 = new Istruttore("Francesco", "Mazzu", "francescp.mazzu.6789",
+                new DateTime(1996, 4, 1, 0, 0, 0), "framaz@gmail.com", "333456789", "fakeIban", "barcaVela", "mattina");        //elencoIstruttori.ToArray()[0];
+            Istruttore istr2 = new Istruttore("Paolo", "Storti", "paolo.storti.5666",
+                new DateTime(1991, 5, 16, 0, 0, 0), "pstort@gmail.com", "1637879666", "fakeIban2", "windsurf", "pomeriggio");
+            ElencoIstruttori.Add(istr1);
+            ElencoIstruttori.Add(istr2);
+            DateTime inizio1, fine1, inizio2, fine2;
+            if (istr1.Orario == "mattina")
+            {
+                inizio1 = new DateTime(2018, 6, 29, 10, 0, 0);
+                fine1 = new DateTime(2018, 6, 29, 12, 0, 0);
+            }
+            else
+            {
+                inizio1 = new DateTime(2018, 6, 29, 15, 0, 0);
+                fine1 = new DateTime(2018, 6, 29, 16, 0, 0);
+            }
+            if (istr2.Orario == "mattina")
+            {
+                inizio2 = new DateTime(2018, 6, 29, 11, 0, 0);
+                fine2 = new DateTime(2018, 6, 29, 12, 0, 0);
+            }
+            else
+            {
+                inizio2 = new DateTime(2018, 6, 29, 18, 0, 0);
+                fine2 = new DateTime(2018, 6, 29, 19, 0, 0);
+            }
+            ElencoLezioni.Add(new Lezione(2001, istr1, inizio1, fine1, 1, elencoClienti.ToArray()[0]));
+            ElencoLezioni.Add(new Lezione(2003, istr2, inizio2, fine2, 1, elencoClienti.ToArray()[1]));
+
             initialized = true;
 
         }

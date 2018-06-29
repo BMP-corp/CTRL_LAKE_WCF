@@ -1265,6 +1265,12 @@ namespace SegreteriaWF.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServices/GetCliente", ReplyAction="http://tempuri.org/IServices/GetClienteResponse")]
         System.Threading.Tasks.Task<SegreteriaWF.ServiceReference1.Cliente> GetClienteAsync(string username);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServices/CreaLezione", ReplyAction="http://tempuri.org/IServices/CreaLezioneResponse")]
+        string CreaLezione(string username, System.DateTime inizio, System.DateTime fine, string istr, int persone, string attivita);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServices/CreaLezione", ReplyAction="http://tempuri.org/IServices/CreaLezioneResponse")]
+        System.Threading.Tasks.Task<string> CreaLezioneAsync(string username, System.DateTime inizio, System.DateTime fine, string istr, int persone, string attivita);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServices/DeleteUser", ReplyAction="http://tempuri.org/IServices/DeleteUserResponse")]
         string DeleteUser(SegreteriaWF.ServiceReference1.UserAccount user);
         
@@ -1407,6 +1413,14 @@ namespace SegreteriaWF.ServiceReference1 {
         
         public System.Threading.Tasks.Task<SegreteriaWF.ServiceReference1.Cliente> GetClienteAsync(string username) {
             return base.Channel.GetClienteAsync(username);
+        }
+        
+        public string CreaLezione(string username, System.DateTime inizio, System.DateTime fine, string istr, int persone, string attivita) {
+            return base.Channel.CreaLezione(username, inizio, fine, istr, persone, attivita);
+        }
+        
+        public System.Threading.Tasks.Task<string> CreaLezioneAsync(string username, System.DateTime inizio, System.DateTime fine, string istr, int persone, string attivita) {
+            return base.Channel.CreaLezioneAsync(username, inizio, fine, istr, persone, attivita);
         }
         
         public string DeleteUser(SegreteriaWF.ServiceReference1.UserAccount user) {

@@ -32,7 +32,6 @@
     <p class="text text-1"><span><b>HOME CLIENTE</b></span></p>
     <a href="/Home/Index"> <input type="button" value="Logout" class="_button _button-1" /> </a>
     <p class="text text-2">Benvenuto,&nbsp;</p>
-    <div class="wrapper wrapper-1"><text>@cliente.Nome @cliente.Cognome</text></div>
     <div class="container container-1 clearfix">
         <p class="text text-3">PRENOTAZIONI ATTIVE:</p>
         <div class="wrapper">
@@ -98,38 +97,38 @@
                         <th class="tg-amwm">&nbsp;</th>
                     </tr>
                     @foreach (WebMVCTempl.ServiceReference1.Noleggio n in elencoNoleggi)
-    {
-                <tr>
-                    <td class="tg-baqh">@n.Inizio.Date.ToString("dd/MM/yyyy")</td>
-                    <td class="tg-baqh">@n.Inizio.Hour:00 - @n.Fine.Hour:00</td>
-                    @{ string attrezzatura = "";
-        foreach (WebMVCTempl.ServiceReference1.DettaglioNoleggio dn in n.ElencoDettagli)
-        {
-            attrezzatura += (dn.Attrezzatura.Tipo + ", ");
-        }
-        if (attrezzatura.Length > 3)
-        {
-            attrezzatura.Substring(0, attrezzatura.Length - 3);
-        }
+                    {
+                        <tr>
+                            <td class="tg-baqh">@n.Inizio.Date.ToString("dd/MM/yyyy")</td>
+                            <td class="tg-baqh">@n.Inizio.Hour:00 - @n.Fine.Hour:00</td>
+                            @{ string attrezzatura = "";
+                                foreach (WebMVCTempl.ServiceReference1.DettaglioNoleggio dn in n.ElencoDettagli)
+                                {
+                                    attrezzatura += (dn.Attrezzatura.Tipo + ", ");
+                                }
+                                if (attrezzatura.Length > 3)
+                                {
+                                    attrezzatura.Substring(0, attrezzatura.Length - 3);
+                                }
+                            }
+                            <td class="tg-baqh">@attrezzatura</td>
+                            <td class="tg-baqh">&nbsp;</td>
+                            <td class="tg-baqh"><input name="todelete" type="radio" value="@n.Id" required /></td>
+                        </tr>
                     }
-                    <td class="tg-baqh">@attrezzatura</td>
-                    <td class="tg-baqh">&nbsp;</td>
-                    <td class="tg-baqh"><input name="todelete" type="radio" value="@n.Id" required /></td>
-                </tr>
-}
                     }
                     @foreach (string[] lezione in elencoLezioni)
-    {
+                    {
                         DateTime inizio = DateTime.Parse(lezione[1]);
                         DateTime fine = DateTime.Parse(lezione[2]);
-                <tr>
-                    <td class="tg-baqh">@inizio.Date.ToString("dd/MM/yyyy")</td>
-                    <td class="tg-baqh">@inizio.Hour:00 - @fine.Hour:00</td>
-                    <td class="tg-baqh">&nbsp;</td>
-                    <td class="tg-baqh">@lezione[3]</td>
-                    <td class="tg-baqh"><input name="todelete" type="radio" value="@lezione[0]" required /></td>
-                </tr>
-    }
+                        <tr>
+                            <td class="tg-baqh">@inizio.Date.ToString("dd/MM/yyyy")</td>
+                            <td class="tg-baqh">@inizio.Hour:00 - @fine.Hour:00</td>
+                            <td class="tg-baqh">&nbsp;</td>
+                            <td class="tg-baqh">@lezione[3]</td>
+                            <td class="tg-baqh"><input name="todelete" type="radio" value="@lezione[0]" required /></td>
+                        </tr>
+                    }
                     <tr>
                         <td class="tg-baqh">&nbsp;</td>
                         <td class="tg-baqh">&nbsp;</td>
@@ -138,7 +137,7 @@
                         <td class="tg-baqh">&nbsp;</td>
                     </tr>
                 </table>
-                <input type="submit" class="_button _button-4" value="Cancella Prenotazione"/>
+                <input type="submit" class="_button _button-4" value="Cancella Prenotazione" />
             </form>
             <p>Si ricorda che il termine effettivo delle attività è 10 minuti prima dell'orario indicato, per consentire una riconsegna puntuale dei natanti.</p>
         </div>

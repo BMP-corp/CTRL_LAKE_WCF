@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebMVCTempl.ServiceReference1 {
+namespace SegreteriaWF.ServiceReference1 {
     using System.Runtime.Serialization;
     using System;
     
@@ -244,7 +244,7 @@ namespace WebMVCTempl.ServiceReference1 {
         private int IdAttrezzaturaField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private WebMVCTempl.ServiceReference1.CalendarioImpegni ImpegniField;
+        private SegreteriaWF.ServiceReference1.CalendarioImpegni ImpegniField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int PostiField;
@@ -276,7 +276,7 @@ namespace WebMVCTempl.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public WebMVCTempl.ServiceReference1.CalendarioImpegni Impegni {
+        public SegreteriaWF.ServiceReference1.CalendarioImpegni Impegni {
             get {
                 return this.ImpegniField;
             }
@@ -337,7 +337,7 @@ namespace WebMVCTempl.ServiceReference1 {
         private string Id_userField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private WebMVCTempl.ServiceReference1.Impegno[] ImpegniField;
+        private SegreteriaWF.ServiceReference1.Impegno[] ImpegniField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -363,7 +363,7 @@ namespace WebMVCTempl.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public WebMVCTempl.ServiceReference1.Impegno[] Impegni {
+        public SegreteriaWF.ServiceReference1.Impegno[] Impegni {
             get {
                 return this.ImpegniField;
             }
@@ -597,10 +597,10 @@ namespace WebMVCTempl.ServiceReference1 {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private WebMVCTempl.ServiceReference1.Cliente ClienteField;
+        private SegreteriaWF.ServiceReference1.Cliente ClienteField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private WebMVCTempl.ServiceReference1.DettaglioNoleggio[] ElencoDettagliField;
+        private SegreteriaWF.ServiceReference1.DettaglioNoleggio[] ElencoDettagliField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.DateTime FineField;
@@ -622,7 +622,7 @@ namespace WebMVCTempl.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public WebMVCTempl.ServiceReference1.Cliente Cliente {
+        public SegreteriaWF.ServiceReference1.Cliente Cliente {
             get {
                 return this.ClienteField;
             }
@@ -635,7 +635,7 @@ namespace WebMVCTempl.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public WebMVCTempl.ServiceReference1.DettaglioNoleggio[] ElencoDettagli {
+        public SegreteriaWF.ServiceReference1.DettaglioNoleggio[] ElencoDettagli {
             get {
                 return this.ElencoDettagliField;
             }
@@ -706,7 +706,7 @@ namespace WebMVCTempl.ServiceReference1 {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private WebMVCTempl.ServiceReference1.Attrezzatura AttrezzaturaField;
+        private SegreteriaWF.ServiceReference1.Attrezzatura AttrezzaturaField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double CostoField;
@@ -740,7 +740,7 @@ namespace WebMVCTempl.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public WebMVCTempl.ServiceReference1.Attrezzatura Attrezzatura {
+        public SegreteriaWF.ServiceReference1.Attrezzatura Attrezzatura {
             get {
                 return this.AttrezzaturaField;
             }
@@ -863,7 +863,7 @@ namespace WebMVCTempl.ServiceReference1 {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private WebMVCTempl.ServiceReference1.Cliente ClienteField;
+        private SegreteriaWF.ServiceReference1.Cliente ClienteField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double CostoField;
@@ -878,7 +878,7 @@ namespace WebMVCTempl.ServiceReference1 {
         private System.DateTime InizioField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private WebMVCTempl.ServiceReference1.Istruttore IstruttoreField;
+        private SegreteriaWF.ServiceReference1.Istruttore IstruttoreField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int PartecipantiField;
@@ -894,7 +894,7 @@ namespace WebMVCTempl.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public WebMVCTempl.ServiceReference1.Cliente Cliente {
+        public SegreteriaWF.ServiceReference1.Cliente Cliente {
             get {
                 return this.ClienteField;
             }
@@ -959,7 +959,7 @@ namespace WebMVCTempl.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public WebMVCTempl.ServiceReference1.Istruttore Istruttore {
+        public SegreteriaWF.ServiceReference1.Istruttore Istruttore {
             get {
                 return this.IstruttoreField;
             }
@@ -1019,7 +1019,7 @@ namespace WebMVCTempl.ServiceReference1 {
         private string IbanField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private WebMVCTempl.ServiceReference1.CalendarioImpegni ImpegniField;
+        private SegreteriaWF.ServiceReference1.CalendarioImpegni ImpegniField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NomeField;
@@ -1109,7 +1109,7 @@ namespace WebMVCTempl.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public WebMVCTempl.ServiceReference1.CalendarioImpegni Impegni {
+        public SegreteriaWF.ServiceReference1.CalendarioImpegni Impegni {
             get {
                 return this.ImpegniField;
             }
@@ -1188,34 +1188,34 @@ namespace WebMVCTempl.ServiceReference1 {
     public interface IServices {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServices/Login", ReplyAction="http://tempuri.org/IServices/LoginResponse")]
-        WebMVCTempl.ServiceReference1.Credenziali Login(string username, string password);
+        SegreteriaWF.ServiceReference1.Credenziali Login(string username, string password);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServices/Login", ReplyAction="http://tempuri.org/IServices/LoginResponse")]
-        System.Threading.Tasks.Task<WebMVCTempl.ServiceReference1.Credenziali> LoginAsync(string username, string password);
+        System.Threading.Tasks.Task<SegreteriaWF.ServiceReference1.Credenziali> LoginAsync(string username, string password);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServices/GetUser", ReplyAction="http://tempuri.org/IServices/GetUserResponse")]
-        WebMVCTempl.ServiceReference1.UserAccount GetUser(string username);
+        SegreteriaWF.ServiceReference1.UserAccount GetUser(string username);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServices/GetUser", ReplyAction="http://tempuri.org/IServices/GetUserResponse")]
-        System.Threading.Tasks.Task<WebMVCTempl.ServiceReference1.UserAccount> GetUserAsync(string username);
+        System.Threading.Tasks.Task<SegreteriaWF.ServiceReference1.UserAccount> GetUserAsync(string username);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServices/GetAttrezzatura", ReplyAction="http://tempuri.org/IServices/GetAttrezzaturaResponse")]
-        WebMVCTempl.ServiceReference1.Attrezzatura[] GetAttrezzatura();
+        SegreteriaWF.ServiceReference1.Attrezzatura[] GetAttrezzatura();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServices/GetAttrezzatura", ReplyAction="http://tempuri.org/IServices/GetAttrezzaturaResponse")]
-        System.Threading.Tasks.Task<WebMVCTempl.ServiceReference1.Attrezzatura[]> GetAttrezzaturaAsync();
+        System.Threading.Tasks.Task<SegreteriaWF.ServiceReference1.Attrezzatura[]> GetAttrezzaturaAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServices/AggiornaAttrezzatura", ReplyAction="http://tempuri.org/IServices/AggiornaAttrezzaturaResponse")]
-        bool AggiornaAttrezzatura(WebMVCTempl.ServiceReference1.Attrezzatura a, int quantita);
+        bool AggiornaAttrezzatura(SegreteriaWF.ServiceReference1.Attrezzatura a, int quantita);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServices/AggiornaAttrezzatura", ReplyAction="http://tempuri.org/IServices/AggiornaAttrezzaturaResponse")]
-        System.Threading.Tasks.Task<bool> AggiornaAttrezzaturaAsync(WebMVCTempl.ServiceReference1.Attrezzatura a, int quantita);
+        System.Threading.Tasks.Task<bool> AggiornaAttrezzaturaAsync(SegreteriaWF.ServiceReference1.Attrezzatura a, int quantita);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServices/Register", ReplyAction="http://tempuri.org/IServices/RegisterResponse")]
-        string Register(WebMVCTempl.ServiceReference1.Cliente c, string pw);
+        string Register(SegreteriaWF.ServiceReference1.Cliente c, string pw);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServices/Register", ReplyAction="http://tempuri.org/IServices/RegisterResponse")]
-        System.Threading.Tasks.Task<string> RegisterAsync(WebMVCTempl.ServiceReference1.Cliente c, string pw);
+        System.Threading.Tasks.Task<string> RegisterAsync(SegreteriaWF.ServiceReference1.Cliente c, string pw);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServices/DisponibilitaAttrezzatura", ReplyAction="http://tempuri.org/IServices/DisponibilitaAttrezzaturaResponse")]
         int[][] DisponibilitaAttrezzatura(System.DateTime date);
@@ -1236,10 +1236,10 @@ namespace WebMVCTempl.ServiceReference1 {
         System.Threading.Tasks.Task<string> CancellaPrenotazioneAsync(int daEliminare);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServices/GetPrenotazioni", ReplyAction="http://tempuri.org/IServices/GetPrenotazioniResponse")]
-        WebMVCTempl.ServiceReference1.Noleggio[] GetPrenotazioni(string username);
+        SegreteriaWF.ServiceReference1.Noleggio[] GetPrenotazioni(string username);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServices/GetPrenotazioni", ReplyAction="http://tempuri.org/IServices/GetPrenotazioniResponse")]
-        System.Threading.Tasks.Task<WebMVCTempl.ServiceReference1.Noleggio[]> GetPrenotazioniAsync(string username);
+        System.Threading.Tasks.Task<SegreteriaWF.ServiceReference1.Noleggio[]> GetPrenotazioniAsync(string username);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServices/GetLezioni", ReplyAction="http://tempuri.org/IServices/GetLezioniResponse")]
         string[][] GetLezioni(string username);
@@ -1248,10 +1248,10 @@ namespace WebMVCTempl.ServiceReference1 {
         System.Threading.Tasks.Task<string[][]> GetLezioniAsync(string username);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServices/GetListLezioni", ReplyAction="http://tempuri.org/IServices/GetListLezioniResponse")]
-        WebMVCTempl.ServiceReference1.Lezione[] GetListLezioni(string username);
+        SegreteriaWF.ServiceReference1.Lezione[] GetListLezioni(string username);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServices/GetListLezioni", ReplyAction="http://tempuri.org/IServices/GetListLezioniResponse")]
-        System.Threading.Tasks.Task<WebMVCTempl.ServiceReference1.Lezione[]> GetListLezioniAsync(string username);
+        System.Threading.Tasks.Task<SegreteriaWF.ServiceReference1.Lezione[]> GetListLezioniAsync(string username);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServices/DisponibilitaIstruttori", ReplyAction="http://tempuri.org/IServices/DisponibilitaIstruttoriResponse")]
         string[][] DisponibilitaIstruttori(System.DateTime date, string attivita);
@@ -1260,22 +1260,16 @@ namespace WebMVCTempl.ServiceReference1 {
         System.Threading.Tasks.Task<string[][]> DisponibilitaIstruttoriAsync(System.DateTime date, string attivita);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServices/GetCliente", ReplyAction="http://tempuri.org/IServices/GetClienteResponse")]
-        WebMVCTempl.ServiceReference1.Cliente GetCliente(string username);
+        SegreteriaWF.ServiceReference1.Cliente GetCliente(string username);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServices/GetCliente", ReplyAction="http://tempuri.org/IServices/GetClienteResponse")]
-        System.Threading.Tasks.Task<WebMVCTempl.ServiceReference1.Cliente> GetClienteAsync(string username);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServices/CreaLezione", ReplyAction="http://tempuri.org/IServices/CreaLezioneResponse")]
-        string CreaLezione(string username, System.DateTime inizio, System.DateTime fine, string istr, int persone, string attivita);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServices/CreaLezione", ReplyAction="http://tempuri.org/IServices/CreaLezioneResponse")]
-        System.Threading.Tasks.Task<string> CreaLezioneAsync(string username, System.DateTime inizio, System.DateTime fine, string istr, int persone, string attivita);
+        System.Threading.Tasks.Task<SegreteriaWF.ServiceReference1.Cliente> GetClienteAsync(string username);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServices/DeleteUser", ReplyAction="http://tempuri.org/IServices/DeleteUserResponse")]
-        string DeleteUser(WebMVCTempl.ServiceReference1.UserAccount user);
+        string DeleteUser(SegreteriaWF.ServiceReference1.UserAccount user);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServices/DeleteUser", ReplyAction="http://tempuri.org/IServices/DeleteUserResponse")]
-        System.Threading.Tasks.Task<string> DeleteUserAsync(WebMVCTempl.ServiceReference1.UserAccount user);
+        System.Threading.Tasks.Task<string> DeleteUserAsync(SegreteriaWF.ServiceReference1.UserAccount user);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServices/GetString", ReplyAction="http://tempuri.org/IServices/GetStringResponse")]
         string GetString();
@@ -1285,12 +1279,12 @@ namespace WebMVCTempl.ServiceReference1 {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IServicesChannel : WebMVCTempl.ServiceReference1.IServices, System.ServiceModel.IClientChannel {
+    public interface IServicesChannel : SegreteriaWF.ServiceReference1.IServices, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ServicesClient : System.ServiceModel.ClientBase<WebMVCTempl.ServiceReference1.IServices>, WebMVCTempl.ServiceReference1.IServices {
+    public partial class ServicesClient : System.ServiceModel.ClientBase<SegreteriaWF.ServiceReference1.IServices>, SegreteriaWF.ServiceReference1.IServices {
         
         public ServicesClient() {
         }
@@ -1311,43 +1305,43 @@ namespace WebMVCTempl.ServiceReference1 {
                 base(binding, remoteAddress) {
         }
         
-        public WebMVCTempl.ServiceReference1.Credenziali Login(string username, string password) {
+        public SegreteriaWF.ServiceReference1.Credenziali Login(string username, string password) {
             return base.Channel.Login(username, password);
         }
         
-        public System.Threading.Tasks.Task<WebMVCTempl.ServiceReference1.Credenziali> LoginAsync(string username, string password) {
+        public System.Threading.Tasks.Task<SegreteriaWF.ServiceReference1.Credenziali> LoginAsync(string username, string password) {
             return base.Channel.LoginAsync(username, password);
         }
         
-        public WebMVCTempl.ServiceReference1.UserAccount GetUser(string username) {
+        public SegreteriaWF.ServiceReference1.UserAccount GetUser(string username) {
             return base.Channel.GetUser(username);
         }
         
-        public System.Threading.Tasks.Task<WebMVCTempl.ServiceReference1.UserAccount> GetUserAsync(string username) {
+        public System.Threading.Tasks.Task<SegreteriaWF.ServiceReference1.UserAccount> GetUserAsync(string username) {
             return base.Channel.GetUserAsync(username);
         }
         
-        public WebMVCTempl.ServiceReference1.Attrezzatura[] GetAttrezzatura() {
+        public SegreteriaWF.ServiceReference1.Attrezzatura[] GetAttrezzatura() {
             return base.Channel.GetAttrezzatura();
         }
         
-        public System.Threading.Tasks.Task<WebMVCTempl.ServiceReference1.Attrezzatura[]> GetAttrezzaturaAsync() {
+        public System.Threading.Tasks.Task<SegreteriaWF.ServiceReference1.Attrezzatura[]> GetAttrezzaturaAsync() {
             return base.Channel.GetAttrezzaturaAsync();
         }
         
-        public bool AggiornaAttrezzatura(WebMVCTempl.ServiceReference1.Attrezzatura a, int quantita) {
+        public bool AggiornaAttrezzatura(SegreteriaWF.ServiceReference1.Attrezzatura a, int quantita) {
             return base.Channel.AggiornaAttrezzatura(a, quantita);
         }
         
-        public System.Threading.Tasks.Task<bool> AggiornaAttrezzaturaAsync(WebMVCTempl.ServiceReference1.Attrezzatura a, int quantita) {
+        public System.Threading.Tasks.Task<bool> AggiornaAttrezzaturaAsync(SegreteriaWF.ServiceReference1.Attrezzatura a, int quantita) {
             return base.Channel.AggiornaAttrezzaturaAsync(a, quantita);
         }
         
-        public string Register(WebMVCTempl.ServiceReference1.Cliente c, string pw) {
+        public string Register(SegreteriaWF.ServiceReference1.Cliente c, string pw) {
             return base.Channel.Register(c, pw);
         }
         
-        public System.Threading.Tasks.Task<string> RegisterAsync(WebMVCTempl.ServiceReference1.Cliente c, string pw) {
+        public System.Threading.Tasks.Task<string> RegisterAsync(SegreteriaWF.ServiceReference1.Cliente c, string pw) {
             return base.Channel.RegisterAsync(c, pw);
         }
         
@@ -1375,11 +1369,11 @@ namespace WebMVCTempl.ServiceReference1 {
             return base.Channel.CancellaPrenotazioneAsync(daEliminare);
         }
         
-        public WebMVCTempl.ServiceReference1.Noleggio[] GetPrenotazioni(string username) {
+        public SegreteriaWF.ServiceReference1.Noleggio[] GetPrenotazioni(string username) {
             return base.Channel.GetPrenotazioni(username);
         }
         
-        public System.Threading.Tasks.Task<WebMVCTempl.ServiceReference1.Noleggio[]> GetPrenotazioniAsync(string username) {
+        public System.Threading.Tasks.Task<SegreteriaWF.ServiceReference1.Noleggio[]> GetPrenotazioniAsync(string username) {
             return base.Channel.GetPrenotazioniAsync(username);
         }
         
@@ -1391,11 +1385,11 @@ namespace WebMVCTempl.ServiceReference1 {
             return base.Channel.GetLezioniAsync(username);
         }
         
-        public WebMVCTempl.ServiceReference1.Lezione[] GetListLezioni(string username) {
+        public SegreteriaWF.ServiceReference1.Lezione[] GetListLezioni(string username) {
             return base.Channel.GetListLezioni(username);
         }
         
-        public System.Threading.Tasks.Task<WebMVCTempl.ServiceReference1.Lezione[]> GetListLezioniAsync(string username) {
+        public System.Threading.Tasks.Task<SegreteriaWF.ServiceReference1.Lezione[]> GetListLezioniAsync(string username) {
             return base.Channel.GetListLezioniAsync(username);
         }
         
@@ -1407,27 +1401,19 @@ namespace WebMVCTempl.ServiceReference1 {
             return base.Channel.DisponibilitaIstruttoriAsync(date, attivita);
         }
         
-        public WebMVCTempl.ServiceReference1.Cliente GetCliente(string username) {
+        public SegreteriaWF.ServiceReference1.Cliente GetCliente(string username) {
             return base.Channel.GetCliente(username);
         }
         
-        public System.Threading.Tasks.Task<WebMVCTempl.ServiceReference1.Cliente> GetClienteAsync(string username) {
+        public System.Threading.Tasks.Task<SegreteriaWF.ServiceReference1.Cliente> GetClienteAsync(string username) {
             return base.Channel.GetClienteAsync(username);
         }
         
-        public string CreaLezione(string username, System.DateTime inizio, System.DateTime fine, string istr, int persone, string attivita) {
-            return base.Channel.CreaLezione(username, inizio, fine, istr, persone, attivita);
-        }
-        
-        public System.Threading.Tasks.Task<string> CreaLezioneAsync(string username, System.DateTime inizio, System.DateTime fine, string istr, int persone, string attivita) {
-            return base.Channel.CreaLezioneAsync(username, inizio, fine, istr, persone, attivita);
-        }
-        
-        public string DeleteUser(WebMVCTempl.ServiceReference1.UserAccount user) {
+        public string DeleteUser(SegreteriaWF.ServiceReference1.UserAccount user) {
             return base.Channel.DeleteUser(user);
         }
         
-        public System.Threading.Tasks.Task<string> DeleteUserAsync(WebMVCTempl.ServiceReference1.UserAccount user) {
+        public System.Threading.Tasks.Task<string> DeleteUserAsync(SegreteriaWF.ServiceReference1.UserAccount user) {
             return base.Channel.DeleteUserAsync(user);
         }
         
