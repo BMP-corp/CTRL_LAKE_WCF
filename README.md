@@ -2,7 +2,7 @@
 **Project for the "Software Engineering", bachelor degree in Computer Engineering, University of Bologna**
 
 Desktop and Web application for managing a sailing center rents and sales:
-- the desktop part is thought to be used at the sailing center desk
+- the desktop part is thought to be used at the sailing center desk operator
 - the Web part is thought to be used by customers, sailing instructors, administrator
 
 The ASP.net MVC pattern and a Microsoft WCF endpoint have been used.
